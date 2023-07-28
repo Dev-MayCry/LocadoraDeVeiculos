@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.11.0" />
     <PackageReference Include="FluentResults.Extensions.FluentAssertions" Version="2.1.1" />
+    <PackageReference Include="FluentValidation" Version="11.6.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
@@ -28,7 +29,6 @@
     <Folder Include="Aplicacao\ModuloCupom\" />
     <Folder Include="Aplicacao\ModuloFuncionario\" />
     <Folder Include="Aplicacao\ModuloGrupoAutomovel\" />
-    <Folder Include="Aplicacao\ModuloParceiro\" />
     <Folder Include="Aplicacao\ModuloPlanoCobranca\" />
     <Folder Include="Aplicacao\ModuloTaxaEServico\" />
     <Folder Include="Compartilhado\" />
@@ -42,6 +42,11 @@
     <Folder Include="Dominio\ModuloParceiro\" />
     <Folder Include="Dominio\ModuloPlanoCobranca\" />
     <Folder Include="Dominio\ModuloTaxaEServico\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Aplicacao\LocadoraDeVeiculos.Aplicacao.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
   </ItemGroup>
 
 </Project>

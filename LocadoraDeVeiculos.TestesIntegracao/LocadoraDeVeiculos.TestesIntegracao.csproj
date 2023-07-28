@@ -18,10 +18,10 @@
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
     <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
+    <PackageReference Include="NBuilder" Version="6.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Compartilhado\" />
     <Folder Include="ModuloAluguel\" />
     <Folder Include="ModuloAutomovel\" />
     <Folder Include="ModuloCliente\" />
@@ -29,9 +29,19 @@
     <Folder Include="ModuloCupom\" />
     <Folder Include="ModuloFuncionario\" />
     <Folder Include="ModuloGrupoAutomovel\" />
-    <Folder Include="ModuloParceiro\" />
     <Folder Include="ModuloPlanoCobranca\" />
     <Folder Include="ModuloTaxaEServico\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Orm\LocadoraDeVeiculos.Infra.Orm.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
