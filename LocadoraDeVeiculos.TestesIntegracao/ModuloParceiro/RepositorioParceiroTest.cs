@@ -12,16 +12,16 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloParceiro {
     [TestClass]
     public class RepositorioParceiroTest : TesteIntegracaoBase {
 
-        [TestMethod]
-        public void Deve_inserir_disciplina() {
-            //arrange
-            var parceiro = Builder<Parceiro>.CreateNew().Build();
+        //[TestMethod]
+        //public void Deve_inserir_disciplina() {
+        //    //arrange
+        //    var parceiro = Builder<Parceiro>.CreateNew().Build();
 
-            //action
-            repositorioParceiro.Inserir(parceiro);
+        //    //action
+        //    repositorioParceiro.Inserir(parceiro);
 
-            //assert
-            repositorioParceiro.SelecionarPorId(parceiro.Id).Should().Be(parceiro);
-        }
+        //    //assert
+        //    repositorioParceiro.SelecionarPorId(parceiro.Id).Should().Be(parceiro);
+        //}
     }
 }

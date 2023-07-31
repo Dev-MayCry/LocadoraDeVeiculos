@@ -164,6 +164,7 @@
             this.Controls.Add(this.menu);
             this.Name = "TelaPrincipalForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Locadora de Veículos Top";
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();

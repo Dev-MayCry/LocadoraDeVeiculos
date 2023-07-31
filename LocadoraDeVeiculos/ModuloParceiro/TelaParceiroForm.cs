@@ -10,6 +10,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloParceiro {
         public event GravarRegistroDelegate<Parceiro> onGravarRegistro;
         public TelaParceiroForm() {
             InitializeComponent();
+            this.ConfigurarDialog();
         }
 
         public Parceiro ObterParceiro() {
