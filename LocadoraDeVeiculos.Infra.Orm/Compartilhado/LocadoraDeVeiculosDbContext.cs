@@ -1,22 +1,25 @@
-﻿
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using System.Reflection;
 
-namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado {
-    public class LocadoraDeVeiculosDbContext: DbContext {
+namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
+{
+    public class LocadoraDeVeiculosDbContext : DbContext
+    {
 
-        
-        public LocadoraDeVeiculosDbContext(DbContextOptions options) : base(options) {
+
+        public LocadoraDeVeiculosDbContext(DbContextOptions options) : base(options)
+        {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-           
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
 
-            ILoggerFactory loggerFactory = LoggerFactory.Create((x) => {
-                x.AddSerilog(Log.Logger); 
+
+            ILoggerFactory loggerFactory = LoggerFactory.Create((x) =>
+            {
+                x.AddSerilog(Log.Logger);
             });
 
             optionsBuilder.UseLoggerFactory(loggerFactory);
@@ -24,8 +27,9 @@ namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado {
             optionsBuilder.EnableSensitiveDataLogging();
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
-           
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
 
             Assembly assembly = typeof(LocadoraDeVeiculosDbContext).Assembly;
 
@@ -35,8 +39,10 @@ namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado {
         }
 
 
-        public static class LocadoraDeVeiculosMigradorBancoDados {
-            public static bool AtualizarBancoDados(DbContext db) {
+        public static class LocadoraDeVeiculosMigradorBancoDados
+        {
+            public static bool AtualizarBancoDados(DbContext db)
+            {
                 var qtdMigracoesPendentes = db.Database.GetPendingMigrations().Count();
 
                 if (qtdMigracoesPendentes == 0)

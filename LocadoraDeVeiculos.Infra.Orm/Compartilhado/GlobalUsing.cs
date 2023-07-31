@@ -1,0 +1,1 @@
+﻿global using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
