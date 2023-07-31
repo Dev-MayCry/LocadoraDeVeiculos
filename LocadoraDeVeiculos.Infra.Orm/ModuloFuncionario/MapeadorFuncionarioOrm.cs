@@ -8,9 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 
-namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloFuncionario {
-    public class MapeadorFuncionarioOrm : IEntityTypeConfiguration<Funcionario> {
-        public void Configure(EntityTypeBuilder<Funcionario> funcionarioBuilder) {
+namespace LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario
+{
+    public class MapeadorFuncionarioOrm : IEntityTypeConfiguration<Funcionario>
+    {
+        public void Configure(EntityTypeBuilder<Funcionario> funcionarioBuilder)
+        {
 
             funcionarioBuilder.ToTable("TBFuncionario");
 

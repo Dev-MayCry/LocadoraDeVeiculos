@@ -3,9 +3,12 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
 
-namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado {
-    internal class LocadoraDeVeiculosDesignFactory : IDesignTimeDbContextFactory<LocadoraDeVeiculosDbContext> {
-        public LocadoraDeVeiculosDbContext CreateDbContext(string[] args) {
+namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
+{
+    internal class LocadoraDeVeiculosDesignFactory : IDesignTimeDbContextFactory<LocadoraDeVeiculosDbContext>
+    {
+        public LocadoraDeVeiculosDbContext CreateDbContext(string[] args)
+        {
             var configuracao = new ConfigurationBuilder()
                .SetBasePath(Directory.GetCurrentDirectory())
                .AddJsonFile("appsettings.json")

@@ -1,12 +1,13 @@
-﻿
-
-using LocadoraDeVeiculos.Dominio.ModuloParceiro;
+﻿using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloParceiro {
-    public class MapeadorParceiroOrm : IEntityTypeConfiguration<Parceiro> {
-        public void Configure(EntityTypeBuilder<Parceiro> parceiroBuilder) {
+namespace LocadoraDeVeiculos.Infra.Orm.ModuloParceiro
+{
+    public class MapeadorParceiroOrm : IEntityTypeConfiguration<Parceiro>
+    {
+        public void Configure(EntityTypeBuilder<Parceiro> parceiroBuilder)
+        {
 
             parceiroBuilder.ToTable("TBParceiro");
 
