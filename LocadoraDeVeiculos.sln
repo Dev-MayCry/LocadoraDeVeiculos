@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.WinApp", "LocadoraDeVeiculos\LocadoraDeVeiculos.WinApp.csproj", "{F0306701-F916-4FDE-A5E6-5CB112ECFF31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.WinApp", "LocadoraDeVeiculos\LocadoraDeVeiculos.WinApp.csproj", "{F0306701-F916-4FDE-A5E6-5CB112ECFF31}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Apresentação", "1. Apresentação", "{693A425C-E485-4BD0-B493-18B54FAFBE79}"
 EndProject
@@ -15,19 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infra", "4. Infra", "{18
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Testes", "5. Testes", "{85FAA6F3-FDF1-4616-ABFE-8A847DCDE23B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Aplicacao", "LocadoraDeVeiculos.Aplicacao\LocadoraDeVeiculos.Aplicacao.csproj", "{0A5555D7-292D-4633-A8D3-1551ECD965F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Aplicacao", "LocadoraDeVeiculos.Aplicacao\LocadoraDeVeiculos.Aplicacao.csproj", "{0A5555D7-292D-4633-A8D3-1551ECD965F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Dominio", "LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj", "{920472F0-BFC7-4955-9B45-2C1635ABDA16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Dominio", "LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj", "{920472F0-BFC7-4955-9B45-2C1635ABDA16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Infra.Orm", "LocadoraDeVeiculos.Infra.Orm\LocadoraDeVeiculos.Infra.Orm.csproj", "{6E192BA2-E56B-4DE1-9A16-5430A15939B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.Orm", "LocadoraDeVeiculos.Infra.Orm\LocadoraDeVeiculos.Infra.Orm.csproj", "{6E192BA2-E56B-4DE1-9A16-5430A15939B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 UnitTests", "5.1 UnitTests", "{03437CB1-4C31-4A38-87AC-8A8FF2F5EB34}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 IntegrationTests", "5.2 IntegrationTests", "{8CF4D587-7AE5-40FF-9E07-33F97D4D31D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.TestesUnitarios", "LocadoraDeVeiculos.TestesUnitarios\LocadoraDeVeiculos.TestesUnitarios.csproj", "{F4E3FE78-B7D9-4398-8747-735731AB3489}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.TestesIntegracao", "LocadoraDeVeiculos.TestesIntegracao\LocadoraDeVeiculos.TestesIntegracao.csproj", "{8472095A-8967-473E-B7E8-8F443CFBCA33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.TestesUnitarios", "LocadoraDeVeiculos.TestesUnitarios\LocadoraDeVeiculos.TestesUnitarios.csproj", "{F4E3FE78-B7D9-4398-8747-735731AB3489}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +53,6 @@ Global
 		{F4E3FE78-B7D9-4398-8747-735731AB3489}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4E3FE78-B7D9-4398-8747-735731AB3489}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4E3FE78-B7D9-4398-8747-735731AB3489}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8472095A-8967-473E-B7E8-8F443CFBCA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8472095A-8967-473E-B7E8-8F443CFBCA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8472095A-8967-473E-B7E8-8F443CFBCA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8472095A-8967-473E-B7E8-8F443CFBCA33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,7 +65,6 @@ Global
 		{03437CB1-4C31-4A38-87AC-8A8FF2F5EB34} = {85FAA6F3-FDF1-4616-ABFE-8A847DCDE23B}
 		{8CF4D587-7AE5-40FF-9E07-33F97D4D31D6} = {85FAA6F3-FDF1-4616-ABFE-8A847DCDE23B}
 		{F4E3FE78-B7D9-4398-8747-735731AB3489} = {03437CB1-4C31-4A38-87AC-8A8FF2F5EB34}
-		{8472095A-8967-473E-B7E8-8F443CFBCA33} = {8CF4D587-7AE5-40FF-9E07-33F97D4D31D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E8674C34-DB84-4979-86F3-A0989F5125F3}

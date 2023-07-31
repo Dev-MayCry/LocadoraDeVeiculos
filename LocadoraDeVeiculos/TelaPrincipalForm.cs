@@ -1,10 +1,14 @@
 ﻿
 
+using LocadoraDeVeiculos.Aplicacao.ModuloFuncionario;
 using LocadoraDeVeiculos.Aplicacao.ModuloParceiro;
+using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado;
+using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloFuncionario;
 using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloParceiro;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
+using LocadoraDeVeiculos.WinApp.ModuloFuncionario;
 using LocadoraDeVeiculos.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +30,14 @@ namespace LocadoraDeVeiculos {
             controladores = new Dictionary<string, ControladorBase>();
 
             ConfigurarControladores();
+        }
+        public static TelaPrincipalForm Instancia {
+            get;
+            private set;
+        }
+
+        public void AtualizarRodape(string mensagem) {
+            labelRodape.Text = mensagem;
         }
 
         private void ConfigurarControladores() {
@@ -56,20 +68,23 @@ namespace LocadoraDeVeiculos {
 
             controladores.Add("ControladorParceiro", new ControladorParceiro(repositorioParceiro, servicoParceiro));
 
+            IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
+
+            ValidadorFuncionario validadorFuncionario = new ValidadorFuncionario();
+
+            ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
+
+            controladores.Add("ControladorFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
+
         }
 
-        public static TelaPrincipalForm Instancia {
-            get;
-            private set;
-        }
-
-        public void AtualizarRodape(string mensagem) {
-            labelRodape.Text = mensagem;
-        }
 
         private void disciplinaMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorParceiro"]);
 
+        }
+        private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorFuncionario"]);
         }
 
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
@@ -136,5 +151,6 @@ namespace LocadoraDeVeiculos {
         private void btnExcluir_Click(object sender, EventArgs e) {
             controlador.Excluir();
         }
+
     }
 }

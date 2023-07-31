@@ -30,7 +30,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpDataAdmissao = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -90,6 +90,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Salvar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // label3
             // 
@@ -100,12 +101,14 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Admissão: ";
             // 
-            // dateTime
+            // dtpDataAdmissao
             // 
-            this.dateTime.Location = new System.Drawing.Point(75, 93);
-            this.dateTime.Name = "dateTime";
-            this.dateTime.Size = new System.Drawing.Size(155, 23);
-            this.dateTime.TabIndex = 13;
+            this.dtpDataAdmissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataAdmissao.Location = new System.Drawing.Point(75, 93);
+            this.dtpDataAdmissao.Name = "dtpDataAdmissao";
+            this.dtpDataAdmissao.Size = new System.Drawing.Size(138, 23);
+            this.dtpDataAdmissao.TabIndex = 13;
+            this.dtpDataAdmissao.Value = new System.DateTime(2023, 7, 31, 15, 37, 3, 0);
             // 
             // label4
             // 
@@ -120,7 +123,7 @@
             // 
             this.txtSalario.Location = new System.Drawing.Point(75, 127);
             this.txtSalario.Name = "txtSalario";
-            this.txtSalario.Size = new System.Drawing.Size(155, 23);
+            this.txtSalario.Size = new System.Drawing.Size(138, 23);
             this.txtSalario.TabIndex = 15;
             // 
             // TelaFuncionarioForm
@@ -130,7 +133,7 @@
             this.ClientSize = new System.Drawing.Size(454, 239);
             this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTime);
+            this.Controls.Add(this.dtpDataAdmissao);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtId);
@@ -154,7 +157,7 @@
         private Button button2;
         private Button button1;
         private Label label3;
-        private DateTimePicker dateTime;
+        private DateTimePicker dtpDataAdmissao;
         private Label label4;
         private TextBox txtSalario;
     }

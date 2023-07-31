@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado {
 
             return configuracao.GetConnectionString("SqlServer");
 
-            
+ 
         }
     }
 }
