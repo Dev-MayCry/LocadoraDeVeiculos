@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoAutomovel {
             try {
                 repositorioGrupoAutomovel.Editar(grupoAutomovel);
 
-                Log.Debug($"Grupo {grupoAutomovel.Id} editado com sucesso");
+                Log.Debug("Grupo {GrupoAutomovelId} editado com sucesso", grupoAutomovel.Id);
 
                 return Result.Ok();
             } catch (Exception exc) {

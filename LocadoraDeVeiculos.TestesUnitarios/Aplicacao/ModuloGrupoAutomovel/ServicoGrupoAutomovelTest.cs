@@ -2,7 +2,6 @@
 using FluentResults;
 using FluentResults.Extensions.FluentAssertions;
 using LocadoraDeVeiculos.Aplicacao.ModuloGrupoAutomovel;
-using LocadoraDeVeiculos.Aplicacao.ModuloParceiro;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using Moq;
