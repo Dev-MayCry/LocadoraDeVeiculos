@@ -1,6 +1,4 @@
-﻿
-
-using FizzWare.NBuilder;
+﻿using FizzWare.NBuilder;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
@@ -17,6 +15,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
     public class TesteIntegracaoBase {
 
         protected IRepositorioParceiro repositorioParceiro;
+        protected IRepositorioGrupoAutomovel repositorioGrupoAutomovel;
         protected IRepositorioFuncionario repositorioFuncionario;
        
 
@@ -32,11 +31,13 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
             var dbContext = new LocadoraDeVeiculosDbContext(optionsBuilder.Options);
 
             repositorioParceiro = new RepositorioParceiroOrm(dbContext);
+            repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
             repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
             
             
 
             BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<GrupoAutomovel>(repositorioGrupoAutomovel.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
             
         }
@@ -48,10 +49,10 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 
             string sqlLimpezaTabela =
                 @"
-                DELETE FROM [DBO].[TBPARCEIRO];
+                DELETE FROM [DBO].[TBPARCEIRO]
+                DELETE FROM [DBO].[TBGRUPOAUTOMOVEL]
                 DELETE FROM [DBO].[TBFUNCIONARIO];
                 ";
-
             SqlCommand comando = new SqlCommand(sqlLimpezaTabela, sqlConnection);
 
             sqlConnection.Open();
