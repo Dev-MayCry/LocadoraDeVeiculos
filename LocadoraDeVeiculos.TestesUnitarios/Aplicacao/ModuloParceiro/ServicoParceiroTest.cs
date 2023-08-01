@@ -91,12 +91,13 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloParceiro {
         public void Deve_editar_disciplina_com_o_mesmo_nome() //cenário 3
         {
             //arrange
+            Guid id = new Guid();
             repositorioParceiroMoq.Setup(x => x.SelecionarPorNome("Desconto do Deko"))
                  .Returns(() => {
-                     return new Parceiro("Desconto do Deko");
+                     return new Parceiro(id,"Desconto do Deko");
                  });
 
-            Parceiro outroParceiro = new Parceiro( "Desconto do Deko");
+            Parceiro outroParceiro = new Parceiro(id,"Desconto do Deko");
 
             //action
             var resultado = servicoParceiro.Editar(outroParceiro);

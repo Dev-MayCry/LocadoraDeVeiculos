@@ -91,12 +91,14 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloGrupoAutomovel {
         public void Deve_editar_grupo_com_o_mesmo_nome() //cenário 2
         {
             //arrange
+
+            Guid id = new Guid();
             repositorioGrupoAutomovelMoq.Setup(x => x.SelecionarPorNome("Desconto do Deko"))
                  .Returns(() => {
-                     return new GrupoAutomovel("Desconto do Deko");
+                     return new GrupoAutomovel(id,"Desconto do Deko");
                  });
 
-            GrupoAutomovel outroGrupo = new GrupoAutomovel("Desconto do Deko");
+            GrupoAutomovel outroGrupo = new GrupoAutomovel(id,"Desconto do Deko");
 
             //action
             var resultado = servicoGrupoAutomovel.Editar(outroGrupo);

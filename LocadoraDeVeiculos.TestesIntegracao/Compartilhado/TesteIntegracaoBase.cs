@@ -9,6 +9,8 @@ using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
 
 namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 {
@@ -16,6 +18,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 
         protected IRepositorioParceiro repositorioParceiro;
         protected IRepositorioFuncionario repositorioFuncionario;
+       
 
         public TesteIntegracaoBase() {
 
@@ -31,6 +34,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
             repositorioParceiro = new RepositorioParceiroOrm(dbContext);
             repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
             
+            
 
             BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
@@ -44,11 +48,9 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 
             string sqlLimpezaTabela =
                 @"
-                DELETE FROM [DBO].[TBPARCEIRO]
-                DBCC CHECKIDENT ('[TBPARCEIRO]', RESEED, 0);
-
-                DELETE FROM [DBO].[TBFUNCIONARIO]
-                DBCC CHECKIDENT ('[TBFUNCIONARIO]', RESEED, 0);";
+                DELETE FROM [DBO].[TBPARCEIRO];
+                DELETE FROM [DBO].[TBFUNCIONARIO];
+                ";
 
             SqlCommand comando = new SqlCommand(sqlLimpezaTabela, sqlConnection);
 
