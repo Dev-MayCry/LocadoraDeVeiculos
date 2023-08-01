@@ -1,15 +1,14 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloParceiro;
+﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 
-namespace LocadoraDeVeiculos.WinApp.ModuloParceiro {
-    public partial class TabelaParceiroControl : UserControl {
-        public TabelaParceiroControl() {
+namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
+    public partial class TabelaGrupoAutomovelControl : UserControl {
+        public TabelaGrupoAutomovelControl() {
             InitializeComponent();
             grid.ConfigurarGridZebrado();
             grid.ConfigurarGridSomenteLeitura();
             grid.Columns.AddRange(ObterColunas());
         }
-
         public DataGridViewColumn[] ObterColunas() {
             var colunas = new DataGridViewColumn[]
             {
@@ -25,11 +24,11 @@ namespace LocadoraDeVeiculos.WinApp.ModuloParceiro {
             return grid.SelecionarId();
         }
 
-        public void AtualizarRegistros(List<Parceiro> parceiros) {
+        public void AtualizarRegistros(List<GrupoAutomovel> gruposAutomovel) {
             grid.Rows.Clear();
 
-            foreach (Parceiro parceiro in parceiros) {
-                grid.Rows.Add(parceiro.Id, parceiro.Nome);
+            foreach (GrupoAutomovel g in gruposAutomovel) {
+                grid.Rows.Add(g.Id, g.Nome);
             }
         }
     }

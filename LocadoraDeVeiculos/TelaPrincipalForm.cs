@@ -71,6 +71,16 @@ namespace LocadoraDeVeiculos
 
             IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
 
+            IRepositorioGrupoAutomovel repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
+
+            ValidadorGrupoAutomovel validadorGrupoAutomovel = new();
+
+            ServicoGrupoAutomovel servicoGrupoAutomovel = new(repositorioGrupoAutomovel, validadorGrupoAutomovel);
+
+            controladores.Add("ControladorGrupoAutomovel", new ControladorGrupoAutomovel(repositorioGrupoAutomovel, servicoGrupoAutomovel));
+
+        }
+
             ValidadorFuncionario validadorFuncionario = new ValidadorFuncionario();
 
             ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
@@ -84,6 +94,10 @@ namespace LocadoraDeVeiculos
             ConfigurarTelaPrincipal(controladores["ControladorParceiro"]);
 
         }
+
+        private void grupoDeAutomoveisMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorGrupoAutomovel"]);
+        }
         private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorFuncionario"]);
         }
@@ -91,16 +105,16 @@ namespace LocadoraDeVeiculos
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
             btnInserir.Enabled = configuracao.InserirHabilitado;
             btnEditar.Enabled = configuracao.EditarHabilitado;
-         
+
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
-        
+
         }
 
         private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao) {
             btnInserir.ToolTipText = configuracao.TooltipInserir;
             btnEditar.ToolTipText = configuracao.TooltipEditar;
             btnExcluir.ToolTipText = configuracao.TooltipExcluir;
-            
+
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador) {
