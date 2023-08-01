@@ -23,6 +23,23 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disciplinaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolbox = new System.Windows.Forms.ToolStrip();
+            this.btnInserir = new System.Windows.Forms.ToolStripButton();
+            this.btnEditar = new System.Windows.Forms.ToolStripButton();
+            this.btnExcluir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
+            this.panelRegistros = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menu.SuspendLayout();
+            this.toolbox.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.SuspendLayout();
             menu = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             disciplinaMenuItem = new ToolStripMenuItem();
@@ -53,6 +70,12 @@
             // 
             // cadastrosToolStripMenuItem
             // 
+            this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.disciplinaMenuItem,
+            this.funcionárioToolStripMenuItem});
+            this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.cadastrosToolStripMenuItem.Text = "Cadastros";
             cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, grupoDeAutomoveisMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
@@ -60,11 +83,23 @@
             // 
             // disciplinaMenuItem
             // 
+            this.disciplinaMenuItem.Name = "disciplinaMenuItem";
+            this.disciplinaMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.disciplinaMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.disciplinaMenuItem.Text = "Parceiro";
+            this.disciplinaMenuItem.Click += new System.EventHandler(this.disciplinaMenuItem_Click);
             disciplinaMenuItem.Name = "disciplinaMenuItem";
             disciplinaMenuItem.ShortcutKeys = Keys.F1;
             disciplinaMenuItem.Size = new Size(209, 22);
             disciplinaMenuItem.Text = "Parceiro";
             disciplinaMenuItem.Click += disciplinaMenuItem_Click;
+            // 
+            // funcionárioToolStripMenuItem
+            // 
+            this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionárioToolStripMenuItem.Text = "Funcionário";
+            this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
             // grupoDeAutomoveisMenuItem
             // 
@@ -191,6 +226,7 @@
         private Panel panelRegistros;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel labelRodape;
+        private ToolStripMenuItem funcionárioToolStripMenuItem;
         private ToolStripMenuItem grupoDeAutomoveisMenuItem;
     }
 }
