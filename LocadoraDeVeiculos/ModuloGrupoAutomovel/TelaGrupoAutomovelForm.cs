@@ -24,8 +24,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
         public void ConfigurarGrupo(GrupoAutomovel grupoAutomovel) {
             this.grupoAutomovel = grupoAutomovel;
 
-            grupoAutomovel.Id = Convert.ToInt32(txtId.Text);
-            grupoAutomovel.Nome = txtNome.Text;
+            txtId.Text = grupoAutomovel.Id.ToString();
+            txtNome.Text = grupoAutomovel.Nome;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) {

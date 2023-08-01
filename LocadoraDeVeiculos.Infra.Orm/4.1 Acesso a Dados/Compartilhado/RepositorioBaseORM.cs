@@ -1,8 +1,5 @@
-﻿
-
-using LocadoraDeVeiculos.Dominio.Compartilhado;
+﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Win32;
 
 namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado {
     public class RepositorioBaseORM<T> : IRepositorio<T> where T : EntidadeBase<T> {
