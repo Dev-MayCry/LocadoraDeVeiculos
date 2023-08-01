@@ -23,8 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -34,24 +32,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 15);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "ID:";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(75, 20);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(30, 23);
-            this.txtId.TabIndex = 10;
-            this.txtId.Text = "0";
             // 
             // txtNome
             // 
@@ -135,8 +115,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtpDataAdmissao);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -149,9 +127,6 @@
         }
 
         #endregion
-
-        private Label label2;
-        private TextBox txtId;
         private TextBox txtNome;
         private Label label1;
         private Button button2;

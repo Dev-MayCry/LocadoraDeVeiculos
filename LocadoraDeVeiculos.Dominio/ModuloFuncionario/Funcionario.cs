@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloFuncionario {
         }
 
 
-        //public Funcionario(int id, string nome) : this(nome) {
+        //public Funcionario(Guid id, string nome) : this(nome) {
         //    Id = id;
         //}
 

@@ -14,16 +14,15 @@ namespace LocadoraDeVeiculos.WinApp.ModuloParceiro {
         }
 
         public Parceiro ObterParceiro() {
-            parceiro.Id = Convert.ToInt32(txtId.Text);
+            
             parceiro.Nome = txtNome.Text;
 
             return parceiro;
         }
 
         public void ConfigurarParceiro(Parceiro parceiro) {
-            this.parceiro = parceiro;
 
-            txtId.Text = parceiro.Id.ToString();
+            this.parceiro = parceiro;
             txtNome.Text = parceiro.Nome;
         }
 

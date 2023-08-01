@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloFuncionario {
         }
 
         public Funcionario ObterFuncionario() {
-            funcionario.Id = Convert.ToInt32(txtId.Text);
+            
             funcionario.Nome = txtNome.Text;
             funcionario.DataAdmissao = Convert.ToDateTime(dtpDataAdmissao.Text);
             funcionario.Salario = Convert.ToDouble(txtSalario.Text);
@@ -24,9 +24,9 @@ namespace LocadoraDeVeiculos.WinApp.ModuloFuncionario {
         }
 
         public void ConfigurarFuncionario(Funcionario funcionario) {
+
             this.funcionario = funcionario;
             funcionario.DataAdmissao = DateTime.Now;
-            txtId.Text = funcionario.Id.ToString();
             txtNome.Text = funcionario.Nome;
             txtSalario.Text = funcionario.Salario.ToString();
             dtpDataAdmissao.Text = funcionario.DataAdmissao.ToShortDateString();

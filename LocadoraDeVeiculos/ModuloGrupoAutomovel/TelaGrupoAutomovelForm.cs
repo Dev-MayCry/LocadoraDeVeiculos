@@ -15,16 +15,15 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
         }
 
         public GrupoAutomovel ObterGrupo() {
-            grupoAutomovel.Id = Convert.ToInt32(txtId.Text);
+           
             grupoAutomovel.Nome = txtNome.Text;
 
             return grupoAutomovel;
         }
 
         public void ConfigurarGrupo(GrupoAutomovel grupoAutomovel) {
-            this.grupoAutomovel = grupoAutomovel;
 
-            txtId.Text = grupoAutomovel.Id.ToString();
+            this.grupoAutomovel = grupoAutomovel;
             txtNome.Text = grupoAutomovel.Nome;
         }
 

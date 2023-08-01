@@ -6,10 +6,10 @@ namespace LocadoraDeVeiculos.Dominio.ModuloParceiro {
         public string Nome { get; set; }
 
         public Parceiro() { }
-        public Parceiro(string Nome) {
+        public Parceiro(string Nome):this() {
             this.Nome = Nome;
         }
-        public Parceiro(int id, string nome) : this(nome) {
+        public Parceiro(Guid id, string nome) : this(nome) {
             Id = id;
         }
 

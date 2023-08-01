@@ -23,92 +23,68 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            label2 = new Label();
-            txtId = new TextBox();
-            txtNome = new TextBox();
-            label1 = new Label();
-            button2 = new Button();
-            btnSalvar = new Button();
-            SuspendLayout();
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(28, 26);
-            label2.Name = "label2";
-            label2.Size = new Size(21, 15);
-            label2.TabIndex = 11;
-            label2.Text = "ID:";
-            // 
-            // txtId
-            // 
-            txtId.Location = new Point(80, 23);
-            txtId.Name = "txtId";
-            txtId.ReadOnly = true;
-            txtId.Size = new Size(30, 23);
-            txtId.TabIndex = 10;
-            txtId.Text = "0";
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(80, 67);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(367, 23);
-            txtNome.TabIndex = 9;
+            this.txtNome.Location = new System.Drawing.Point(80, 67);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(367, 23);
+            this.txtNome.TabIndex = 9;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(28, 70);
-            label1.Name = "label1";
-            label1.Size = new Size(46, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Nome: ";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 15);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Nome: ";
             // 
             // button2
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.DialogResult = DialogResult.Cancel;
-            button2.Location = new Point(356, 106);
-            button2.Name = "button2";
-            button2.Size = new Size(91, 61);
-            button2.TabIndex = 7;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = true;
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(356, 106);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 61);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
-            btnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSalvar.DialogResult = DialogResult.OK;
-            btnSalvar.Location = new Point(259, 106);
-            btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(91, 61);
-            btnSalvar.TabIndex = 6;
-            btnSalvar.Text = "Salvar";
-            btnSalvar.UseVisualStyleBackColor = true;
-            btnSalvar.Click += btnSalvar_Click;
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSalvar.Location = new System.Drawing.Point(259, 106);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(91, 61);
+            this.btnSalvar.TabIndex = 6;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // TelaGrupoAutomovelForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(459, 179);
-            Controls.Add(label2);
-            Controls.Add(txtId);
-            Controls.Add(txtNome);
-            Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(btnSalvar);
-            Name = "TelaGrupoAutomovelForm";
-            Text = "Cadastro de Grupo de Automóvel";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(459, 179);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSalvar);
+            this.Name = "TelaGrupoAutomovelForm";
+            this.Text = "Cadastro de Grupo de Automóvel";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
-
-        private Label label2;
-        private TextBox txtId;
         private TextBox txtNome;
         private Label label1;
         private Button button2;

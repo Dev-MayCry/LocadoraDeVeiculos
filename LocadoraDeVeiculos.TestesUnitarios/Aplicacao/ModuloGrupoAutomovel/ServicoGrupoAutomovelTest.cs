@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloGrupoAutomovel {
             string nome = "Caminhão Blindão";
             repositorioGrupoAutomovelMoq.Setup(x => x.SelecionarPorNome(nome))
                 .Returns(() => {
-                    return new GrupoAutomovel(2, nome);
+                    return new GrupoAutomovel(nome);
                 });
 
             //action
@@ -77,7 +77,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloGrupoAutomovel {
         public void Deve_editar_grupo_caso_ele_for_valido() //cenário 1
         {
             //arrange           
-            grupo = new GrupoAutomovel(1, "iFoof");
+            grupo = new GrupoAutomovel("iFoof");
 
             //action
             Result resultado = servicoGrupoAutomovel.Editar(grupo);
@@ -93,10 +93,10 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloGrupoAutomovel {
             //arrange
             repositorioGrupoAutomovelMoq.Setup(x => x.SelecionarPorNome("Desconto do Deko"))
                  .Returns(() => {
-                     return new GrupoAutomovel(1, "Desconto do Deko");
+                     return new GrupoAutomovel("Desconto do Deko");
                  });
 
-            GrupoAutomovel outroGrupo = new GrupoAutomovel(1, "Desconto do Deko");
+            GrupoAutomovel outroGrupo = new GrupoAutomovel("Desconto do Deko");
 
             //action
             var resultado = servicoGrupoAutomovel.Editar(outroGrupo);
@@ -113,7 +113,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloGrupoAutomovel {
             //arrange
             repositorioGrupoAutomovelMoq.Setup(x => x.SelecionarPorNome("Desconto do Deko"))
                  .Returns(() => {
-                     return new GrupoAutomovel(1, "Desconto do Deko");
+                     return new GrupoAutomovel("Desconto do Deko");
                  });
 
             GrupoAutomovel novoGrupo = new GrupoAutomovel("Desconto do Deko");
@@ -147,7 +147,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloGrupoAutomovel {
         public void Deve_excluir_parceiro_caso_ele_esteja_cadastrado() //cenário 1
         {
             //arrange
-            var parceiro = new Parceiro(1, "Desconto do Deko");
+            var parceiro = new Parceiro("Desconto do Deko");
 
             repositorioGrupoAutomovelMoq.Setup(x => x.Existe(grupo))
                .Returns(() => {
@@ -167,7 +167,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloGrupoAutomovel {
         {
             //arrange
 
-            var parceiro = new Parceiro(1, "Desconto do Deko");
+            var parceiro = new Parceiro("Desconto do Deko");
 
             repositorioGrupoAutomovelMoq.Setup(x => x.Existe(grupo))
                .Returns(() => {

@@ -17,7 +17,8 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario
 
             funcionarioBuilder.ToTable("TBFuncionario");
 
-            funcionarioBuilder.Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
+           
+            funcionarioBuilder.Property(f => f.Id).IsRequired().ValueGeneratedNever();
 
             funcionarioBuilder.Property(f => f.Nome).HasColumnType("varchar(100)").IsRequired();
 

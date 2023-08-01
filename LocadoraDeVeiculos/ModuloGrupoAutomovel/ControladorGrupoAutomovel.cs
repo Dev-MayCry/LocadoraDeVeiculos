@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
         }
 
         public override void Editar() {
-            int id = tabelaGrupoAutomovel.ObtemIdSelecionado();
+            Guid id = tabelaGrupoAutomovel.ObtemIdSelecionado();
 
             GrupoAutomovel grupoAutomovelSelecionado = repositorioGrupoAutomovel.SelecionarPorId(id);
 
@@ -54,7 +54,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
         }
 
         public override void Excluir() {
-            int id = tabelaGrupoAutomovel.ObtemIdSelecionado();
+            Guid id = tabelaGrupoAutomovel.ObtemIdSelecionado();
 
             GrupoAutomovel grupoAutomovelSelecionado = repositorioGrupoAutomovel.SelecionarPorId(id);
 

@@ -11,7 +11,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel
 
             grupoAutomovelBuilder.ToTable("TBGrupoAutomovel");
 
-            grupoAutomovelBuilder.Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            grupoAutomovelBuilder.Property(p => p.Id).IsRequired().ValueGeneratedNever();
 
             grupoAutomovelBuilder.Property(p => p.Nome).HasColumnType("varchar(100)").IsRequired();
         }
