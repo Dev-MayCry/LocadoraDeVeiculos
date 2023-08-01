@@ -2,9 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloGrupoAutomovel {
-    public class MapeadorGrupoAutomovelOrm : IEntityTypeConfiguration<GrupoAutomovel>{
-        public void Configure(EntityTypeBuilder<GrupoAutomovel> grupoAutomovelBuilder) {
+namespace LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel
+{
+    public class MapeadorGrupoAutomovelOrm : IEntityTypeConfiguration<GrupoAutomovel>
+    {
+        public void Configure(EntityTypeBuilder<GrupoAutomovel> grupoAutomovelBuilder)
+        {
 
             grupoAutomovelBuilder.ToTable("TBGrupoAutomovel");
 

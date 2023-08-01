@@ -1,7 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
-using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado;
+using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 
-namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloGrupoAutomovel {
+namespace LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel {
     public class RepositorioGrupoAutomovelOrm : RepositorioBaseORM<GrupoAutomovel>, IRepositorioGrupoAutomovel {
         public RepositorioGrupoAutomovelOrm(LocadoraDeVeiculosDbContext dbContext) : base(dbContext) {
         }

@@ -23,23 +23,31 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.menu = new System.Windows.Forms.MenuStrip();
-            this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.disciplinaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.funcionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolbox = new System.Windows.Forms.ToolStrip();
-            this.btnInserir = new System.Windows.Forms.ToolStripButton();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.btnExcluir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
-            this.panelRegistros = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menu.SuspendLayout();
-            this.toolbox.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.SuspendLayout();
+            menu = new MenuStrip();
+            cadastrosToolStripMenuItem = new ToolStripMenuItem();
+            disciplinaMenuItem = new ToolStripMenuItem();
+            funcionárioToolStripMenuItem = new ToolStripMenuItem();
+            grupoDeAutomóvelToolStripMenuItem = new ToolStripMenuItem();
+            clienteToolStripMenuItem = new ToolStripMenuItem();
+            condutorToolStripMenuItem = new ToolStripMenuItem();
+            planoECobrançaToolStripMenuItem = new ToolStripMenuItem();
+            taxaEServiçoToolStripMenuItem = new ToolStripMenuItem();
+            aluguelToolStripMenuItem = new ToolStripMenuItem();
+            automóvelToolStripMenuItem = new ToolStripMenuItem();
+            cupomToolStripMenuItem = new ToolStripMenuItem();
+            toolbox = new ToolStrip();
+            btnInserir = new ToolStripButton();
+            btnEditar = new ToolStripButton();
+            btnExcluir = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            labelTipoCadastro = new ToolStripLabel();
+            panelRegistros = new Panel();
+            statusStrip1 = new StatusStrip();
+            labelRodape = new ToolStripStatusLabel();
+            menu.SuspendLayout();
+            toolbox.SuspendLayout();
+            statusStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // menu
             // 
@@ -53,27 +61,80 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.disciplinaMenuItem,
-            this.funcionárioToolStripMenuItem});
-            this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, funcionárioToolStripMenuItem, grupoDeAutomóvelToolStripMenuItem, clienteToolStripMenuItem, condutorToolStripMenuItem, planoECobrançaToolStripMenuItem, taxaEServiçoToolStripMenuItem, aluguelToolStripMenuItem, automóvelToolStripMenuItem, cupomToolStripMenuItem });
+            cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+            cadastrosToolStripMenuItem.Size = new Size(71, 20);
+            cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // disciplinaMenuItem
             // 
-            this.disciplinaMenuItem.Name = "disciplinaMenuItem";
-            this.disciplinaMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.disciplinaMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.disciplinaMenuItem.Text = "Parceiro";
-            this.disciplinaMenuItem.Click += new System.EventHandler(this.disciplinaMenuItem_Click);
+            disciplinaMenuItem.Name = "disciplinaMenuItem";
+            disciplinaMenuItem.ShortcutKeys = Keys.F1;
+            disciplinaMenuItem.Size = new Size(204, 22);
+            disciplinaMenuItem.Text = "Parceiro";
+            disciplinaMenuItem.Click += disciplinaMenuItem_Click;
             // 
             // funcionárioToolStripMenuItem
             // 
-            this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.funcionárioToolStripMenuItem.Text = "Funcionário";
-            this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
+            funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
+            funcionárioToolStripMenuItem.ShortcutKeys = Keys.F2;
+            funcionárioToolStripMenuItem.Size = new Size(204, 22);
+            funcionárioToolStripMenuItem.Text = "Funcionário";
+            funcionárioToolStripMenuItem.Click += funcionárioToolStripMenuItem_Click;
+            // 
+            // grupoDeAutomóvelToolStripMenuItem
+            // 
+            grupoDeAutomóvelToolStripMenuItem.Name = "grupoDeAutomóvelToolStripMenuItem";
+            grupoDeAutomóvelToolStripMenuItem.ShortcutKeys = Keys.F3;
+            grupoDeAutomóvelToolStripMenuItem.Size = new Size(204, 22);
+            grupoDeAutomóvelToolStripMenuItem.Text = "Grupo de Automóvel";
+            grupoDeAutomóvelToolStripMenuItem.Click += grupoDeAutomoveisMenuItem_Click;
+            // 
+            // clienteToolStripMenuItem
+            // 
+            clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            clienteToolStripMenuItem.ShortcutKeys = Keys.F4;
+            clienteToolStripMenuItem.Size = new Size(204, 22);
+            clienteToolStripMenuItem.Text = "Cliente";
+            // 
+            // condutorToolStripMenuItem
+            // 
+            condutorToolStripMenuItem.Name = "condutorToolStripMenuItem";
+            condutorToolStripMenuItem.ShortcutKeys = Keys.F5;
+            condutorToolStripMenuItem.Size = new Size(204, 22);
+            condutorToolStripMenuItem.Text = "Condutor";
+            // 
+            // planoECobrançaToolStripMenuItem
+            // 
+            planoECobrançaToolStripMenuItem.Name = "planoECobrançaToolStripMenuItem";
+            planoECobrançaToolStripMenuItem.ShortcutKeys = Keys.F6;
+            planoECobrançaToolStripMenuItem.Size = new Size(204, 22);
+            planoECobrançaToolStripMenuItem.Text = "Plano e Cobrança";
+            // 
+            // taxaEServiçoToolStripMenuItem
+            // 
+            taxaEServiçoToolStripMenuItem.Name = "taxaEServiçoToolStripMenuItem";
+            taxaEServiçoToolStripMenuItem.ShortcutKeys = Keys.F7;
+            taxaEServiçoToolStripMenuItem.Size = new Size(204, 22);
+            taxaEServiçoToolStripMenuItem.Text = "Taxa e Serviço";
+            // 
+            // aluguelToolStripMenuItem
+            // 
+            aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
+            aluguelToolStripMenuItem.Size = new Size(204, 22);
+            aluguelToolStripMenuItem.Text = "Aluguel";
+            // 
+            // automóvelToolStripMenuItem
+            // 
+            automóvelToolStripMenuItem.Name = "automóvelToolStripMenuItem";
+            automóvelToolStripMenuItem.Size = new Size(204, 22);
+            automóvelToolStripMenuItem.Text = "Automóvel";
+            // 
+            // cupomToolStripMenuItem
+            // 
+            cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
+            cupomToolStripMenuItem.Size = new Size(204, 22);
+            cupomToolStripMenuItem.Text = "Cupom";
             // 
             // toolbox
             // 
@@ -193,5 +254,13 @@
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel labelRodape;
         private ToolStripMenuItem funcionárioToolStripMenuItem;
+        private ToolStripMenuItem grupoDeAutomóvelToolStripMenuItem;
+        private ToolStripMenuItem clienteToolStripMenuItem;
+        private ToolStripMenuItem condutorToolStripMenuItem;
+        private ToolStripMenuItem planoECobrançaToolStripMenuItem;
+        private ToolStripMenuItem taxaEServiçoToolStripMenuItem;
+        private ToolStripMenuItem aluguelToolStripMenuItem;
+        private ToolStripMenuItem automóvelToolStripMenuItem;
+        private ToolStripMenuItem cupomToolStripMenuItem;
     }
 }

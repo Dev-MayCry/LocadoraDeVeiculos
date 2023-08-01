@@ -1,6 +1,4 @@
-﻿
-
-using LocadoraDeVeiculos.Aplicacao.ModuloFuncionario;
+﻿using LocadoraDeVeiculos.Aplicacao.ModuloFuncionario;
 using LocadoraDeVeiculos.Aplicacao.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Aplicacao.ModuloParceiro;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
@@ -15,9 +13,9 @@ using LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
 
-namespace LocadoraDeVeiculos
-{
+namespace LocadoraDeVeiculos {
     public partial class TelaPrincipalForm : Form {
 
 
@@ -168,6 +166,7 @@ namespace LocadoraDeVeiculos
         private void btnExcluir_Click(object sender, EventArgs e) {
             controlador.Excluir();
         }
+
 
     }
 }
