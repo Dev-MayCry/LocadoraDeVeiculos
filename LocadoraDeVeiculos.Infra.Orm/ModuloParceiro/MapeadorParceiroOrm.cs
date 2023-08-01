@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloParceiro;
+﻿
+
+using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

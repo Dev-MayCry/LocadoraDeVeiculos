@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloParceiro;
+﻿
+using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloParceiro {
