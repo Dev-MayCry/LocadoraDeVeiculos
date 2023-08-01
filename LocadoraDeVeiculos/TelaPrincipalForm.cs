@@ -1,10 +1,12 @@
-﻿
-
+﻿using LocadoraDeVeiculos.Aplicacao.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Aplicacao.ModuloParceiro;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado;
+using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloParceiro;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
+using LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -56,6 +58,15 @@ namespace LocadoraDeVeiculos {
 
             controladores.Add("ControladorParceiro", new ControladorParceiro(repositorioParceiro, servicoParceiro));
 
+
+            IRepositorioGrupoAutomovel repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
+
+            ValidadorGrupoAutomovel validadorGrupoAutomovel = new();
+
+            ServicoGrupoAutomovel servicoGrupoAutomovel = new(repositorioGrupoAutomovel, validadorGrupoAutomovel);
+
+            controladores.Add("ControladorGrupoAutomovel", new ControladorGrupoAutomovel(repositorioGrupoAutomovel, servicoGrupoAutomovel));
+
         }
 
         public static TelaPrincipalForm Instancia {
@@ -72,19 +83,23 @@ namespace LocadoraDeVeiculos {
 
         }
 
+        private void grupoDeAutomoveisMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorGrupoAutomovel"]);
+        }
+
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
             btnInserir.Enabled = configuracao.InserirHabilitado;
             btnEditar.Enabled = configuracao.EditarHabilitado;
-         
+
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
-        
+
         }
 
         private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao) {
             btnInserir.ToolTipText = configuracao.TooltipInserir;
             btnEditar.ToolTipText = configuracao.TooltipEditar;
             btnExcluir.ToolTipText = configuracao.TooltipExcluir;
-            
+
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador) {
@@ -136,5 +151,7 @@ namespace LocadoraDeVeiculos {
         private void btnExcluir_Click(object sender, EventArgs e) {
             controlador.Excluir();
         }
+
+
     }
 }

@@ -1,6 +1,5 @@
 ﻿using LocadoraDeVeiculos.WinApp.Compartilhado;
 
-
 namespace LocadoraDeVeiculos.WinApp.ModuloParceiro {
     public class ConfigurarToolBoxParceiro: ConfiguracaoToolboxBase {
         public override string TipoCadastro => "Cadastro de Disciplinas";

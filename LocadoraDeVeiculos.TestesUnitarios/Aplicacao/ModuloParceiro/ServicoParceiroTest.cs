@@ -1,5 +1,4 @@
-﻿
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentResults;
 using FluentResults.Extensions.FluentAssertions;
 using LocadoraDeVeiculos.Aplicacao.ModuloParceiro;
@@ -9,7 +8,7 @@ using Moq;
 namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloParceiro {
 
     [TestClass]
-    public  class ServicoParceiroTest {
+    public class ServicoParceiroTest {
 
         Mock<IRepositorioParceiro> repositorioParceiroMoq;
         Mock<IValidadorParceiro> validadorMoq;

@@ -1,6 +1,4 @@
-﻿
-
-using FluentResults;
+﻿using FluentResults;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using Serilog;
 using System.Data.SqlClient;
