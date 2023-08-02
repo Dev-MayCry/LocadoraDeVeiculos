@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCupom
         {
             cupom.Nome = txtNome.Text;
             cupom.Parceiro = (Parceiro)txtListaParceiro.SelectedItem;
-            cupom.Valor = Convert.ToInt32(txtValor.Text);
+            cupom.Valor = Convert.ToDecimal(txtValor.Text);
             cupom.DataValidade = Convert.ToDateTime(dataValidade.Value);
             return cupom;
         }
