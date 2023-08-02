@@ -1,5 +1,4 @@
-﻿
-using FluentAssertions;
+﻿using FluentAssertions;
 using FluentResults;
 using FluentResults.Extensions.FluentAssertions;
 using LocadoraDeVeiculos.Aplicacao.ModuloParceiro;
@@ -9,7 +8,7 @@ using Moq;
 namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloParceiro {
 
     [TestClass]
-    public  class ServicoParceiroTest {
+    public class ServicoParceiroTest {
 
         Mock<IRepositorioParceiro> repositorioParceiroMoq;
         Mock<IValidadorParceiro> validadorMoq;
@@ -46,7 +45,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloParceiro {
             string nomeParceiro = "Desconto do Deko";
             repositorioParceiroMoq.Setup(x => x.SelecionarPorNome(nomeParceiro))
                 .Returns(() => {
-                    return new Parceiro(2, nomeParceiro);
+                    return new Parceiro( nomeParceiro);
                 });
 
             //action
@@ -78,7 +77,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloParceiro {
         public void Deve_editar_parceiro_caso_ele_for_valido() //cenário 1
        {
             //arrange           
-            parceiro = new Parceiro(1, "iFoof");
+            parceiro = new Parceiro("iFood");
 
             //action
             Result resultado = servicoParceiro.Editar(parceiro);
@@ -92,12 +91,13 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloParceiro {
         public void Deve_editar_disciplina_com_o_mesmo_nome() //cenário 3
         {
             //arrange
+            Guid id = new Guid();
             repositorioParceiroMoq.Setup(x => x.SelecionarPorNome("Desconto do Deko"))
                  .Returns(() => {
-                     return new Parceiro(1, "Desconto do Deko");
+                     return new Parceiro(id,"Desconto do Deko");
                  });
 
-            Parceiro outroParceiro = new Parceiro(1, "Desconto do Deko");
+            Parceiro outroParceiro = new Parceiro(id,"Desconto do Deko");
 
             //action
             var resultado = servicoParceiro.Editar(outroParceiro);
@@ -114,7 +114,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloParceiro {
             //arrange
             repositorioParceiroMoq.Setup(x => x.SelecionarPorNome("Desconto do Deko"))
                  .Returns(() => {
-                     return new Parceiro(1, "Desconto do Deko");
+                     return new Parceiro( "Desconto do Deko");
                  });
 
             Parceiro novoParceiro = new Parceiro("Desconto do Deko");
@@ -148,7 +148,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloParceiro {
         public void Deve_excluir_parceiro_caso_ele_esteja_cadastrado() //cenário 1
         {
             //arrange
-            var parceiro = new Parceiro(1, "Desconto do Deko");
+            var parceiro = new Parceiro("Desconto do Deko");
 
             repositorioParceiroMoq.Setup(x => x.Existe(parceiro))
                .Returns(() => {
@@ -168,7 +168,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloParceiro {
         {
             //arrange
 
-            var parceiro = new Parceiro(1, "Desconto do Deko");
+            var parceiro = new Parceiro("Desconto do Deko");
 
             repositorioParceiroMoq.Setup(x => x.Existe(parceiro))
                .Returns(() => {

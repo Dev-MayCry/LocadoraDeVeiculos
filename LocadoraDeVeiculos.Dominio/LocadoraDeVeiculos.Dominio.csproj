@@ -12,12 +12,14 @@
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloCondutor\" />
     <Folder Include="ModuloGrupoAutomovel\" />
+    <Folder Include="ModuloFuncionario\" />
     <Folder Include="ModuloPlanoCobranca\" />
     <Folder Include="ModuloTaxaEServico\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.6.0" />
+    <PackageReference Include="SequentialGuid" Version="4.0.4" />
   </ItemGroup>
 
 </Project>

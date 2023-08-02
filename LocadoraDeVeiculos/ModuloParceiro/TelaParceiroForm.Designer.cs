@@ -27,8 +27,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -70,31 +68,11 @@
             this.txtNome.Size = new System.Drawing.Size(367, 23);
             this.txtNome.TabIndex = 3;
             // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(79, 25);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(30, 23);
-            this.txtId.TabIndex = 4;
-            this.txtId.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "ID:";
-            // 
             // TelaParceiroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(463, 202);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -112,7 +90,5 @@
         private Button button2;
         private Label label1;
         private TextBox txtNome;
-        private TextBox txtId;
-        private Label label2;
     }
 }

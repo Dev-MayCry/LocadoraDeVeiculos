@@ -1,21 +1,27 @@
-﻿
-
-using FizzWare.NBuilder;
+﻿using FizzWare.NBuilder;
+using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
-using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado;
-using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloParceiro;
+using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
+using LocadoraDeVeiculos.Infra.Orm.ModuloParceiro;
+using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
 
-namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado {
+namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
+{
     public class TesteIntegracaoBase {
 
         protected IRepositorioParceiro repositorioParceiro;
+        protected IRepositorioGrupoAutomovel repositorioGrupoAutomovel;
+        protected IRepositorioFuncionario repositorioFuncionario;
+       
 
         public TesteIntegracaoBase() {
 
-            //LimparTabelas();
+            LimparTabelas();
 
             string connectionString = ObterConnectionString();
             var optionsBuilder = new DbContextOptionsBuilder<LocadoraDeVeiculosDbContext>();
@@ -25,9 +31,14 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado {
             var dbContext = new LocadoraDeVeiculosDbContext(optionsBuilder.Options);
 
             repositorioParceiro = new RepositorioParceiroOrm(dbContext);
+            repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
+            repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
+            
             
 
             BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<GrupoAutomovel>(repositorioGrupoAutomovel.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
             
         }
 
@@ -39,8 +50,9 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado {
             string sqlLimpezaTabela =
                 @"
                 DELETE FROM [DBO].[TBPARCEIRO]
-                DBCC CHECKIDENT ('[TBPARCEIRO]', RESEED, 0);";
-
+                DELETE FROM [DBO].[TBGRUPOAUTOMOVEL]
+                DELETE FROM [DBO].[TBFUNCIONARIO];
+                ";
             SqlCommand comando = new SqlCommand(sqlLimpezaTabela, sqlConnection);
 
             sqlConnection.Open();
@@ -58,7 +70,6 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado {
 
             return configuracao.GetConnectionString("SqlServer");
 
-            
         }
     }
 }

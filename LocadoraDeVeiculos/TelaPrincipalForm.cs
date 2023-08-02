@@ -1,17 +1,19 @@
-﻿
-
-using LocadoraDeVeiculos.Aplicacao.ModuloCupom;
+﻿using LocadoraDeVeiculos.Aplicacao.ModuloFuncionario;
+using LocadoraDeVeiculos.Aplicacao.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Aplicacao.ModuloParceiro;
-using LocadoraDeVeiculos.Dominio.ModuloCupom;
+using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
-using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado;
-using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloCupom;
-using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloParceiro;
+using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
+using LocadoraDeVeiculos.Infra.Orm.ModuloParceiro;
+using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
-using LocadoraDeVeiculos.WinApp.ModuloCupom;
+using LocadoraDeVeiculos.WinApp.ModuloFuncionario;
+using LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
 
 namespace LocadoraDeVeiculos
 {
@@ -33,6 +35,14 @@ namespace LocadoraDeVeiculos
             controladores = new Dictionary<string, ControladorBase>();
 
             ConfigurarControladores();
+        }
+        public static TelaPrincipalForm Instancia {
+            get;
+            private set;
+        }
+
+        public void AtualizarRodape(string mensagem) {
+            labelRodape.Text = mensagem;
         }
 
         private void ConfigurarControladores()
@@ -65,36 +75,37 @@ namespace LocadoraDeVeiculos
 
             controladores.Add("ControladorParceiro", new ControladorParceiro(repositorioParceiro, servicoParceiro));
 
+            IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
 
-            IRepositorioCupom repositorioCupom = new RepositorioCupomOrm(dbContext);
+            IRepositorioGrupoAutomovel repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
 
-            ValidadorCupom validadorCupom = new ValidadorCupom();
+            ValidadorGrupoAutomovel validadorGrupoAutomovel = new();
 
-            ServicoCupom servicoCupom = new ServicoCupom(repositorioCupom, validadorCupom);
+            ServicoGrupoAutomovel servicoGrupoAutomovel = new(repositorioGrupoAutomovel, validadorGrupoAutomovel);
 
-            controladores.Add("ControladorCupom", new ControladorCupom(repositorioCupom, servicoCupom,repositorioParceiro));
+            controladores.Add("ControladorGrupoAutomovel", new ControladorGrupoAutomovel(repositorioGrupoAutomovel, servicoGrupoAutomovel));
+
+
+            ValidadorFuncionario validadorFuncionario = new ValidadorFuncionario();
+
+            ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
+
+            controladores.Add("ControladorFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
 
         }
 
-        public static TelaPrincipalForm Instancia
-        {
-            get;
-            private set;
-        }
-
-        public void AtualizarRodape(string mensagem)
-        {
-            labelRodape.Text = mensagem;
-        }
-        private void CupomMenuItem_Click(object sender, EventArgs e)
-        {
-            ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
-        }
 
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(controladores["ControladorParceiro"]);
 
+        }
+
+        private void grupoDeAutomoveisMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorGrupoAutomovel"]);
+        }
+        private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorFuncionario"]);
         }
 
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao)
@@ -171,6 +182,6 @@ namespace LocadoraDeVeiculos
             controlador.Excluir();
         }
 
-      
+
     }
 }

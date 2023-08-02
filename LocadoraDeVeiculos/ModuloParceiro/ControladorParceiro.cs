@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Aplicacao.ModuloParceiro;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
+
 namespace LocadoraDeVeiculos.WinApp.ModuloParceiro {
     internal class ControladorParceiro : ControladorBase {
 
@@ -29,7 +30,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloParceiro {
         }
 
         public override void Editar() {
-            int id = tabelaParceiro.ObtemIdSelecionado();
+
+            Guid id = tabelaParceiro.ObtemIdSelecionado();
 
             Parceiro parceiroSelecionada = repositorioParceiro.SelecionarPorId(id);
 
@@ -53,7 +55,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloParceiro {
         }
 
         public override void Excluir() {
-            int id = tabelaParceiro.ObtemIdSelecionado();
+
+            Guid id = tabelaParceiro.ObtemIdSelecionado();
 
             Parceiro parceiroSelecionada = repositorioParceiro.SelecionarPorId(id);
 

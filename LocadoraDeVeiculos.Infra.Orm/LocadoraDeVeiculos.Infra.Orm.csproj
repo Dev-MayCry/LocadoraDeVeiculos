@@ -7,16 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="4.1 Acesso a Dados\ModuloAluguel\" />
-    <Folder Include="4.1 Acesso a Dados\ModuloAutomovel\" />
-    <Folder Include="4.1 Acesso a Dados\ModuloCliente\" />
-    <Folder Include="4.1 Acesso a Dados\ModuloCondutor\" />
-    <Folder Include="4.1 Acesso a Dados\ModuloFuncionario\" />
-    <Folder Include="4.1 Acesso a Dados\ModuloGrupoAutomovel\" />
-    <Folder Include="4.1 Acesso a Dados\ModuloPlanoCobranca\" />
-    <Folder Include="4.1 Acesso a Dados\ModuloTaxaEServico\" />
-    <Folder Include="4.2 Massa de Dados\" />
-    <Folder Include="4.3 PDF\" />
+    <Folder Include="ModuloAluguel\" />
+    <Folder Include="ModuloAutomovel\" />
+    <Folder Include="ModuloCliente\" />
+    <Folder Include="ModuloCondutor\" />
+    <Folder Include="ModuloCupom\" />
+    <Folder Include="ModuloPlanoCobranca\" />
+    <Folder Include="ModuloTaxaEServico\" />
   </ItemGroup>
 
   <ItemGroup>

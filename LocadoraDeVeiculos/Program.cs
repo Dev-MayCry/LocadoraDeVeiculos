@@ -1,11 +1,10 @@
-
-using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Serilog;
-using static LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado.LocadoraDeVeiculosDbContext;
+using static LocadoraDeVeiculos.Infra.Orm.Compartilhado.LocadoraDeVeiculosDbContext;
 
-namespace LocadoraDeVeiculos {
+namespace LocadoraDeVeiculos
+{
     internal static class Program {
         /// <summary>
         ///  The main entry point for the application.
