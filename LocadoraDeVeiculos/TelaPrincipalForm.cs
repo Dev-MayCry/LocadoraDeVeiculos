@@ -1,22 +1,29 @@
 ﻿
 
+using LocadoraDeVeiculos.Aplicacao.ModuloCupom;
 using LocadoraDeVeiculos.Aplicacao.ModuloParceiro;
+using LocadoraDeVeiculos.Dominio.ModuloCupom;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado;
+using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloCupom;
 using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloParceiro;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
+using LocadoraDeVeiculos.WinApp.ModuloCupom;
 using LocadoraDeVeiculos.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace LocadoraDeVeiculos {
-    public partial class TelaPrincipalForm : Form {
+namespace LocadoraDeVeiculos
+{
+    public partial class TelaPrincipalForm : Form
+    {
 
 
         private Dictionary<string, ControladorBase> controladores;
 
         private ControladorBase controlador;
-        public TelaPrincipalForm() {
+        public TelaPrincipalForm()
+        {
             InitializeComponent();
             Instancia = this;
 
@@ -28,7 +35,8 @@ namespace LocadoraDeVeiculos {
             ConfigurarControladores();
         }
 
-        private void ConfigurarControladores() {
+        private void ConfigurarControladores()
+        {
             var configuracao = new ConfigurationBuilder()
                .SetBasePath(Directory.GetCurrentDirectory())
                .AddJsonFile("appsettings.json")
@@ -44,7 +52,8 @@ namespace LocadoraDeVeiculos {
 
             var migracoesPendentes = dbContext.Database.GetPendingMigrations();
 
-            if (migracoesPendentes.Count() > 0) {
+            if (migracoesPendentes.Count() > 0)
+            {
                 dbContext.Database.Migrate();
             }
 
@@ -56,38 +65,57 @@ namespace LocadoraDeVeiculos {
 
             controladores.Add("ControladorParceiro", new ControladorParceiro(repositorioParceiro, servicoParceiro));
 
+
+            IRepositorioCupom repositorioCupom = new RepositorioCupomOrm(dbContext);
+
+            ValidadorCupom validadorCupom = new ValidadorCupom();
+
+            ServicoCupom servicoCupom = new ServicoCupom(repositorioCupom, validadorCupom);
+
+            controladores.Add("ControladorCupom", new ControladorCupom(repositorioCupom, servicoCupom,repositorioParceiro));
+
         }
 
-        public static TelaPrincipalForm Instancia {
+        public static TelaPrincipalForm Instancia
+        {
             get;
             private set;
         }
 
-        public void AtualizarRodape(string mensagem) {
+        public void AtualizarRodape(string mensagem)
+        {
             labelRodape.Text = mensagem;
         }
+        private void CupomMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
+        }
 
-        private void disciplinaMenuItem_Click(object sender, EventArgs e) {
+        private void disciplinaMenuItem_Click(object sender, EventArgs e)
+        {
             ConfigurarTelaPrincipal(controladores["ControladorParceiro"]);
 
         }
 
-        private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
+        private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao)
+        {
             btnInserir.Enabled = configuracao.InserirHabilitado;
             btnEditar.Enabled = configuracao.EditarHabilitado;
-         
+
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
-        
+
         }
 
-        private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao) {
+        private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao)
+        {
             btnInserir.ToolTipText = configuracao.TooltipInserir;
             btnEditar.ToolTipText = configuracao.TooltipEditar;
             btnExcluir.ToolTipText = configuracao.TooltipExcluir;
-            
+
         }
 
-        private void ConfigurarTelaPrincipal(ControladorBase controlador) {
+        private void ConfigurarTelaPrincipal(ControladorBase controlador)
+        {
             this.controlador = controlador;
 
             ConfigurarToolbox();
@@ -99,10 +127,12 @@ namespace LocadoraDeVeiculos {
             AtualizarRodape(mensagemRodape);
         }
 
-        private void ConfigurarToolbox() {
+        private void ConfigurarToolbox()
+        {
             ConfiguracaoToolboxBase configuracao = controlador.ObtemConfiguracaoToolbox();
 
-            if (configuracao != null) {
+            if (configuracao != null)
+            {
                 toolbox.Enabled = true;
 
                 labelTipoCadastro.Text = configuracao.TipoCadastro;
@@ -113,7 +143,8 @@ namespace LocadoraDeVeiculos {
             }
         }
 
-        private void ConfigurarListagem() {
+        private void ConfigurarListagem()
+        {
             AtualizarRodape("");
 
             var listagemControl = controlador.ObtemListagem();
@@ -125,16 +156,21 @@ namespace LocadoraDeVeiculos {
             panelRegistros.Controls.Add(listagemControl);
         }
 
-        private void btnInserir_Click(object sender, EventArgs e) {
+        private void btnInserir_Click(object sender, EventArgs e)
+        {
             controlador.Inserir();
         }
 
-        private void btnEditar_Click(object sender, EventArgs e) {
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
             controlador.Editar();
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e) {
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
             controlador.Excluir();
         }
+
+      
     }
 }

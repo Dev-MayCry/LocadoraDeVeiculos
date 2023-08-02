@@ -1,7 +1,4 @@
-﻿
-
-using FluentValidation;
-
+﻿using FluentValidation;
 namespace LocadoraDeVeiculos.Dominio.ModuloParceiro {
     public class ValidadorParceiro: AbstractValidator<Parceiro>, IValidadorParceiro {
 

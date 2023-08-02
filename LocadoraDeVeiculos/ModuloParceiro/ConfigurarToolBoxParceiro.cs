@@ -2,7 +2,8 @@
 
 
 namespace LocadoraDeVeiculos.WinApp.ModuloParceiro {
-    public class ConfigurarToolBoxParceiro: ConfiguracaoToolboxBase {
+    public class ConfigurarToolBoxParceiro: ConfiguracaoToolboxBase 
+    {
         public override string TipoCadastro => "Cadastro de Disciplinas";
 
         public override string TooltipInserir => "Inserir nova Disciplina";
