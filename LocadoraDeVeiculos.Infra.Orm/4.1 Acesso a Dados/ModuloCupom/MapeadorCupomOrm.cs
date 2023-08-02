@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using LocadoraDeVeiculos.Dominio.ModuloCupom;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloCupom
 {
@@ -10,9 +11,15 @@ namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloCupom
         {
             cupomBuilder.ToTable("TBCupom");
 
-            cupomBuilder.Property(c => c.Id).IsRequired().ValueGeneratedOnAdd();
+            cupomBuilder.Property(c => c.Id).IsRequired().ValueGeneratedNever();
 
             cupomBuilder.Property(c => c.Nome).HasColumnType("varchar(100)").IsRequired();
+
+            cupomBuilder.Property(c => c.Valor).HasColumnType("decimal").IsRequired();
+
+            cupomBuilder.HasOne(c => c.Parceiro).WithMany().IsRequired().HasConstraintName("FK_TBCupom_TBParceiro").OnDelete(DeleteBehavior.NoAction);
+                                             
+            cupomBuilder.Property(c => c.DataValidade).IsRequired();
         }
     }  
 }
