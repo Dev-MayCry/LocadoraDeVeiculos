@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloCupom;
-using LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.Compartilhado;
-namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloCupom
+using Microsoft.EntityFrameworkCore;
+
+namespace LocadoraDeVeiculos.Infra.Orm.ModuloCupom
 {
     public class RepositorioCupomOrm : RepositorioBaseORM<Cupom>, IRepositorioCupom
     {
@@ -10,6 +11,10 @@ namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloCupom
         public Cupom SelecionarPorNome(string nome)
         {
             return registros.FirstOrDefault(x => x.Nome == nome);
+        }
+        public List<Cupom> SelecionarTodos()
+        {
+            return registros.Include(x => x.Parceiro).ToList();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCupom
         {
             var colunas = new DataGridViewColumn[]
             {
-                new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F },
+                new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F, Visible = false },
 
                 new DataGridViewTextBoxColumn { Name = "Nome", HeaderText = "Nome", FillWeight=45F },
 
@@ -31,18 +31,17 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCupom
             return colunas;
         }
 
-        public int ObtemIdSelecionado()
+        public Guid ObtemIdSelecionado()
         {
             return grid.SelecionarId();
-        }
-
+        }    
         public void AtualizarRegistros(List<Cupom> cupons)
         {
             grid.Rows.Clear();
 
             foreach (Cupom cupom in cupons)
             {
-                grid.Rows.Add(cupom.Id, cupom.Nome,cupom.Parceiro,cupom.Valor,cupom.DataValidade);
+                grid.Rows.Add(cupom.Id, cupom.Nome,cupom.Parceiro,"R$ "+cupom.Valor.ToString("0.00"),cupom.DataValidade.ToShortDateString());
             }
         }
     }

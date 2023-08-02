@@ -14,6 +14,10 @@ using LocadoraDeVeiculos.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloCupom;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCupom;
+using LocadoraDeVeiculos.Aplicacao.ModuloCupom;
+using LocadoraDeVeiculos.WinApp.ModuloCupom;
 
 namespace LocadoraDeVeiculos
 {
@@ -36,12 +40,14 @@ namespace LocadoraDeVeiculos
 
             ConfigurarControladores();
         }
-        public static TelaPrincipalForm Instancia {
+        public static TelaPrincipalForm Instancia
+        {
             get;
             private set;
         }
 
-        public void AtualizarRodape(string mensagem) {
+        public void AtualizarRodape(string mensagem)
+        {
             labelRodape.Text = mensagem;
         }
 
@@ -91,7 +97,16 @@ namespace LocadoraDeVeiculos
             ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
 
             controladores.Add("ControladorFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
+              
 
+            IRepositorioCupom repositorioCupom = new RepositorioCupomOrm(dbContext);
+            ValidadorCupom validadorCupom = new ValidadorCupom();
+            ServicoCupom servicoCupom = new(repositorioCupom, validadorCupom);
+            controladores.Add("ControladorCupom", new ControladorCupom(repositorioCupom, servicoCupom, repositorioParceiro));
+        }
+        private void cupomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
         }
 
 
@@ -101,10 +116,12 @@ namespace LocadoraDeVeiculos
 
         }
 
-        private void grupoDeAutomoveisMenuItem_Click(object sender, EventArgs e) {
+        private void grupoDeAutomoveisMenuItem_Click(object sender, EventArgs e)
+        {
             ConfigurarTelaPrincipal(controladores["ControladorGrupoAutomovel"]);
         }
-        private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             ConfigurarTelaPrincipal(controladores["ControladorFuncionario"]);
         }
 
@@ -182,6 +199,6 @@ namespace LocadoraDeVeiculos
             controlador.Excluir();
         }
 
-
+       
     }
 }

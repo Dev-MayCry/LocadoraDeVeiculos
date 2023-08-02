@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using LocadoraDeVeiculos.Dominio.ModuloCupom;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloCupom
+namespace LocadoraDeVeiculos.Infra.Orm.ModuloCupom
 {
     public class MapeadorCupomOrm : IEntityTypeConfiguration<Cupom>
     {
@@ -18,8 +18,8 @@ namespace LocadoraDeVeiculos.Infra.Orm._4._1_Acesso_a_Dados.ModuloCupom
             cupomBuilder.Property(c => c.Valor).HasColumnType("decimal").IsRequired();
 
             cupomBuilder.HasOne(c => c.Parceiro).WithMany().IsRequired().HasConstraintName("FK_TBCupom_TBParceiro").OnDelete(DeleteBehavior.NoAction);
-                                             
+
             cupomBuilder.Property(c => c.DataValidade).IsRequired();
         }
-    }  
+    }
 }
