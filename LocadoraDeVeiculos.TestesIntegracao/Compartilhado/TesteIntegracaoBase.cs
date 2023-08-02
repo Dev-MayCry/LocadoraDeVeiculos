@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 {
     public class TesteIntegracaoBase {
 
-        protected IRepositorioParceiro repositorioParceiro;
+        protected IRepositorioParceiro repositorioCliente;
         protected IRepositorioGrupoAutomovel repositorioGrupoAutomovel;
         protected IRepositorioFuncionario repositorioFuncionario;
        
@@ -30,13 +30,13 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 
             var dbContext = new LocadoraDeVeiculosDbContext(optionsBuilder.Options);
 
-            repositorioParceiro = new RepositorioParceiroOrm(dbContext);
+            repositorioCliente = new RepositorioParceiroOrm(dbContext);
             repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
             repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
             
             
 
-            BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioCliente.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<GrupoAutomovel>(repositorioGrupoAutomovel.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
             
