@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadoraDeVeiculosDbContext))]
-    [Migration("20230801203003_DataBaseUpload")]
-    partial class DataBaseUpload
+    [Migration("20230802171831_DBCupom33")]
+    partial class DBCupom33
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,31 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloCupom.Cupom", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DataValidade")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<Guid>("ParceiroId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Valor")
+                        .HasColumnType("decimal");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParceiroId");
+
+                    b.ToTable("TBCupom", (string)null);
+                });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloFuncionario.Funcionario", b =>
                 {
@@ -71,6 +96,18 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TBParceiro", (string)null);
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloCupom.Cupom", b =>
+                {
+                    b.HasOne("LocadoraDeVeiculos.Dominio.ModuloParceiro.Parceiro", "Parceiro")
+                        .WithMany()
+                        .HasForeignKey("ParceiroId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_TBCupom_TBParceiro");
+
+                    b.Navigation("Parceiro");
                 });
 #pragma warning restore 612, 618
         }

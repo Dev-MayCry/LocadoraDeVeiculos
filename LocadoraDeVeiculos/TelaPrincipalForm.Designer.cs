@@ -1,5 +1,7 @@
-﻿namespace LocadoraDeVeiculos {
-    partial class TelaPrincipalForm {
+﻿namespace LocadoraDeVeiculos
+{
+    partial class TelaPrincipalForm
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -9,8 +11,10 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if (disposing && (components != null)) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -22,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             menu = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             disciplinaMenuItem = new ToolStripMenuItem();
@@ -135,6 +140,7 @@
             cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
             cupomToolStripMenuItem.Size = new Size(204, 22);
             cupomToolStripMenuItem.Text = "Cupom";
+            cupomToolStripMenuItem.Click += cupomToolStripMenuItem_Click;
             // 
             // toolbox
             // 
