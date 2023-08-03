@@ -14,6 +14,7 @@ using LocadoraDeVeiculos.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 
 namespace LocadoraDeVeiculos {
     public partial class TelaPrincipalForm : Form {
@@ -70,7 +71,6 @@ namespace LocadoraDeVeiculos {
 
             controladores.Add("ControladorParceiro", new ControladorParceiro(repositorioParceiro, servicoParceiro));
 
-            IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
 
             IRepositorioGrupoAutomovel repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
 
@@ -81,11 +81,16 @@ namespace LocadoraDeVeiculos {
             controladores.Add("ControladorGrupoAutomovel", new ControladorGrupoAutomovel(repositorioGrupoAutomovel, servicoGrupoAutomovel));
 
 
+            IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
+
             ValidadorFuncionario validadorFuncionario = new ValidadorFuncionario();
 
             ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
 
             controladores.Add("ControladorFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
+
+
+            IRepositorioAutomovel repositorioAutomovel = new RepositorioAutomovelOrm(dbContext);
 
         }
 
