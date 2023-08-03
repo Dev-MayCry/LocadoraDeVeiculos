@@ -1,5 +1,4 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
-using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel {
     public class RepositorioAutomovelOrm : RepositorioBaseORM<Automovel>, IRepositorioAutomovel {

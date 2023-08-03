@@ -37,15 +37,17 @@
             txtListaGrupoAutomoveis = new ComboBox();
             txtListaTipoCombustivel = new ComboBox();
             txtAno = new NumericUpDown();
-            fotoCarro = new PictureBox();
+            fotoAutomovel = new PictureBox();
             btnBuscar = new Button();
             txtModelo = new TextBox();
             txtMarca = new TextBox();
             btnCancelar = new Button();
             label9 = new Label();
             txtPlaca = new TextBox();
+            txtQuilometragem = new TextBox();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)txtAno).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)fotoCarro).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fotoAutomovel).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -61,7 +63,7 @@
             // 
             btnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSalvar.DialogResult = DialogResult.OK;
-            btnSalvar.Location = new Point(342, 413);
+            btnSalvar.Location = new Point(342, 480);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(90, 50);
             btnSalvar.TabIndex = 10;
@@ -114,7 +116,7 @@
             // 
             // txtCapacidadeLitros
             // 
-            txtCapacidadeLitros.Location = new Point(161, 342);
+            txtCapacidadeLitros.Location = new Point(161, 371);
             txtCapacidadeLitros.Name = "txtCapacidadeLitros";
             txtCapacidadeLitros.Size = new Size(367, 23);
             txtCapacidadeLitros.TabIndex = 23;
@@ -122,7 +124,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(32, 345);
+            label6.Location = new Point(32, 374);
             label6.Name = "label6";
             label6.Size = new Size(124, 15);
             label6.TabIndex = 22;
@@ -131,7 +133,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(370, 374);
+            label7.Location = new Point(370, 403);
             label7.Name = "label7";
             label7.Size = new Size(32, 15);
             label7.TabIndex = 24;
@@ -164,21 +166,20 @@
             // 
             // txtAno
             // 
-            txtAno.Location = new Point(408, 372);
+            txtAno.Location = new Point(408, 401);
             txtAno.Maximum = new decimal(new int[] { 2030, 0, 0, 0 });
-            txtAno.Minimum = new decimal(new int[] { 1886, 0, 0, 0 });
             txtAno.Name = "txtAno";
             txtAno.Size = new Size(120, 23);
             txtAno.TabIndex = 29;
             txtAno.Value = new decimal(new int[] { 2000, 0, 0, 0 });
             // 
-            // fotoCarro
+            // fotoAutomovel
             // 
-            fotoCarro.Location = new Point(162, 41);
-            fotoCarro.Name = "fotoCarro";
-            fotoCarro.Size = new Size(270, 150);
-            fotoCarro.TabIndex = 31;
-            fotoCarro.TabStop = false;
+            fotoAutomovel.Location = new Point(162, 41);
+            fotoAutomovel.Name = "fotoAutomovel";
+            fotoAutomovel.Size = new Size(270, 150);
+            fotoAutomovel.TabIndex = 31;
+            fotoAutomovel.TabStop = false;
             // 
             // btnBuscar
             // 
@@ -207,7 +208,7 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(440, 413);
+            btnCancelar.Location = new Point(440, 480);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(90, 50);
             btnCancelar.TabIndex = 35;
@@ -217,7 +218,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(118, 374);
+            label9.Location = new Point(118, 403);
             label9.Name = "label9";
             label9.Size = new Size(38, 15);
             label9.TabIndex = 36;
@@ -225,23 +226,41 @@
             // 
             // txtPlaca
             // 
-            txtPlaca.Location = new Point(161, 371);
+            txtPlaca.Location = new Point(161, 400);
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(203, 23);
             txtPlaca.TabIndex = 37;
+            // 
+            // txtQuilometragem
+            // 
+            txtQuilometragem.Location = new Point(161, 342);
+            txtQuilometragem.Name = "txtQuilometragem";
+            txtQuilometragem.Size = new Size(367, 23);
+            txtQuilometragem.TabIndex = 39;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(61, 345);
+            label10.Name = "label10";
+            label10.Size = new Size(94, 15);
+            label10.TabIndex = 38;
+            label10.Text = "Quilometragem:";
             // 
             // TelaAutomovelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(542, 475);
+            ClientSize = new Size(542, 542);
+            Controls.Add(txtQuilometragem);
+            Controls.Add(label10);
             Controls.Add(txtPlaca);
             Controls.Add(label9);
             Controls.Add(btnCancelar);
             Controls.Add(txtMarca);
             Controls.Add(txtModelo);
             Controls.Add(btnBuscar);
-            Controls.Add(fotoCarro);
+            Controls.Add(fotoAutomovel);
             Controls.Add(txtAno);
             Controls.Add(txtListaTipoCombustivel);
             Controls.Add(txtListaGrupoAutomoveis);
@@ -259,7 +278,7 @@
             Name = "TelaAutomovelForm";
             Text = "TelaAutomovelForm";
             ((System.ComponentModel.ISupportInitialize)txtAno).EndInit();
-            ((System.ComponentModel.ISupportInitialize)fotoCarro).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fotoAutomovel).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -286,11 +305,13 @@
         private ComboBox txtListaGrupoAutomoveis;
         private ComboBox txtListaTipoCombustivel;
         private NumericUpDown txtAno;
-        private PictureBox fotoCarro;
+        private PictureBox fotoAutomovel;
         private Button btnBuscar;
         private TextBox txtModelo;
         private TextBox txtMarca;
         private Button btnCancelar;
         private Label label9;
+        private TextBox txtQuilometragem;
+        private Label label10;
     }
 }

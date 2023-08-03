@@ -15,6 +15,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
+using LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel;
+using LocadoraDeVeiculos.Aplicacao.ModuloAutomovel;
+using LocadoraDeVeiculos.WinApp.ModuloAutomovel;
 
 namespace LocadoraDeVeiculos {
     public partial class TelaPrincipalForm : Form {
@@ -92,6 +95,14 @@ namespace LocadoraDeVeiculos {
 
             IRepositorioAutomovel repositorioAutomovel = new RepositorioAutomovelOrm(dbContext);
 
+            ValidadorAutomovel validadorAutomovel = new ValidadorAutomovel();
+
+            ServicoAutomovel servicoAutomovel = new ServicoAutomovel(repositorioAutomovel, validadorAutomovel);
+
+            controladores.Add("ControladorAutomovel", new ControladorAutomovel(repositorioAutomovel, servicoAutomovel, repositorioGrupoAutomovel));
+
+
+
         }
 
 
@@ -105,6 +116,10 @@ namespace LocadoraDeVeiculos {
         }
         private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorFuncionario"]);
+        }
+
+        private void automóvelToolStripMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorAutomovel"]);
         }
 
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
@@ -172,6 +187,6 @@ namespace LocadoraDeVeiculos {
             controlador.Excluir();
         }
 
-
+        
     }
 }

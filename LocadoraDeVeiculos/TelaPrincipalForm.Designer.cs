@@ -129,6 +129,7 @@
             automóvelToolStripMenuItem.Name = "automóvelToolStripMenuItem";
             automóvelToolStripMenuItem.Size = new Size(204, 22);
             automóvelToolStripMenuItem.Text = "Automóvel";
+            automóvelToolStripMenuItem.Click += automóvelToolStripMenuItem_Click;
             // 
             // cupomToolStripMenuItem
             // 

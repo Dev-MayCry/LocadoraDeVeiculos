@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
             {
                 new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F, Visible = false},
 
-                new DataGridViewTextBoxColumn { Name = "Nome", HeaderText = "Nome", FillWeight=85F }
+                new DataGridViewTextBoxColumn { Name = "Nome", HeaderText = "Nome", FillWeight=15F },
             };
 
             return colunas;
