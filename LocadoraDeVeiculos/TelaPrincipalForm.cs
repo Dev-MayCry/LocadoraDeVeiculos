@@ -187,6 +187,8 @@ namespace LocadoraDeVeiculos {
             controlador.Excluir();
         }
 
-        
+        private void btnFiltrar_Click(object sender, EventArgs e) {
+            controlador.Filtrar();
+        }
     }
 }

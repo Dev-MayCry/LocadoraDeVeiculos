@@ -297,7 +297,7 @@
             Controls.Add(label1);
             Controls.Add(btnSalvar);
             Name = "TelaAutomovelForm";
-            Text = "TelaAutomovelForm";
+            Text = "Cadastro de Automóvel";
             ((System.ComponentModel.ISupportInitialize)txtAno).EndInit();
             ((System.ComponentModel.ISupportInitialize)fotoAutomovel).EndInit();
             ResumeLayout(false);

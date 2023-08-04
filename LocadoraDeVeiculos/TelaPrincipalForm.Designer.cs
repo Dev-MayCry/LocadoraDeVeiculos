@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
             menu = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             disciplinaMenuItem = new ToolStripMenuItem();
@@ -39,6 +40,7 @@
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
+            btnFiltrar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
@@ -141,7 +143,7 @@
             // 
             toolbox.Enabled = false;
             toolbox.ImageScalingSize = new Size(20, 20);
-            toolbox.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, labelTipoCadastro });
+            toolbox.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltrar, toolStripSeparator2, labelTipoCadastro });
             toolbox.Location = new Point(0, 24);
             toolbox.Name = "toolbox";
             toolbox.Size = new Size(800, 32);
@@ -180,6 +182,16 @@
             btnExcluir.Size = new Size(56, 29);
             btnExcluir.Text = "Excluir";
             btnExcluir.Click += btnExcluir_Click;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnFiltrar.Image = (Image)resources.GetObject("btnFiltrar.Image");
+            btnFiltrar.ImageTransparentColor = Color.Magenta;
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(41, 29);
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.Click += btnFiltrar_Click;
             // 
             // toolStripSeparator2
             // 
@@ -263,5 +275,6 @@
         private ToolStripMenuItem aluguelToolStripMenuItem;
         private ToolStripMenuItem automóvelToolStripMenuItem;
         private ToolStripMenuItem cupomToolStripMenuItem;
+        private ToolStripButton btnFiltrar;
     }
 }

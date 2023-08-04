@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using Microsoft.EntityFrameworkCore;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel {
@@ -12,6 +13,11 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel {
 
         public Automovel SelecionarPorPlaca(string placa) {
             return registros.FirstOrDefault(x => x.Placa == placa);
+        }
+
+        public List<Automovel> SelecionarPorGrupo(GrupoAutomovel grupo) {
+            return registros.Where(x => x.GrupoAutomovel == grupo).ToList();
+
         }
     }
 }

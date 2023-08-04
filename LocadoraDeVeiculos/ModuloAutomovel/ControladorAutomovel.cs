@@ -32,6 +32,21 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
             }
         }
 
+        public override void Filtrar() {
+            TelaFiltroAutomovelForm tela = new(repositorioGrupoAutomovel);
+
+            DialogResult resultado = tela.ShowDialog();
+
+            if (resultado == DialogResult.OK) {
+                List<Automovel> automoveis = repositorioAutomovel.SelecionarPorGrupo(tela.grupo);
+
+                CarregarAutomoveis(automoveis);
+
+            } else if(resultado == DialogResult.Abort) {
+                CarregarAutomoveis();
+            }
+        }
+
         public override void Editar() {
             Guid id = tabelaAutomovel.ObtemIdSelecionado();
 
@@ -97,11 +112,19 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
         }
 
         private void CarregarAutomoveis() {
-            List<Automovel> automovel = repositorioAutomovel.SelecionarTodos();
+            List<Automovel> automoveis = repositorioAutomovel.SelecionarTodos();
 
-            tabelaAutomovel.AtualizarRegistros(automovel);
+            tabelaAutomovel.AtualizarRegistros(automoveis);
 
-            mensagemRodape = string.Format($"Visualizando {automovel.Count} automóve{0}", automovel.Count == 1 ? "l" : "is");
+            mensagemRodape = string.Format($"Visualizando {automoveis.Count} automóve{0}", automoveis.Count == 1 ? "l" : "is");
+
+            TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
+        }
+
+        private void CarregarAutomoveis(List<Automovel> automoveis) {
+            tabelaAutomovel.AtualizarRegistros(automoveis);
+
+            mensagemRodape = string.Format($"Visualizando {automoveis.Count} automóve{0}", automoveis.Count == 1 ? "l" : "is");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
         }
