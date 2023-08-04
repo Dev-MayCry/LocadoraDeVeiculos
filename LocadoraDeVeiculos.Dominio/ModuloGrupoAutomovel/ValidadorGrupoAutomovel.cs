@@ -4,10 +4,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel {
     public class ValidadorGrupoAutomovel : AbstractValidator<GrupoAutomovel>, IValidadorGrupoAutomovel {
 
         public ValidadorGrupoAutomovel() {
-            RuleFor(x => x.Nome)
-                .NotEmpty()
-                .NotNull()
-                .MinimumLength(3);
+            RuleFor(x => x.Nome).NotEmpty().NotNull().MinimumLength(3);
         }
     }
 }

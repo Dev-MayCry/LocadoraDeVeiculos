@@ -10,9 +10,21 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
 
         public event GravarRegistroDelegate<Automovel> onGravarRegistro;
 
-        public TelaAutomovelForm() {
+        public TelaAutomovelForm(IRepositorioGrupoAutomovel repositorioGrupoAutomovel) {
             InitializeComponent();
             this.ConfigurarDialog();
+            ConfigurarComboBox(repositorioGrupoAutomovel);
+        }
+
+        private void ConfigurarComboBox(IRepositorioGrupoAutomovel repositorioGrupoAutomovel) {
+            foreach (var item in repositorioGrupoAutomovel.SelecionarTodos()) {
+                txtListaGrupoAutomoveis.Items.Add(item);
+            }
+            txtListaTipoCombustivel.Items.Add(TipoCombustivelEnum.Alcool);
+            txtListaTipoCombustivel.Items.Add(TipoCombustivelEnum.Diesel);
+            txtListaTipoCombustivel.Items.Add(TipoCombustivelEnum.Gas);
+            txtListaTipoCombustivel.Items.Add(TipoCombustivelEnum.Gasolina);
+
         }
 
         public Automovel ObterAutomovel() {
@@ -57,7 +69,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
                 // Cria um MemoryStream para armazenar os bytes da imagem
                 using (MemoryStream ms = new MemoryStream()) {
                     // Salva a imagem no MemoryStream no formato JPEG (ou outro formato de sua escolha)
-                    fotoAutomovel.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    fotoAutomovel.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
 
                     // Obtém os bytes da imagem a partir do MemoryStream
                     foto = ms.ToArray();
@@ -95,6 +107,30 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
 
                 DialogResult = DialogResult.None;
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e) {
+            // Configurações do OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Arquivos de Imagem |*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFileDialog.Title = "Selecione uma imagem";
+
+            // Exibe o OpenFileDialog e verifica se o usuário clicou em "OK"
+            if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                // Obtém o caminho do arquivo selecionado pelo usuário
+                string caminhoDaImagem = openFileDialog.FileName;
+
+                // Carrega a imagem do arquivo selecionado
+                Image imagem = Image.FromFile(caminhoDaImagem);
+
+                // Exibe a imagem no PictureBox
+                fotoAutomovel.Image = imagem;
+            }
+
+        }
+
+        private void btnApagar_Click(object sender, EventArgs e) {
+            fotoAutomovel.Image = null;
         }
     }
 }

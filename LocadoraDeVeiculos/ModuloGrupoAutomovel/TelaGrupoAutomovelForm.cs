@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
         }
 
         public GrupoAutomovel ObterGrupo() {
-           
+
             grupoAutomovel.Nome = txtNome.Text;
 
             return grupoAutomovel;
@@ -39,6 +39,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
 
                 DialogResult = DialogResult.None;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            txtNome.Text = grupoAutomovel.Nome;
         }
     }
 }

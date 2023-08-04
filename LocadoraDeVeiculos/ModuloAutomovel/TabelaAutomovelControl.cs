@@ -35,10 +35,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
             return grid.SelecionarId();
         }
 
-        public void AtualizarRegistros(List<Automovel> automovel) {
+        public void AtualizarRegistros(List<Automovel> automoveis) {
             grid.Rows.Clear();
 
-            foreach (Automovel a in automovel) {
+            foreach (Automovel a in automoveis) {
                 grid.Rows.Add(a.Id, a.Placa, a.Marca, a.Cor, a.Modelo, a.TipoCombustivel, a.GrupoAutomovel);
             }
         }

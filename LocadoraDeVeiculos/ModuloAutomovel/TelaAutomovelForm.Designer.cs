@@ -46,6 +46,8 @@
             txtPlaca = new TextBox();
             txtQuilometragem = new TextBox();
             label10 = new Label();
+            openFileDialog = new OpenFileDialog();
+            btnApagar = new Button();
             ((System.ComponentModel.ISupportInitialize)txtAno).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fotoAutomovel).BeginInit();
             SuspendLayout();
@@ -175,20 +177,24 @@
             // 
             // fotoAutomovel
             // 
+            fotoAutomovel.BackColor = SystemColors.ControlDark;
+            fotoAutomovel.InitialImage = null;
             fotoAutomovel.Location = new Point(162, 41);
             fotoAutomovel.Name = "fotoAutomovel";
             fotoAutomovel.Size = new Size(270, 150);
+            fotoAutomovel.SizeMode = PictureBoxSizeMode.Zoom;
             fotoAutomovel.TabIndex = 31;
             fotoAutomovel.TabStop = false;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(438, 91);
+            btnBuscar.Location = new Point(438, 63);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(90, 50);
             btnBuscar.TabIndex = 32;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtModelo
             // 
@@ -247,11 +253,26 @@
             label10.TabIndex = 38;
             label10.Text = "Quilometragem:";
             // 
+            // openFileDialog
+            // 
+            openFileDialog.FileName = "openFileDialog";
+            // 
+            // btnApagar
+            // 
+            btnApagar.Location = new Point(438, 119);
+            btnApagar.Name = "btnApagar";
+            btnApagar.Size = new Size(90, 50);
+            btnApagar.TabIndex = 40;
+            btnApagar.Text = "Apagar Foto";
+            btnApagar.UseVisualStyleBackColor = true;
+            btnApagar.Click += btnApagar_Click;
+            // 
             // TelaAutomovelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(542, 542);
+            Controls.Add(btnApagar);
             Controls.Add(txtQuilometragem);
             Controls.Add(label10);
             Controls.Add(txtPlaca);
@@ -313,5 +334,7 @@
         private Label label9;
         private TextBox txtQuilometragem;
         private Label label10;
+        private OpenFileDialog openFileDialog;
+        private Button btnApagar;
     }
 }

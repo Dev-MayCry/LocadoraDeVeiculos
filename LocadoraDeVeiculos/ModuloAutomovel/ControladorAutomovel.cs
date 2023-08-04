@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
         }
 
         public override void Inserir() {
-            TelaAutomovelForm tela = new TelaAutomovelForm();
+            TelaAutomovelForm tela = new TelaAutomovelForm(repositorioGrupoAutomovel);
 
             tela.onGravarRegistro += servicoAutomovel.Inserir;
 
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
                 return;
             }
 
-            TelaAutomovelForm tela = new();
+            TelaAutomovelForm tela = new(repositorioGrupoAutomovel);
 
             tela.onGravarRegistro += servicoAutomovel.Editar;
 

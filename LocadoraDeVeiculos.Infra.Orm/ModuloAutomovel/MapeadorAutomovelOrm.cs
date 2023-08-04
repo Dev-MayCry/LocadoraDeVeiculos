@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel {
                 .HasConstraintName("FK_TBAutomovel_TBGrupoAutomovel")
                 .OnDelete(DeleteBehavior.NoAction);
 
-            automovelBuilder.Property(a => a.Foto).HasColumnType("varbinary(50)").IsRequired(false);
+            automovelBuilder.Property(a => a.Foto).HasColumnType("varbinary(max)").IsRequired(false);
         }
     }
 }
