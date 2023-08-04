@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
+using LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel;
 
 namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 {
@@ -17,6 +19,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
         protected IRepositorioParceiro repositorioParceiro;
         protected IRepositorioGrupoAutomovel repositorioGrupoAutomovel;
         protected IRepositorioFuncionario repositorioFuncionario;
+        protected IRepositorioAutomovel repositorioAutomovel;
        
 
         public TesteIntegracaoBase() {
@@ -33,12 +36,14 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
             repositorioParceiro = new RepositorioParceiroOrm(dbContext);
             repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
             repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
+            repositorioAutomovel = new RepositorioAutomovelOrm(dbContext);
             
             
 
             BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<GrupoAutomovel>(repositorioGrupoAutomovel.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Automovel>(repositorioAutomovel.Inserir);
             
         }
 
@@ -52,6 +57,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
                 DELETE FROM [DBO].[TBPARCEIRO]
                 DELETE FROM [DBO].[TBGRUPOAUTOMOVEL]
                 DELETE FROM [DBO].[TBFUNCIONARIO];
+                DELETE FROM [DBO].[TBAUTOMOVEL];
                 ";
             SqlCommand comando = new SqlCommand(sqlLimpezaTabela, sqlConnection);
 

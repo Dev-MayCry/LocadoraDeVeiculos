@@ -42,6 +42,18 @@ namespace LocadoraDeVeiculos.Dominio.ModuloAutomovel {
             Foto = foto;
             GrupoAutomovel = grupoAutomovel;
         }
+        public Automovel(Guid id, string placa, string modelo, string marca, string cor, TipoCombustivelEnum tipoCombustivel, int capacidadeLitros, int quilometragem, int ano, GrupoAutomovel grupoAutomovel) {
+            Id = id;
+            Placa = placa;
+            Modelo = modelo;
+            Marca = marca;
+            Cor = cor;
+            TipoCombustivel = tipoCombustivel;
+            CapacidadeLitros = capacidadeLitros;
+            Quilometragem = quilometragem;
+            Ano = ano;
+            GrupoAutomovel = grupoAutomovel;
+        }
 
         public override void Atualizar(Automovel registro) {
             Placa = registro.Placa;
