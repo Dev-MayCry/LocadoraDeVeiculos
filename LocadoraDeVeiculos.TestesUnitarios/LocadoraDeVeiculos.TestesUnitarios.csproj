@@ -28,7 +28,6 @@
     <Folder Include="Aplicacao\ModuloCupom\" />
     <Folder Include="Aplicacao\ModuloFuncionario\" />
     <Folder Include="Aplicacao\ModuloPlanoCobranca\" />
-    <Folder Include="Aplicacao\ModuloTaxaEServico\" />
     <Folder Include="Compartilhado\" />
     <Folder Include="Dominio\ModuloAluguel\" />
     <Folder Include="Dominio\ModuloAutomovel\" />
@@ -39,7 +38,6 @@
     <Folder Include="Dominio\ModuloGrupoAutomovel\" />
     <Folder Include="Dominio\ModuloParceiro\" />
     <Folder Include="Dominio\ModuloPlanoCobranca\" />
-    <Folder Include="Dominio\ModuloTaxaEServico\" />
   </ItemGroup>
 
   <ItemGroup>

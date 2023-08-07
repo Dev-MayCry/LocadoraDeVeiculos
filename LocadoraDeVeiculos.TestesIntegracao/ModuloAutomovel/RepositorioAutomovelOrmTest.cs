@@ -1,6 +1,7 @@
 ﻿using FizzWare.NBuilder;
 using FluentAssertions;
 using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.TestesIntegracao.Compartilhado;
 
 namespace LocadoraDeVeiculos.TestesIntegracao.ModuloAutomovel {
@@ -10,7 +11,8 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloAutomovel {
         [TestMethod]
         public void Deve_inserir_automovel() {
             //arrange
-            var automovel = Builder<Automovel>.CreateNew().Build();
+            var grupoAutomovel = Builder<GrupoAutomovel>.CreateNew().Persist();
+            var automovel = Builder<Automovel>.CreateNew().With(x => x.GrupoAutomovel = grupoAutomovel).Build();
 
             //action
             repositorioAutomovel.Inserir(automovel);
@@ -21,9 +23,9 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloAutomovel {
         [TestMethod]
         public void Deve_editar_automovel() {
             //arrange
-            var automovelId = Builder<Automovel>.CreateNew().Persist().Id;
+            var grupoAutomovel = Builder<GrupoAutomovel>.CreateNew().Persist();
+            var automovel = Builder<Automovel>.CreateNew().With(x => x.GrupoAutomovel = grupoAutomovel).Persist();
 
-            var automovel = repositorioAutomovel.SelecionarPorId(automovelId);
             automovel.Placa = "AAA0000";
 
             //action
@@ -36,7 +38,8 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloAutomovel {
         [TestMethod]
         public void Deve_excluir_automovel() {
             //arrange
-            var automovel = Builder<Automovel>.CreateNew().Persist();
+            var grupoAutomovel = Builder<GrupoAutomovel>.CreateNew().Persist();
+            var automovel = Builder<Automovel>.CreateNew().With(x => x.GrupoAutomovel = grupoAutomovel).Persist();
 
             //action
             repositorioAutomovel.Excluir(automovel);
@@ -46,10 +49,11 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloAutomovel {
         }
 
         [TestMethod]
-        public void Deve_selecionar_todos_automovels() {
+        public void Deve_selecionar_todos_automoveis() {
             //arrange
-            var matematica = Builder<Automovel>.CreateNew().With(x => x.Placa = "AAA0000").Persist();
-            var portugues = Builder<Automovel>.CreateNew().With(x => x.Placa = "AAA0A000").Persist();
+            var grupoAutomovel = Builder<GrupoAutomovel>.CreateNew().Persist();
+            var matematica = Builder<Automovel>.CreateNew().With(x => x.Placa = "AAA0000").With(x => x.GrupoAutomovel = grupoAutomovel).Persist();
+            var portugues = Builder<Automovel>.CreateNew().With(x => x.Placa = "AAA0A000").With(x => x.GrupoAutomovel = grupoAutomovel).Persist();
 
             //action
             var automovel = repositorioAutomovel.SelecionarTodos();
@@ -60,9 +64,10 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloAutomovel {
         }
 
         [TestMethod]
-        public void Deve_selecionar_automovel_por_nome() {
+        public void Deve_selecionar_automovel_por_placa() {
             //arrange
-            var matematica = Builder<Automovel>.CreateNew().Persist();
+            var grupoAutomovel = Builder<GrupoAutomovel>.CreateNew().Persist();
+            var matematica = Builder<Automovel>.CreateNew().With(x => x.GrupoAutomovel = grupoAutomovel).Persist();
 
             //action
             var automovelsEncontrados = repositorioAutomovel.SelecionarPorPlaca(matematica.Placa);
@@ -74,7 +79,8 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloAutomovel {
         [TestMethod]
         public void Deve_selecionar_automovel_por_id() {
             //arrange
-            var matematica = Builder<Automovel>.CreateNew().Persist();
+            var grupoAutomovel = Builder<GrupoAutomovel>.CreateNew().Persist();
+            var matematica = Builder<Automovel>.CreateNew().With(x => x.GrupoAutomovel = grupoAutomovel).Persist();
 
             //action
             var automovelsEncontrada = repositorioAutomovel.SelecionarPorId(matematica.Id);

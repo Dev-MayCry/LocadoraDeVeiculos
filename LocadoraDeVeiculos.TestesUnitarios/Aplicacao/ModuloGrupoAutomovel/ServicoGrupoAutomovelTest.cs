@@ -149,7 +149,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloGrupoAutomovel {
         public void Deve_excluir_parceiro_caso_ele_esteja_cadastrado() //cenário 1
         {
             //arrange
-            var parceiro = new Parceiro("Desconto do Deko");
+            var parceiro = new GrupoAutomovel("Desconto do Deko");
 
             repositorioGrupoAutomovelMoq.Setup(x => x.Existe(grupo))
                .Returns(() => {
@@ -169,7 +169,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloGrupoAutomovel {
         {
             //arrange
 
-            var parceiro = new Parceiro("Desconto do Deko");
+            var parceiro = new GrupoAutomovel("Desconto do Deko");
 
             repositorioGrupoAutomovelMoq.Setup(x => x.Existe(grupo))
                .Returns(() => {

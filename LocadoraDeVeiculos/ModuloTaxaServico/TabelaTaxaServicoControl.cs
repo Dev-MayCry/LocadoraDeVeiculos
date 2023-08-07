@@ -1,9 +1,9 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
+﻿using LocadoraDeVeiculos.Dominio.ModuloTaxaServico;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 
-namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
-    public partial class TabelaGrupoAutomovelControl : UserControl {
-        public TabelaGrupoAutomovelControl() {
+namespace LocadoraDeVeiculos.WinApp.ModuloTaxaServico {
+    public partial class TabelaTaxaServicoControl : UserControl {
+        public TabelaTaxaServicoControl() {
             InitializeComponent();
             grid.ConfigurarGridZebrado();
             grid.ConfigurarGridSomenteLeitura();
@@ -14,7 +14,9 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
             {
                 new DataGridViewTextBoxColumn { Name = "Id", HeaderText = "Id", FillWeight=15F, Visible = false},
 
-                new DataGridViewTextBoxColumn { Name = "Nome", HeaderText = "Nome", FillWeight=15F }
+                new DataGridViewTextBoxColumn { Name = "Nome", HeaderText = "Nome", FillWeight=15F },
+
+                new DataGridViewTextBoxColumn { Name = "Preço", HeaderText = "Preço", FillWeight=15F },
             };
 
             return colunas;
@@ -24,11 +26,11 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
             return grid.SelecionarId();
         }
 
-        public void AtualizarRegistros(List<GrupoAutomovel> gruposAutomovel) {
+        public void AtualizarRegistros(List<TaxaServico> taxas) {
             grid.Rows.Clear();
 
-            foreach (GrupoAutomovel g in gruposAutomovel) {
-                grid.Rows.Add(g.Id, g.Nome);
+            foreach (TaxaServico t in taxas) {
+                grid.Rows.Add(t.Id, t.Nome, t.Preco);
             }
         }
     }

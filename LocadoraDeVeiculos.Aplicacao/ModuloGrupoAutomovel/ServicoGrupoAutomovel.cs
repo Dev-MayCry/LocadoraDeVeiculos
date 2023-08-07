@@ -84,8 +84,10 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoAutomovel {
                 string msgErro;
 
                 //não pode excluir caso esteja sendo utilizado em automoveis, planos de cobrança e alugueis abertos
-                if (ex.Message.Contains("FK_TBMateria_TBGrupoAutomovel"))
-                    msgErro = "Esta grupo está relacionada com uma matéria e não pode ser excluída";
+                if (ex.Message.Contains("FK_TBAutomovel_TBGrupoAutomovel"))
+                    msgErro = "Esta grupo está relacionada com um automóvel e não pode ser excluído";
+                else if (ex.Message.Contains("FK_TBAluguel_TBGrupoAutomovel"))
+                    msgErro = "Esta grupo está relacionada com um automóvel e não pode ser excluído";
                 else
                     msgErro = "Falha ao tentar excluir grupo";
 
