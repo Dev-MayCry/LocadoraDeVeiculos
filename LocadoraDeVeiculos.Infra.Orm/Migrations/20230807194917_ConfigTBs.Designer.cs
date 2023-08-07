@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadoraDeVeiculosDbContext))]
-    partial class LocadoraDeVeiculosDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230807194917_ConfigTBs")]
+    partial class ConfigTBs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,14 +178,14 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int>("PossuiPlanoControlador")
-                        .HasColumnType("int");
+                    b.Property<bool>("PossuiPlanoControlador")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("PossuiPlanoDiario")
-                        .HasColumnType("int");
+                    b.Property<bool>("PossuiPlanoDiario")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("PossuiPlanoLivre")
-                        .HasColumnType("int");
+                    b.Property<bool>("PossuiPlanoLivre")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -252,18 +255,6 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                         .HasConstraintName("FK_TBCupom_TBParceiro");
 
                     b.Navigation("Parceiro");
-                });
-
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca.PlanoCobranca", b =>
-                {
-                    b.HasOne("LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel.GrupoAutomovel", "grupo")
-                        .WithMany()
-                        .HasForeignKey("grupoId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired()
-                        .HasConstraintName("FK_TBPlanoCobranca_TBGrupoAutomoveis");
-
-                    b.Navigation("grupo");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca.PlanoCobranca", b =>

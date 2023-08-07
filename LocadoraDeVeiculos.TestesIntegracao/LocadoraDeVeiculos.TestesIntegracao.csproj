@@ -29,7 +29,6 @@
     <Folder Include="ModuloAluguel\" />
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloCondutor\" />
-    <Folder Include="ModuloCupom\" />
     <Folder Include="ModuloFuncionario\" />
     <Folder Include="ModuloPlanoCobranca\" />
     <Folder Include="ModuloTaxaEServico\" />
@@ -41,7 +40,7 @@
 
   <ItemGroup>
     <None Update="appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
