@@ -27,11 +27,11 @@
             label1 = new Label();
             btnCancelar = new Button();
             btnSalvar = new Button();
-            textPreco = new TextBox();
+            txtPreco = new TextBox();
             label2 = new Label();
             groupBox1 = new GroupBox();
-            btnPrecoFixo = new RadioButton();
             btnCobrancaDiaria = new RadioButton();
+            btnPrecoFixo = new RadioButton();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -73,13 +73,13 @@
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             // 
-            // textPreco
+            // txtPreco
             // 
-            textPreco.Location = new Point(85, 85);
-            textPreco.Name = "textPreco";
-            textPreco.Size = new Size(259, 23);
-            textPreco.TabIndex = 15;
-            textPreco.TextChanged += textPreco_TextChanged;
+            txtPreco.Location = new Point(85, 85);
+            txtPreco.Name = "txtPreco";
+            txtPreco.Size = new Size(259, 23);
+            txtPreco.TabIndex = 15;
+            txtPreco.KeyPress += textPreco_KeyPress;
             // 
             // label2
             // 
@@ -101,17 +101,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Plano de Cálculo";
             // 
-            // btnPrecoFixo
-            // 
-            btnPrecoFixo.AutoSize = true;
-            btnPrecoFixo.Location = new Point(23, 30);
-            btnPrecoFixo.Name = "btnPrecoFixo";
-            btnPrecoFixo.Size = new Size(80, 19);
-            btnPrecoFixo.TabIndex = 0;
-            btnPrecoFixo.TabStop = true;
-            btnPrecoFixo.Text = "Preço Fixo";
-            btnPrecoFixo.UseVisualStyleBackColor = true;
-            // 
             // btnCobrancaDiaria
             // 
             btnCobrancaDiaria.AutoSize = true;
@@ -123,13 +112,24 @@
             btnCobrancaDiaria.Text = "Cobrança Diária";
             btnCobrancaDiaria.UseVisualStyleBackColor = true;
             // 
+            // btnPrecoFixo
+            // 
+            btnPrecoFixo.AutoSize = true;
+            btnPrecoFixo.Location = new Point(23, 30);
+            btnPrecoFixo.Name = "btnPrecoFixo";
+            btnPrecoFixo.Size = new Size(80, 19);
+            btnPrecoFixo.TabIndex = 0;
+            btnPrecoFixo.TabStop = true;
+            btnPrecoFixo.Text = "Preço Fixo";
+            btnPrecoFixo.UseVisualStyleBackColor = true;
+            // 
             // TelaTaxaServicoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(464, 263);
             Controls.Add(groupBox1);
-            Controls.Add(textPreco);
+            Controls.Add(txtPreco);
             Controls.Add(label2);
             Controls.Add(txtNome);
             Controls.Add(label1);
@@ -149,7 +149,7 @@
         private Label label1;
         private Button btnCancelar;
         private Button btnSalvar;
-        private TextBox textPreco;
+        private TextBox txtPreco;
         private Label label2;
         private GroupBox groupBox1;
         private RadioButton btnCobrancaDiaria;
