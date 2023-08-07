@@ -12,6 +12,7 @@
     <Folder Include="ModuloGrupoAutomovel\" />
     <Folder Include="ModuloFuncionario\" />
     <Folder Include="ModuloPlanoCobranca\" />
+    <Folder Include="ModuloAutomovel\" />
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloCondutor\" />
     <Folder Include="ModuloTaxaEServico\" />

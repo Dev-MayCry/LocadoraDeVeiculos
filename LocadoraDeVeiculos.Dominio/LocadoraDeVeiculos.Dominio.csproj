@@ -13,7 +13,6 @@
     <Folder Include="ModuloCupom\" />
     <Folder Include="ModuloGrupoAutomovel\" />
     <Folder Include="ModuloFuncionario\" />
-    <Folder Include="ModuloPlanoCobranca\" />
     <Folder Include="ModuloTaxaEServico\" />
   </ItemGroup>
 

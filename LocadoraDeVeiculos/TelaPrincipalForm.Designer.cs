@@ -53,78 +53,90 @@
             // 
             // menu
             // 
-            menu.ImageScalingSize = new Size(20, 20);
-            menu.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem });
-            menu.Location = new Point(0, 0);
-            menu.Name = "menu";
-            menu.Size = new Size(800, 24);
-            menu.TabIndex = 1;
-            menu.Text = "menuStrip1";
+            this.menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrosToolStripMenuItem});
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(800, 24);
+            this.menu.TabIndex = 1;
+            this.menu.Text = "menuStrip1";
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, funcionárioToolStripMenuItem, grupoDeAutomóvelToolStripMenuItem, clienteToolStripMenuItem, condutorToolStripMenuItem, planoECobrançaToolStripMenuItem, taxaEServiçoToolStripMenuItem, aluguelToolStripMenuItem, automóvelToolStripMenuItem, cupomToolStripMenuItem });
-            cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            cadastrosToolStripMenuItem.Size = new Size(71, 20);
-            cadastrosToolStripMenuItem.Text = "Cadastros";
+            this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.disciplinaMenuItem,
+            this.funcionárioToolStripMenuItem,
+            this.grupoDeAutomóvelToolStripMenuItem,
+            this.clienteToolStripMenuItem,
+            this.condutorToolStripMenuItem,
+            this.planoECobrançaToolStripMenuItem,
+            this.taxaEServiçoToolStripMenuItem,
+            this.aluguelToolStripMenuItem,
+            this.automóvelToolStripMenuItem,
+            this.cupomToolStripMenuItem});
+            this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // disciplinaMenuItem
             // 
-            disciplinaMenuItem.Name = "disciplinaMenuItem";
-            disciplinaMenuItem.ShortcutKeys = Keys.F1;
-            disciplinaMenuItem.Size = new Size(204, 22);
-            disciplinaMenuItem.Text = "Parceiro";
-            disciplinaMenuItem.Click += disciplinaMenuItem_Click;
+            this.disciplinaMenuItem.Name = "disciplinaMenuItem";
+            this.disciplinaMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.disciplinaMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.disciplinaMenuItem.Text = "Parceiro";
+            this.disciplinaMenuItem.Click += new System.EventHandler(this.disciplinaMenuItem_Click);
             // 
             // funcionárioToolStripMenuItem
             // 
-            funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            funcionárioToolStripMenuItem.ShortcutKeys = Keys.F2;
-            funcionárioToolStripMenuItem.Size = new Size(204, 22);
-            funcionárioToolStripMenuItem.Text = "Funcionário";
-            funcionárioToolStripMenuItem.Click += funcionárioToolStripMenuItem_Click;
+            this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
+            this.funcionárioToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.funcionárioToolStripMenuItem.Text = "Funcionário";
+            this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
             // grupoDeAutomóvelToolStripMenuItem
             // 
-            grupoDeAutomóvelToolStripMenuItem.Name = "grupoDeAutomóvelToolStripMenuItem";
-            grupoDeAutomóvelToolStripMenuItem.ShortcutKeys = Keys.F3;
-            grupoDeAutomóvelToolStripMenuItem.Size = new Size(204, 22);
-            grupoDeAutomóvelToolStripMenuItem.Text = "Grupo de Automóvel";
-            grupoDeAutomóvelToolStripMenuItem.Click += grupoDeAutomoveisMenuItem_Click;
+            this.grupoDeAutomóvelToolStripMenuItem.Name = "grupoDeAutomóvelToolStripMenuItem";
+            this.grupoDeAutomóvelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.grupoDeAutomóvelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.grupoDeAutomóvelToolStripMenuItem.Text = "Grupo de Automóvel";
+            this.grupoDeAutomóvelToolStripMenuItem.Click += new System.EventHandler(this.grupoDeAutomoveisMenuItem_Click);
             // 
             // clienteToolStripMenuItem
             // 
-            clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            clienteToolStripMenuItem.ShortcutKeys = Keys.F4;
-            clienteToolStripMenuItem.Size = new Size(204, 22);
-            clienteToolStripMenuItem.Text = "Cliente";
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.clienteToolStripMenuItem.Text = "Cliente";
             // 
             // condutorToolStripMenuItem
             // 
-            condutorToolStripMenuItem.Name = "condutorToolStripMenuItem";
-            condutorToolStripMenuItem.ShortcutKeys = Keys.F5;
-            condutorToolStripMenuItem.Size = new Size(204, 22);
-            condutorToolStripMenuItem.Text = "Condutor";
+            this.condutorToolStripMenuItem.Name = "condutorToolStripMenuItem";
+            this.condutorToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.condutorToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.condutorToolStripMenuItem.Text = "Condutor";
             // 
             // planoECobrançaToolStripMenuItem
             // 
-            planoECobrançaToolStripMenuItem.Name = "planoECobrançaToolStripMenuItem";
-            planoECobrançaToolStripMenuItem.ShortcutKeys = Keys.F6;
-            planoECobrançaToolStripMenuItem.Size = new Size(204, 22);
-            planoECobrançaToolStripMenuItem.Text = "Plano e Cobrança";
+            this.planoECobrançaToolStripMenuItem.Name = "planoECobrançaToolStripMenuItem";
+            this.planoECobrançaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.planoECobrançaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.planoECobrançaToolStripMenuItem.Text = "Plano e Cobrança";
+            this.planoECobrançaToolStripMenuItem.Click += new System.EventHandler(this.planoECobrançaToolStripMenuItem_Click);
             // 
             // taxaEServiçoToolStripMenuItem
             // 
-            taxaEServiçoToolStripMenuItem.Name = "taxaEServiçoToolStripMenuItem";
-            taxaEServiçoToolStripMenuItem.ShortcutKeys = Keys.F7;
-            taxaEServiçoToolStripMenuItem.Size = new Size(204, 22);
-            taxaEServiçoToolStripMenuItem.Text = "Taxa e Serviço";
+            this.taxaEServiçoToolStripMenuItem.Name = "taxaEServiçoToolStripMenuItem";
+            this.taxaEServiçoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.taxaEServiçoToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.taxaEServiçoToolStripMenuItem.Text = "Taxa e Serviço";
             // 
             // aluguelToolStripMenuItem
             // 
-            aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
-            aluguelToolStripMenuItem.Size = new Size(204, 22);
-            aluguelToolStripMenuItem.Text = "Aluguel";
+            this.aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
+            this.aluguelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.aluguelToolStripMenuItem.Text = "Aluguel";
             // 
             // automóvelToolStripMenuItem
             // 
@@ -135,9 +147,9 @@
             // 
             // cupomToolStripMenuItem
             // 
-            cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
-            cupomToolStripMenuItem.Size = new Size(204, 22);
-            cupomToolStripMenuItem.Text = "Cupom";
+            this.cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
+            this.cupomToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.cupomToolStripMenuItem.Text = "Cupom";
             // 
             // toolbox
             // 
@@ -152,36 +164,36 @@
             // 
             // btnInserir
             // 
-            btnInserir.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnInserir.ImageScaling = ToolStripItemImageScaling.None;
-            btnInserir.ImageTransparentColor = Color.Magenta;
-            btnInserir.Name = "btnInserir";
-            btnInserir.Padding = new Padding(5);
-            btnInserir.Size = new Size(72, 29);
-            btnInserir.Text = "Adicionar";
-            btnInserir.Click += btnInserir_Click;
+            this.btnInserir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnInserir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnInserir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Padding = new System.Windows.Forms.Padding(5);
+            this.btnInserir.Size = new System.Drawing.Size(72, 29);
+            this.btnInserir.Text = "Adicionar";
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // btnEditar
             // 
-            btnEditar.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnEditar.ImageScaling = ToolStripItemImageScaling.None;
-            btnEditar.ImageTransparentColor = Color.Magenta;
-            btnEditar.Name = "btnEditar";
-            btnEditar.Padding = new Padding(5);
-            btnEditar.Size = new Size(51, 29);
-            btnEditar.Text = "Editar";
-            btnEditar.Click += btnEditar_Click;
+            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Padding = new System.Windows.Forms.Padding(5);
+            this.btnEditar.Size = new System.Drawing.Size(51, 29);
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
-            btnExcluir.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnExcluir.ImageScaling = ToolStripItemImageScaling.None;
-            btnExcluir.ImageTransparentColor = Color.Magenta;
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Padding = new Padding(5);
-            btnExcluir.Size = new Size(56, 29);
-            btnExcluir.Text = "Excluir";
-            btnExcluir.Click += btnExcluir_Click;
+            this.btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnExcluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Padding = new System.Windows.Forms.Padding(5);
+            this.btnExcluir.Size = new System.Drawing.Size(56, 29);
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnFiltrar
             // 
@@ -195,61 +207,63 @@
             // 
             // toolStripSeparator2
             // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 32);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 32);
             // 
             // labelTipoCadastro
             // 
-            labelTipoCadastro.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            labelTipoCadastro.Name = "labelTipoCadastro";
-            labelTipoCadastro.Size = new Size(90, 29);
-            labelTipoCadastro.Text = "[tipoCadastro]";
+            this.labelTipoCadastro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.labelTipoCadastro.Name = "labelTipoCadastro";
+            this.labelTipoCadastro.Size = new System.Drawing.Size(90, 29);
+            this.labelTipoCadastro.Text = "[tipoCadastro]";
             // 
             // panelRegistros
             // 
-            panelRegistros.Dock = DockStyle.Fill;
-            panelRegistros.Location = new Point(0, 56);
-            panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(800, 394);
-            panelRegistros.TabIndex = 4;
+            this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRegistros.Location = new System.Drawing.Point(0, 56);
+            this.panelRegistros.Name = "panelRegistros";
+            this.panelRegistros.Size = new System.Drawing.Size(800, 394);
+            this.panelRegistros.TabIndex = 4;
             // 
             // statusStrip1
             // 
-            statusStrip1.ImageScalingSize = new Size(20, 20);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 428);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 22);
-            statusStrip1.TabIndex = 5;
-            statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelRodape});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // labelRodape
             // 
-            labelRodape.Name = "labelRodape";
-            labelRodape.Size = new Size(52, 17);
-            labelRodape.Text = "[rodapé]";
+            this.labelRodape.Name = "labelRodape";
+            this.labelRodape.Size = new System.Drawing.Size(52, 17);
+            this.labelRodape.Text = "[rodapé]";
             // 
             // TelaPrincipalForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(statusStrip1);
-            Controls.Add(panelRegistros);
-            Controls.Add(toolbox);
-            Controls.Add(menu);
-            Name = "TelaPrincipalForm";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Locadora de Veículos Top";
-            menu.ResumeLayout(false);
-            menu.PerformLayout();
-            toolbox.ResumeLayout(false);
-            toolbox.PerformLayout();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.panelRegistros);
+            this.Controls.Add(this.toolbox);
+            this.Controls.Add(this.menu);
+            this.Name = "TelaPrincipalForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Locadora de Veículos Top";
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
+            this.toolbox.ResumeLayout(false);
+            this.toolbox.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

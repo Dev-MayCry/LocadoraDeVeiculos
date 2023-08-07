@@ -27,7 +27,6 @@
     <Folder Include="Aplicacao\ModuloCondutor\" />
     <Folder Include="Aplicacao\ModuloCupom\" />
     <Folder Include="Aplicacao\ModuloFuncionario\" />
-    <Folder Include="Aplicacao\ModuloPlanoCobranca\" />
     <Folder Include="Aplicacao\ModuloTaxaEServico\" />
     <Folder Include="Compartilhado\" />
     <Folder Include="Dominio\ModuloAluguel\" />
