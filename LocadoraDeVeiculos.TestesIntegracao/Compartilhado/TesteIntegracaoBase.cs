@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoCobranca;
 
 namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 {
@@ -17,6 +19,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
         protected IRepositorioParceiro repositorioParceiro;
         protected IRepositorioGrupoAutomovel repositorioGrupoAutomovel;
         protected IRepositorioFuncionario repositorioFuncionario;
+        protected IRepositorioPlanoCobranca repositorioPlanoCobranca;
        
 
         public TesteIntegracaoBase() {
@@ -33,13 +36,15 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
             repositorioParceiro = new RepositorioParceiroOrm(dbContext);
             repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
             repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
-            
-            
+            repositorioPlanoCobranca = new RepositorioPlanoCobrancaOrm(dbContext);
+
+
 
             BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<GrupoAutomovel>(repositorioGrupoAutomovel.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
-            
+            BuilderSetup.SetCreatePersistenceMethod<PlanoCobranca>(repositorioPlanoCobranca.Inserir);
+
         }
 
         protected static void LimparTabelas() {
@@ -49,10 +54,13 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 
             string sqlLimpezaTabela =
                 @"
-                DELETE FROM [DBO].[TBPARCEIRO]
-                DELETE FROM [DBO].[TBGRUPOAUTOMOVEL]
+                DELETE FROM [DBO].[TBPLANOCOBRANCA];
+                DELETE FROM [DBO].[TBPARCEIRO];
+                DELETE FROM [DBO].[TBGRUPOAUTOMOVEL];
                 DELETE FROM [DBO].[TBFUNCIONARIO];
+              
                 ";
+
             SqlCommand comando = new SqlCommand(sqlLimpezaTabela, sqlConnection);
 
             sqlConnection.Open();

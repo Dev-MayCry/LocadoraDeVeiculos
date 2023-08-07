@@ -14,6 +14,10 @@ using LocadoraDeVeiculos.WinApp.ModuloParceiro;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Aplicacao.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca;
 
 namespace LocadoraDeVeiculos {
     public partial class TelaPrincipalForm : Form {
@@ -87,6 +91,16 @@ namespace LocadoraDeVeiculos {
 
             controladores.Add("ControladorFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
 
+
+            IRepositorioPlanoCobranca repositorioPlanoCobranca = new RepositorioPlanoCobrancaOrm(dbContext);
+
+            ValidadorPlanoCobranca validadorPlanoCobranca = new();
+
+            ServicoPlanoCobranca servicoPlanoCobranca = new(repositorioPlanoCobranca,validadorPlanoCobranca);
+
+
+            controladores.Add("ControladorPlanoCobranca", new ControladorPlanoCobranca(repositorioPlanoCobranca, servicoPlanoCobranca,repositorioGrupoAutomovel));
+
         }
 
 
@@ -100,6 +114,10 @@ namespace LocadoraDeVeiculos {
         }
         private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorFuncionario"]);
+        }
+
+        private void planoECobrançaToolStripMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorPlanoCobranca"]);
         }
 
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
@@ -167,6 +185,6 @@ namespace LocadoraDeVeiculos {
             controlador.Excluir();
         }
 
-
+        
     }
 }

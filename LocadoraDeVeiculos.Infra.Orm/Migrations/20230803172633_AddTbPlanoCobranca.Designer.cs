@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadoraDeVeiculosDbContext))]
-    partial class LocadoraDeVeiculosDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230803172633_AddTbPlanoCobranca")]
+    partial class AddTbPlanoCobranca
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,15 +53,6 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("varchar(100)");
-
-                    b.Property<bool>("PossuiPlanoControlador")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PossuiPlanoDiario")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PossuiPlanoLivre")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

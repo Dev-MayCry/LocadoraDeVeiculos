@@ -6,7 +6,7 @@ using LocadoraDeVeiculos.WinApp.ModuloFuncionario;
 
 
 namespace LocadoraDeVeiculos.WinApp.ModuloFuncionario {
-    internal class ControladorFuncionario : ControladorBase {
+    public class ControladorFuncionario : ControladorBase {
 
         private IRepositorioFuncionario repositorioFuncionario;
         private TabelaFuncionarioControl tabelaFuncionario;
