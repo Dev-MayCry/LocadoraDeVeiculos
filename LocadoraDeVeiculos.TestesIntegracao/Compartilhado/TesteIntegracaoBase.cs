@@ -1,25 +1,24 @@
 ﻿using FizzWare.NBuilder;
-using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
-using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
 using LocadoraDeVeiculos.Infra.Orm.ModuloParceiro;
 using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
-using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
-using LocadoraDeVeiculos.Dominio.ModuloCupom;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCupom;
-using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel;
-using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
 using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Dominio.ModuloCupom;
+using LocadoraDeVeiculos.Dominio.ModuloCliente;
+using LocadoraDeVeiculos.Dominio.ModuloParceiro;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
+using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 
-namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
-{
+namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado {
     public class TesteIntegracaoBase {
         protected IRepositorioCupom repositorioCupom;
         protected IRepositorioCliente repositorioCliente;
@@ -72,13 +71,12 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 
             string sqlLimpezaTabela =
                 @"
-                DELETE FROM [DBO].[TBCLIENTE]
-                DELETE FROM [DBO].[TBPARCEIRO]
-                DELETE FROM [DBO].[TBGRUPOAUTOMOVEL]
-                DELETE FROM [DBO].[TBAUTOMOVEL];
                 DELETE FROM [DBO].[TBPLANOCOBRANCA];
-                DELETE FROM [DBO].[TBPARCEIRO];
+                DELETE FROM [DBO].[TBAUTOMOVEL];
+                DELETE FROM [DBO].[TBCLIENTE];
+                DELETE FROM [DBO].[TBAUTOMOVEL];
                 DELETE FROM [DBO].[TBGRUPOAUTOMOVEL];
+                DELETE FROM [DBO].[TBPARCEIRO];
                 DELETE FROM [DBO].[TBFUNCIONARIO];
               
                 ";

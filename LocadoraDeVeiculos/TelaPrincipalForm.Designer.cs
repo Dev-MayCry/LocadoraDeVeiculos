@@ -26,8 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
             menu = new MenuStrip();
@@ -78,7 +77,7 @@
             this.disciplinaMenuItem,
             this.funcionárioToolStripMenuItem,
             this.grupoDeAutomóvelToolStripMenuItem,
-            this.clienteToolStripMenuItem,
+            
             this.condutorToolStripMenuItem,
             this.planoECobrançaToolStripMenuItem,
             this.taxaEServiçoToolStripMenuItem,
@@ -120,10 +119,8 @@
             clienteMenuItem.Size = new Size(204, 22);
             clienteMenuItem.Text = "Cliente";
             clienteMenuItem.Click += clienteMenuItem_Click;
-            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.clienteToolStripMenuItem.Text = "Cliente";
+            
+      
             // 
             // condutorToolStripMenuItem
             // 

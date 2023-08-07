@@ -176,7 +176,7 @@ namespace LocadoraDeVeiculos
             ConfigurarTelaPrincipal(controladores["ControladorPlanoCobranca"]);
         }
 
-        private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
+       
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao)
         {
             btnInserir.Enabled = configuracao.InserirHabilitado;
