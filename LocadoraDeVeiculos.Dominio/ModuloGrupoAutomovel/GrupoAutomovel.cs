@@ -1,6 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
-using System.Runtime.CompilerServices;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel
 {

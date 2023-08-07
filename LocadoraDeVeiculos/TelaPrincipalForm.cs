@@ -22,6 +22,10 @@ using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
 using LocadoraDeVeiculos.Aplicacao.ModuloPlanoCobranca;
 using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoCobranca;
 using LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Dominio.ModuloTaxaServico;
+using LocadoraDeVeiculos.Aplicacao.ModuloTaxaServico;
+using LocadoraDeVeiculos.Infra.Orm.ModuloTaxaServico;
+using LocadoraDeVeiculos.WinApp.ModuloTaxaServico;
 
 namespace LocadoraDeVeiculos {
     public partial class TelaPrincipalForm : Form {
@@ -106,38 +110,44 @@ namespace LocadoraDeVeiculos {
             controladores.Add("ControladorAutomovel", new ControladorAutomovel(repositorioAutomovel, servicoAutomovel, repositorioGrupoAutomovel));
 
 
-
-
             IRepositorioPlanoCobranca repositorioPlanoCobranca = new RepositorioPlanoCobrancaOrm(dbContext);
 
             ValidadorPlanoCobranca validadorPlanoCobranca = new();
 
-            ServicoPlanoCobranca servicoPlanoCobranca = new(repositorioPlanoCobranca,validadorPlanoCobranca);
+            ServicoPlanoCobranca servicoPlanoCobranca = new(repositorioPlanoCobranca, validadorPlanoCobranca);
+
+            controladores.Add("ControladorPlanoCobranca", new ControladorPlanoCobranca(repositorioPlanoCobranca, servicoPlanoCobranca, repositorioGrupoAutomovel));
 
 
-            controladores.Add("ControladorPlanoCobranca", new ControladorPlanoCobranca(repositorioPlanoCobranca, servicoPlanoCobranca,repositorioGrupoAutomovel));
+            IRepositorioTaxaServico repositorioTaxaServico = new RepositorioTaxaServicoOrm(dbContext);
+            
+            ValidadorTaxaServico validadorTaxaServico = new();
+
+            ServicoTaxaServico servicoTaxaServico = new(repositorioTaxaServico, validadorTaxaServico);
+
+            controladores.Add("ControladorTaxaServico", new ControladorTaxaServico(repositorioTaxaServico, servicoTaxaServico));
+
 
         }
 
 
         private void disciplinaMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorParceiro"]);
-
         }
-
         private void grupoDeAutomoveisMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorGrupoAutomovel"]);
         }
         private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorFuncionario"]);
         }
-
         private void automóvelToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorAutomovel"]);
         }
-
         private void planoECobrançaToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorPlanoCobranca"]);
+        }
+        private void taxaEServiçoToolStripMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorTaxaServico"]);
         }
 
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
@@ -208,6 +218,7 @@ namespace LocadoraDeVeiculos {
         private void btnFiltrar_Click(object sender, EventArgs e) {
             controlador.Filtrar();
         }
+
         
     }
 }

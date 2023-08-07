@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloTaxaServico;
+﻿using FluentResults;
+using LocadoraDeVeiculos.Dominio.ModuloTaxaServico;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 
 namespace LocadoraDeVeiculos.WinApp.ModuloTaxaServico {
@@ -6,7 +7,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloTaxaServico {
 
         private TaxaServico taxaServico;
 
-        private GravarRegistroDelegate<TaxaServico> onGravarRegistro;
+        public GravarRegistroDelegate<TaxaServico> onGravarRegistro;
 
         public TelaTaxaServicoForm() {
             InitializeComponent();
@@ -29,8 +30,20 @@ namespace LocadoraDeVeiculos.WinApp.ModuloTaxaServico {
         }
 
         private void textPreco_KeyPress(object sender, KeyPressEventArgs e) {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) {
-                e.Handled = true;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e) {
+            taxaServico = ObterTaxa();
+
+            Result resultado = onGravarRegistro(taxaServico);
+
+            if (resultado.IsFailed) {
+                string erro = resultado.Errors[0].Message;
+
+                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+
+                DialogResult = DialogResult.None;
             }
         }
     }

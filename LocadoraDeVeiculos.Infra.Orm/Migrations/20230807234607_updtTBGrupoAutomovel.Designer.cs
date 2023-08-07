@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadoraDeVeiculosDbContext))]
-    [Migration("20230807162742_addTBAutomovel")]
-    partial class addTBAutomovel
+    [Migration("20230807234607_updtTBGrupoAutomovel")]
+    partial class updtTBGrupoAutomovel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -100,6 +100,15 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int>("PossuiPlanoControlador")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PossuiPlanoDiario")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PossuiPlanoLivre")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("TBGrupoAutomovel", (string)null);
@@ -119,6 +128,53 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                     b.ToTable("TBParceiro", (string)null);
                 });
 
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca.PlanoCobranca", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("KmDisponiveis")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PrecoDiaria")
+                        .HasColumnType("decimal");
+
+                    b.Property<decimal>("PrecoKm")
+                        .HasColumnType("decimal");
+
+                    b.Property<Guid>("grupoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("tipo")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("grupoId");
+
+                    b.ToTable("TBPlanoCobranca", (string)null);
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloTaxaServico.TaxaServico", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("decimal");
+
+                    b.Property<int>("TipoPlano")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TBTaxaServico", (string)null);
+                });
+
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloAutomovel.Automovel", b =>
                 {
                     b.HasOne("LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel.GrupoAutomovel", "GrupoAutomovel")
@@ -129,6 +185,18 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                         .HasConstraintName("FK_TBAutomovel_TBGrupoAutomovel");
 
                     b.Navigation("GrupoAutomovel");
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca.PlanoCobranca", b =>
+                {
+                    b.HasOne("LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel.GrupoAutomovel", "grupo")
+                        .WithMany()
+                        .HasForeignKey("grupoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_TBPlanoCobranca_TBGrupoAutomoveis");
+
+                    b.Navigation("grupo");
                 });
 #pragma warning restore 612, 618
         }
