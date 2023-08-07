@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <Folder Include="ModuloAluguel\" />
+    <Folder Include="ModuloAutomovel\" />
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloCondutor\" />
+    <Folder Include="ModuloPlanoCobranca\" />
     <Folder Include="ModuloCupom\" />
     <Folder Include="ModuloTaxaEServico\" />
   </ItemGroup>

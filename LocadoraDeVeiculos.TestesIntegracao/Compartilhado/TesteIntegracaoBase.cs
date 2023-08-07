@@ -9,6 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloCliente;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
+using LocadoraDeVeiculos.Dominio.ModuloCupom;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCupom;
 using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
@@ -17,7 +21,8 @@ using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoCobranca;
 namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 {
     public class TesteIntegracaoBase {
-
+        protected IRepositorioCupom repositorioCupom;
+        protected IRepositorioCliente repositorioCliente;
         protected IRepositorioParceiro repositorioParceiro;
         protected IRepositorioGrupoAutomovel repositorioGrupoAutomovel;
         protected IRepositorioFuncionario repositorioFuncionario;
@@ -35,10 +40,13 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
             optionsBuilder.UseSqlServer(connectionString);
 
             var dbContext = new LocadoraDeVeiculosDbContext(optionsBuilder.Options);
-
             repositorioParceiro = new RepositorioParceiroOrm(dbContext);
+            repositorioCupom = new RepositorioCupomOrm(dbContext);
+            repositorioCliente = new RepositorioClienteOrm(dbContext);
             repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
             repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
+
+
             repositorioAutomovel = new RepositorioAutomovelOrm(dbContext);
             
             
@@ -47,6 +55,8 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 
 
             BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Cupom>(repositorioCupom.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Cliente>(repositorioCliente.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<GrupoAutomovel>(repositorioGrupoAutomovel.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<Automovel>(repositorioAutomovel.Inserir);
@@ -62,6 +72,9 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 
             string sqlLimpezaTabela =
                 @"
+                DELETE FROM [DBO].[TBCLIENTE]
+                DELETE FROM [DBO].[TBPARCEIRO]
+                DELETE FROM [DBO].[TBGRUPOAUTOMOVEL]
                 DELETE FROM [DBO].[TBAUTOMOVEL];
                 DELETE FROM [DBO].[TBPLANOCOBRANCA];
                 DELETE FROM [DBO].[TBPARCEIRO];

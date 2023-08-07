@@ -1,5 +1,7 @@
-﻿namespace LocadoraDeVeiculos {
-    partial class TelaPrincipalForm {
+﻿namespace LocadoraDeVeiculos
+{
+    partial class TelaPrincipalForm
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -9,8 +11,10 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if (disposing && (components != null)) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -22,6 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        private void InitializeComponent()
+        {
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
             menu = new MenuStrip();
@@ -29,7 +35,7 @@
             disciplinaMenuItem = new ToolStripMenuItem();
             funcionárioToolStripMenuItem = new ToolStripMenuItem();
             grupoDeAutomóvelToolStripMenuItem = new ToolStripMenuItem();
-            clienteToolStripMenuItem = new ToolStripMenuItem();
+            clienteMenuItem = new ToolStripMenuItem();
             condutorToolStripMenuItem = new ToolStripMenuItem();
             planoECobrançaToolStripMenuItem = new ToolStripMenuItem();
             taxaEServiçoToolStripMenuItem = new ToolStripMenuItem();
@@ -64,6 +70,10 @@
             // 
             // cadastrosToolStripMenuItem
             // 
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, funcionárioToolStripMenuItem, grupoDeAutomóvelToolStripMenuItem, clienteMenuItem, condutorToolStripMenuItem, planoECobrançaToolStripMenuItem, taxaEServiçoToolStripMenuItem, aluguelToolStripMenuItem, automóvelToolStripMenuItem, cupomToolStripMenuItem });
+            cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+            cadastrosToolStripMenuItem.Size = new Size(71, 20);
+            cadastrosToolStripMenuItem.Text = "Cadastros";
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.disciplinaMenuItem,
             this.funcionárioToolStripMenuItem,
@@ -103,8 +113,13 @@
             this.grupoDeAutomóvelToolStripMenuItem.Text = "Grupo de Automóvel";
             this.grupoDeAutomóvelToolStripMenuItem.Click += new System.EventHandler(this.grupoDeAutomoveisMenuItem_Click);
             // 
-            // clienteToolStripMenuItem
+            // clienteMenuItem
             // 
+            clienteMenuItem.Name = "clienteMenuItem";
+            clienteMenuItem.ShortcutKeys = Keys.F4;
+            clienteMenuItem.Size = new Size(204, 22);
+            clienteMenuItem.Text = "Cliente";
+            clienteMenuItem.Click += clienteMenuItem_Click;
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
             this.clienteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
@@ -147,6 +162,10 @@
             // 
             // cupomToolStripMenuItem
             // 
+            cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
+            cupomToolStripMenuItem.Size = new Size(204, 22);
+            cupomToolStripMenuItem.Text = "Cupom";
+            cupomToolStripMenuItem.Click += cupomToolStripMenuItem_Click;
             this.cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
             this.cupomToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.cupomToolStripMenuItem.Text = "Cupom";
@@ -282,7 +301,7 @@
         private ToolStripStatusLabel labelRodape;
         private ToolStripMenuItem funcionárioToolStripMenuItem;
         private ToolStripMenuItem grupoDeAutomóvelToolStripMenuItem;
-        private ToolStripMenuItem clienteToolStripMenuItem;
+        private ToolStripMenuItem clienteMenuItem;
         private ToolStripMenuItem condutorToolStripMenuItem;
         private ToolStripMenuItem planoECobrançaToolStripMenuItem;
         private ToolStripMenuItem taxaEServiçoToolStripMenuItem;
