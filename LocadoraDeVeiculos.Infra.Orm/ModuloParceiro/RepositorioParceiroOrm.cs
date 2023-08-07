@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloParceiro;
+﻿using LocadoraDeVeiculos.Dominio.ModuloCliente;
+using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloParceiro {
@@ -6,6 +7,11 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloParceiro {
     {
         public RepositorioParceiroOrm(LocadoraDeVeiculosDbContext dbContext) : base(dbContext)
         {
+        }
+
+        public void Inserir(Cliente cliente)
+        {
+            throw new NotImplementedException();
         }
 
         public Parceiro SelecionarPorNome(string nome)

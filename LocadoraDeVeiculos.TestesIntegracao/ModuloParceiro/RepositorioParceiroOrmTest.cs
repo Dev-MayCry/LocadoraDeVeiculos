@@ -14,10 +14,10 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloParceiro {
             var parceiro = Builder<Parceiro>.CreateNew().Build();
 
             //action
-            repositorioCliente.Inserir(parceiro);
+            repositorioParceiro.Inserir(parceiro);
 
             //assert
-            repositorioCliente.SelecionarPorId(parceiro.Id).Should().Be(parceiro);
+            repositorioParceiro.SelecionarPorId(parceiro.Id).Should().Be(parceiro);
         }
 
         [TestMethod]
@@ -25,14 +25,14 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloParceiro {
             //arrange
             var parceiroId = Builder<Parceiro>.CreateNew().Persist().Id;
 
-            var parceiro = repositorioCliente.SelecionarPorId(parceiroId);
+            var parceiro = repositorioParceiro.SelecionarPorId(parceiroId);
             parceiro.Nome = "Deko";
 
             //action
-            repositorioCliente.Editar(parceiro);
+            repositorioParceiro.Editar(parceiro);
 
             //assert
-            repositorioCliente.SelecionarPorId(parceiro.Id)
+            repositorioParceiro.SelecionarPorId(parceiro.Id)
                 .Should().Be(parceiro);
         }
 
@@ -42,10 +42,10 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloParceiro {
             var parceiro = Builder<Parceiro>.CreateNew().Persist();
 
             //action
-            repositorioCliente.Excluir(parceiro);
+            repositorioParceiro.Excluir(parceiro);
 
             //assert
-            repositorioCliente.SelecionarPorId(parceiro.Id).Should().BeNull();
+            repositorioParceiro.SelecionarPorId(parceiro.Id).Should().BeNull();
         }
 
         [TestMethod]
@@ -55,7 +55,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloParceiro {
             var portugues = Builder<Parceiro>.CreateNew().With(x => x.Nome = "Português").Persist();
 
             //action
-            var parceiros = repositorioCliente.SelecionarTodos();
+            var parceiros = repositorioParceiro.SelecionarTodos();
 
             //assert
             parceiros.Should().ContainInOrder(matematica, portugues);
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloParceiro {
             var deko = Builder<Parceiro>.CreateNew().Persist();
 
             //action
-            var parceirosEncontrado = repositorioCliente.SelecionarPorNome(deko.Nome);
+            var parceirosEncontrado = repositorioParceiro.SelecionarPorNome(deko.Nome);
 
             //assert
             parceirosEncontrado.Should().Be(deko);
@@ -82,7 +82,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloParceiro {
             var deko = Builder<Parceiro>.CreateNew().Persist();
 
             //action
-            var parceirosEncontrado = repositorioCliente.SelecionarPorId(deko.Id);
+            var parceirosEncontrado = repositorioParceiro.SelecionarPorId(deko.Id);
 
             //assert            
             parceirosEncontrado.Should().Be(deko);

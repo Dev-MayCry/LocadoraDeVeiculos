@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.WinApp.Compartilhado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.WinApp.ModuloCliente
 {
-    public class ConfigurarToolBoxCliente
+    public class ConfigurarToolBoxCliente : ConfiguracaoToolboxBase
     {
         public override string TipoCadastro => "Cadastro de Cliente";
 

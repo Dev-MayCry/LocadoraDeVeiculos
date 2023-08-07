@@ -4,7 +4,7 @@ using LocadoraDeVeiculos.Aplicacao.ModuloCliente;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using Moq;
-
+using FluentResults.Extensions.FluentAssertions;
 
 namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
 {
@@ -100,8 +100,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
                      return new Parceiro(id, "Desconto do Deko");
                  });
 
-            Cliente outroCliente = new Cliente(id, "Desconto do Deko");
-
+            Cliente outroCliente = new Cliente();
             //action
             var resultado = servicoCliente.Editar(outroCliente);
 
@@ -171,7 +170,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
         {
             //arrange
 
-            var parceiro = new Parceiro("Desconto do Deko");
+            var cliente = new Cliente("Desconto do Deko");
 
             repositorioClienteMoq.Setup(x => x.Existe(cliente))
                .Returns(() => {
@@ -179,7 +178,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
                });
 
             //action
-            var resultado = servicoCliente.Excluir(parceiro);
+            var resultado = servicoCliente.Excluir(cliente);
 
             //assert 
             resultado.Should().BeFailure();

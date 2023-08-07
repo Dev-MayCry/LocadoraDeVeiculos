@@ -33,7 +33,7 @@
             disciplinaMenuItem = new ToolStripMenuItem();
             funcionárioToolStripMenuItem = new ToolStripMenuItem();
             grupoDeAutomóvelToolStripMenuItem = new ToolStripMenuItem();
-            clienteToolStripMenuItem = new ToolStripMenuItem();
+            clienteMenuItem = new ToolStripMenuItem();
             condutorToolStripMenuItem = new ToolStripMenuItem();
             planoECobrançaToolStripMenuItem = new ToolStripMenuItem();
             taxaEServiçoToolStripMenuItem = new ToolStripMenuItem();
@@ -66,7 +66,7 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, funcionárioToolStripMenuItem, grupoDeAutomóvelToolStripMenuItem, clienteToolStripMenuItem, condutorToolStripMenuItem, planoECobrançaToolStripMenuItem, taxaEServiçoToolStripMenuItem, aluguelToolStripMenuItem, automóvelToolStripMenuItem, cupomToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, funcionárioToolStripMenuItem, grupoDeAutomóvelToolStripMenuItem, clienteMenuItem, condutorToolStripMenuItem, planoECobrançaToolStripMenuItem, taxaEServiçoToolStripMenuItem, aluguelToolStripMenuItem, automóvelToolStripMenuItem, cupomToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -95,12 +95,13 @@
             grupoDeAutomóvelToolStripMenuItem.Text = "Grupo de Automóvel";
             grupoDeAutomóvelToolStripMenuItem.Click += grupoDeAutomoveisMenuItem_Click;
             // 
-            // clienteToolStripMenuItem
+            // clienteMenuItem
             // 
-            clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            clienteToolStripMenuItem.ShortcutKeys = Keys.F4;
-            clienteToolStripMenuItem.Size = new Size(204, 22);
-            clienteToolStripMenuItem.Text = "Cliente";
+            clienteMenuItem.Name = "clienteMenuItem";
+            clienteMenuItem.ShortcutKeys = Keys.F4;
+            clienteMenuItem.Size = new Size(204, 22);
+            clienteMenuItem.Text = "Cliente";
+            clienteMenuItem.Click += clienteMenuItem_Click;
             // 
             // condutorToolStripMenuItem
             // 
@@ -261,7 +262,7 @@
         private ToolStripStatusLabel labelRodape;
         private ToolStripMenuItem funcionárioToolStripMenuItem;
         private ToolStripMenuItem grupoDeAutomóvelToolStripMenuItem;
-        private ToolStripMenuItem clienteToolStripMenuItem;
+        private ToolStripMenuItem clienteMenuItem;
         private ToolStripMenuItem condutorToolStripMenuItem;
         private ToolStripMenuItem planoECobrançaToolStripMenuItem;
         private ToolStripMenuItem taxaEServiçoToolStripMenuItem;

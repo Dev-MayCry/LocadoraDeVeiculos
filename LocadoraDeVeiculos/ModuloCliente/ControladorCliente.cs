@@ -1,17 +1,13 @@
 ﻿
 using FluentResults;
 using LocadoraDeVeiculos.Aplicacao.ModuloCliente;
-using LocadoraDeVeiculos.Aplicacao.ModuloFuncionario;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
-using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 using LocadoraDeVeiculos.WinApp.ModuloFuncionario;
-
 namespace LocadoraDeVeiculos.WinApp.ModuloCliente
 {
     internal class ControladorCliente : ControladorBase
-    {
-
+    {     
         private IRepositorioCliente repositorioCliente;
         private TabelaClienteControl tabelaCliente;
         private ServicoCliente servicoCliente;
@@ -19,12 +15,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
         {
             this.repositorioCliente = repositorioCliente;
             this.servicoCliente = servicoCliente;
-
-
         }
         public override void Inserir()
         {
-            TelaClienteForm tela = new TelaClienteForm();
+            TelaClienteForm tela = new TelaClienteForm(repositorioCliente.SelecionarTodos());
 
             tela.onGravarRegistro += servicoCliente.Inserir;
 
@@ -37,7 +31,6 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
                 CarregarClientes();
             }
         }
-
         public override void Editar()
         {
             Guid id = tabelaCliente.ObtemIdSelecionado();
@@ -51,7 +44,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
                 return;
             }
 
-            TelaClienteForm tela = new TelaClienteForm();
+            TelaClienteForm tela = new TelaClienteForm(repositorioCliente.SelecionarTodos());
 
             tela.onGravarRegistro += servicoCliente.Editar;
 
@@ -64,7 +57,6 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
                 CarregarClientes();
             }
         }
-
         public override void Excluir()
         {
             Guid id = tabelaCliente.ObtemIdSelecionado();
@@ -77,7 +69,6 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
                 "Exclusão de Clientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
             DialogResult opcaoEscolhida = MessageBox.Show("Deseja realmente excluir o cliente ?",
                "Exclusão de Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
@@ -96,12 +87,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
                 CarregarClientes();
             }
         }
-
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
         {
-            return new ConfigurarToolBoxFuncionario();
+            return new ConfigurarToolBoxCliente();
         }
-
         public override UserControl ObtemListagem()
         {
             if (tabelaCliente == null)
@@ -111,14 +100,13 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
 
             return tabelaCliente;
         }
-
         private void CarregarClientes()
         {
             List<Cliente> clientes = repositorioCliente.SelecionarTodos();
 
             tabelaCliente.AtualizarRegistros(clientes);
 
-            mensagemRodape = string.Format("Visualizando {0} funcionario{1}", clientes.Count, clientes.Count == 1 ? "" : "s");
+            mensagemRodape = string.Format("Visualizando {0} Clientes{1}", clientes.Count, clientes.Count == 1 ? "" : "s");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
         }

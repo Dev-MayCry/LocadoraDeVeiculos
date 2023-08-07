@@ -9,12 +9,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloCliente;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
+using LocadoraDeVeiculos.Dominio.ModuloCupom;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCupom;
 
 namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 {
     public class TesteIntegracaoBase {
-
-        protected IRepositorioParceiro repositorioCliente;
+        protected IRepositorioCupom repositorioCupom;
+        protected IRepositorioCliente repositorioCliente;
+        protected IRepositorioParceiro repositorioParceiro;
         protected IRepositorioGrupoAutomovel repositorioGrupoAutomovel;
         protected IRepositorioFuncionario repositorioFuncionario;
        
@@ -29,14 +34,16 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
             optionsBuilder.UseSqlServer(connectionString);
 
             var dbContext = new LocadoraDeVeiculosDbContext(optionsBuilder.Options);
-
-            repositorioCliente = new RepositorioParceiroOrm(dbContext);
+            repositorioParceiro = new RepositorioParceiroOrm(dbContext);
+            repositorioCupom = new RepositorioCupomOrm(dbContext);
+            repositorioCliente = new RepositorioClienteOrm(dbContext);
             repositorioGrupoAutomovel = new RepositorioGrupoAutomovelOrm(dbContext);
             repositorioFuncionario = new RepositorioFuncionarioOrm(dbContext);
-            
-            
 
-            BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioCliente.Inserir);
+
+            BuilderSetup.SetCreatePersistenceMethod<Parceiro>(repositorioParceiro.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Cupom>(repositorioCupom.Inserir);
+            BuilderSetup.SetCreatePersistenceMethod<Cliente>(repositorioCliente.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<GrupoAutomovel>(repositorioGrupoAutomovel.Inserir);
             BuilderSetup.SetCreatePersistenceMethod<Funcionario>(repositorioFuncionario.Inserir);
             

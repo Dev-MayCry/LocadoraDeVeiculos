@@ -39,28 +39,26 @@
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            label12 = new Label();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
-            textBox8 = new TextBox();
-            textBox9 = new TextBox();
-            textBox10 = new TextBox();
-            textBox11 = new TextBox();
+            txtNome = new TextBox();
+            txtEmail = new TextBox();
+            txtCidade = new TextBox();
+            txtEstado = new TextBox();
+            TxtBairro = new TextBox();
+            txtRua = new TextBox();
             button2 = new Button();
             btnSalvar = new Button();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
+            btnFisica = new RadioButton();
+            btnJuridica = new RadioButton();
+            txtTelefone = new MaskedTextBox();
+            txtCnpj = new MaskedTextBox();
+            txtCpf = new MaskedTextBox();
+            txtNumeroDaCasa = new MaskedTextBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(17, 65);
+            label1.Location = new Point(17, 33);
             label1.Name = "label1";
             label1.Size = new Size(43, 15);
             label1.TabIndex = 0;
@@ -69,7 +67,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(21, 94);
+            label2.Location = new Point(21, 62);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 1;
@@ -78,7 +76,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(29, 171);
+            label3.Location = new Point(29, 139);
             label3.Name = "label3";
             label3.Size = new Size(90, 15);
             label3.TabIndex = 2;
@@ -87,7 +85,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(29, 208);
+            label4.Location = new Point(29, 176);
             label4.Name = "label4";
             label4.Size = new Size(31, 15);
             label4.TabIndex = 3;
@@ -96,7 +94,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(194, 240);
+            label5.Location = new Point(194, 208);
             label5.Name = "label5";
             label5.Size = new Size(47, 15);
             label5.TabIndex = 4;
@@ -105,7 +103,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(17, 240);
+            label6.Location = new Point(17, 208);
             label6.Name = "label6";
             label6.Size = new Size(45, 15);
             label6.TabIndex = 5;
@@ -114,7 +112,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(19, 269);
+            label7.Location = new Point(19, 237);
             label7.Name = "label7";
             label7.Size = new Size(41, 15);
             label7.TabIndex = 6;
@@ -123,7 +121,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(29, 298);
+            label8.Location = new Point(29, 266);
             label8.Name = "label8";
             label8.Size = new Size(30, 15);
             label8.TabIndex = 7;
@@ -132,7 +130,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(8, 328);
+            label9.Location = new Point(8, 296);
             label9.Name = "label9";
             label9.Size = new Size(54, 15);
             label9.TabIndex = 8;
@@ -141,7 +139,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(6, 123);
+            label10.Location = new Point(6, 91);
             label10.Name = "label10";
             label10.Size = new Size(54, 15);
             label10.TabIndex = 9;
@@ -150,104 +148,59 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(209, 211);
+            label11.Location = new Point(209, 179);
             label11.Name = "label11";
             label11.Size = new Size(37, 15);
             label11.TabIndex = 10;
             label11.Text = "CNPJ:";
             // 
-            // textBox1
+            // txtNome
             // 
-            textBox1.Location = new Point(74, 62);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(301, 23);
-            textBox1.TabIndex = 11;
+            txtNome.Location = new Point(74, 30);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(301, 23);
+            txtNome.TabIndex = 11;
             // 
-            // textBox2
+            // txtEmail
             // 
-            textBox2.Location = new Point(74, 91);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(301, 23);
-            textBox2.TabIndex = 12;
+            txtEmail.Location = new Point(74, 59);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(301, 23);
+            txtEmail.TabIndex = 12;
             // 
-            // textBox3
+            // txtCidade
             // 
-            textBox3.Location = new Point(74, 120);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(114, 23);
-            textBox3.TabIndex = 13;
+            txtCidade.Location = new Point(247, 205);
+            txtCidade.Name = "txtCidade";
+            txtCidade.Size = new Size(128, 23);
+            txtCidade.TabIndex = 18;
             // 
-            // label12
+            // txtEstado
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(39, 33);
-            label12.Name = "label12";
-            label12.Size = new Size(21, 15);
-            label12.TabIndex = 14;
-            label12.Text = "ID:";
+            txtEstado.Location = new Point(74, 205);
+            txtEstado.Name = "txtEstado";
+            txtEstado.Size = new Size(114, 23);
+            txtEstado.TabIndex = 19;
             // 
-            // textBox4
+            // TxtBairro
             // 
-            textBox4.Location = new Point(74, 33);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(47, 23);
-            textBox4.TabIndex = 15;
+            TxtBairro.Location = new Point(74, 234);
+            TxtBairro.Name = "TxtBairro";
+            TxtBairro.Size = new Size(301, 23);
+            TxtBairro.TabIndex = 20;
             // 
-            // textBox5
+            // txtRua
             // 
-            textBox5.Location = new Point(74, 208);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(114, 23);
-            textBox5.TabIndex = 16;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(252, 208);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(123, 23);
-            textBox6.TabIndex = 17;
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(247, 237);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(128, 23);
-            textBox7.TabIndex = 18;
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(74, 237);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(114, 23);
-            textBox8.TabIndex = 19;
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(74, 266);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(301, 23);
-            textBox9.TabIndex = 20;
-            // 
-            // textBox10
-            // 
-            textBox10.Location = new Point(74, 295);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(301, 23);
-            textBox10.TabIndex = 21;
-            // 
-            // textBox11
-            // 
-            textBox11.Location = new Point(74, 325);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(114, 23);
-            textBox11.TabIndex = 22;
+            txtRua.Location = new Point(74, 263);
+            txtRua.Name = "txtRua";
+            txtRua.Size = new Size(301, 23);
+            txtRua.TabIndex = 21;
             // 
             // button2
             // 
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button2.DialogResult = DialogResult.Cancel;
-            button2.Location = new Point(284, 377);
+            button2.Location = new Point(284, 326);
             button2.Name = "button2";
             button2.Size = new Size(91, 61);
             button2.TabIndex = 24;
@@ -258,56 +211,90 @@
             // 
             btnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSalvar.DialogResult = DialogResult.OK;
-            btnSalvar.Location = new Point(187, 377);
+            btnSalvar.Location = new Point(187, 326);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(91, 61);
             btnSalvar.TabIndex = 23;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnGravar_Click;
             // 
-            // radioButton1
+            // btnFisica
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(125, 171);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(93, 19);
-            radioButton1.TabIndex = 25;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Pessoa Física";
-            radioButton1.UseVisualStyleBackColor = true;
+            btnFisica.AutoSize = true;
+            btnFisica.Location = new Point(125, 137);
+            btnFisica.Name = "btnFisica";
+            btnFisica.Size = new Size(93, 19);
+            btnFisica.TabIndex = 25;
+            btnFisica.TabStop = true;
+            btnFisica.Text = "Pessoa Física";
+            btnFisica.UseVisualStyleBackColor = true;
+            btnFisica.CheckedChanged += btnFisica_CheckedChanged;
             // 
-            // radioButton2
+            // btnJuridica
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(224, 169);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(104, 19);
-            radioButton2.TabIndex = 26;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Pessoa Jurídica";
-            radioButton2.UseVisualStyleBackColor = true;
+            btnJuridica.AutoSize = true;
+            btnJuridica.Location = new Point(224, 137);
+            btnJuridica.Name = "btnJuridica";
+            btnJuridica.Size = new Size(104, 19);
+            btnJuridica.TabIndex = 26;
+            btnJuridica.TabStop = true;
+            btnJuridica.Text = "Pessoa Jurídica";
+            btnJuridica.UseVisualStyleBackColor = true;
+            btnJuridica.CheckedChanged += btnJuridica_CheckedChanged;
+            // 
+            // txtTelefone
+            // 
+            txtTelefone.Location = new Point(74, 91);
+            txtTelefone.Mask = "(00) 0000-0000";
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.Size = new Size(114, 23);
+            txtTelefone.TabIndex = 27;
+            // 
+            // txtCnpj
+            // 
+            txtCnpj.Location = new Point(247, 176);
+            txtCnpj.Mask = " 00 000 000/0000 00";
+            txtCnpj.Name = "txtCnpj";
+            txtCnpj.Size = new Size(128, 23);
+            txtCnpj.TabIndex = 28;
+            // 
+            // txtCpf
+            // 
+            txtCpf.Location = new Point(74, 176);
+            txtCpf.Mask = "000 000 000-00";
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(114, 23);
+            txtCpf.TabIndex = 29;
+            // 
+            // txtNumeroDaCasa
+            // 
+            txtNumeroDaCasa.Location = new Point(74, 296);
+            txtNumeroDaCasa.Mask = "00000";
+            txtNumeroDaCasa.Name = "txtNumeroDaCasa";
+            txtNumeroDaCasa.Size = new Size(114, 23);
+            txtNumeroDaCasa.TabIndex = 30;
+            txtNumeroDaCasa.ValidatingType = typeof(int);
             // 
             // TelaClienteForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(388, 450);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
+            ClientSize = new Size(388, 399);
+            Controls.Add(txtNumeroDaCasa);
+            Controls.Add(txtCpf);
+            Controls.Add(txtCnpj);
+            Controls.Add(txtTelefone);
+            Controls.Add(btnJuridica);
+            Controls.Add(btnFisica);
             Controls.Add(button2);
             Controls.Add(btnSalvar);
-            Controls.Add(textBox11);
-            Controls.Add(textBox10);
-            Controls.Add(textBox9);
-            Controls.Add(textBox8);
-            Controls.Add(textBox7);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
-            Controls.Add(label12);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtRua);
+            Controls.Add(TxtBairro);
+            Controls.Add(txtEstado);
+            Controls.Add(txtCidade);
+            Controls.Add(txtEmail);
+            Controls.Add(txtNome);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -339,21 +326,19 @@
         private Label label9;
         private Label label10;
         private Label label11;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Label label12;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox7;
-        private TextBox textBox8;
-        private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox11;
+        private TextBox txtNome;
+        private TextBox txtEmail;
+        private TextBox txtCidade;
+        private TextBox txtEstado;
+        private TextBox TxtBairro;
+        private TextBox txtRua;
         private Button button2;
         private Button btnSalvar;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
+        private RadioButton btnFisica;
+        private RadioButton btnJuridica;
+        private MaskedTextBox txtTelefone;
+        private MaskedTextBox txtCnpj;
+        private MaskedTextBox txtCpf;
+        private MaskedTextBox txtNumeroDaCasa;
     }
 }

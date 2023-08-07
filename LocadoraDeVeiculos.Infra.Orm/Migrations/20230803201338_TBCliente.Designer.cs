@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadoraDeVeiculosDbContext))]
-    partial class LocadoraDeVeiculosDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230803201338_TBCliente")]
+    partial class TBCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,27 +32,31 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 
                     b.Property<string>("Bairro")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cidade")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cnpj")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cpf")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Endereco")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Estado")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -57,18 +64,19 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 
                     b.Property<string>("NumeroDaCasa")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rua")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone")
                         .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TipoCliente")
-                        .HasColumnType("int");
+                    b.Property<string>("TipoDoCliente")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

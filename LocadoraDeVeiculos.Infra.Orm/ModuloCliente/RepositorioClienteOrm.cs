@@ -10,5 +10,6 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloCliente
         {
             return registros.FirstOrDefault(x => x.Nome == nome);
         }
+       
     }
 }

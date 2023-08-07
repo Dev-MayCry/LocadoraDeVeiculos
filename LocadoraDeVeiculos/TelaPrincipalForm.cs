@@ -18,6 +18,10 @@ using LocadoraDeVeiculos.Dominio.ModuloCupom;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCupom;
 using LocadoraDeVeiculos.Aplicacao.ModuloCupom;
 using LocadoraDeVeiculos.WinApp.ModuloCupom;
+using LocadoraDeVeiculos.Dominio.ModuloCliente;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
+using LocadoraDeVeiculos.Aplicacao.ModuloCliente;
+using LocadoraDeVeiculos.WinApp.ModuloCliente;
 
 namespace LocadoraDeVeiculos
 {
@@ -97,16 +101,25 @@ namespace LocadoraDeVeiculos
             ServicoFuncionario servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, validadorFuncionario);
 
             controladores.Add("ControladorFuncionario", new ControladorFuncionario(repositorioFuncionario, servicoFuncionario));
-              
+
 
             IRepositorioCupom repositorioCupom = new RepositorioCupomOrm(dbContext);
             ValidadorCupom validadorCupom = new ValidadorCupom();
             ServicoCupom servicoCupom = new(repositorioCupom, validadorCupom);
             controladores.Add("ControladorCupom", new ControladorCupom(repositorioCupom, servicoCupom, repositorioParceiro));
+
+            IRepositorioCliente repositorioCliente = new RepositorioClienteOrm(dbContext);
+            ValidadorCliente validadorCliente = new ValidadorCliente();
+            ServicoCliente servicoCliente = new ServicoCliente(repositorioCliente, validadorCliente);
+            controladores.Add("ControladorCliente", new ControladorCliente(repositorioCliente, servicoCliente));
         }
         private void cupomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
+        }
+        private void clienteMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(controladores["ControladorCliente"]);
         }
 
 
@@ -199,6 +212,6 @@ namespace LocadoraDeVeiculos
             controlador.Excluir();
         }
 
-       
+        
     }
 }
