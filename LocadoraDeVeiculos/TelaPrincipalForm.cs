@@ -18,6 +18,10 @@ using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel;
 using LocadoraDeVeiculos.Aplicacao.ModuloAutomovel;
 using LocadoraDeVeiculos.WinApp.ModuloAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Aplicacao.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca;
 
 namespace LocadoraDeVeiculos {
     public partial class TelaPrincipalForm : Form {
@@ -103,6 +107,16 @@ namespace LocadoraDeVeiculos {
 
 
 
+
+            IRepositorioPlanoCobranca repositorioPlanoCobranca = new RepositorioPlanoCobrancaOrm(dbContext);
+
+            ValidadorPlanoCobranca validadorPlanoCobranca = new();
+
+            ServicoPlanoCobranca servicoPlanoCobranca = new(repositorioPlanoCobranca,validadorPlanoCobranca);
+
+
+            controladores.Add("ControladorPlanoCobranca", new ControladorPlanoCobranca(repositorioPlanoCobranca, servicoPlanoCobranca,repositorioGrupoAutomovel));
+
         }
 
 
@@ -120,6 +134,10 @@ namespace LocadoraDeVeiculos {
 
         private void automóvelToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorAutomovel"]);
+        }
+
+        private void planoECobrançaToolStripMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorPlanoCobranca"]);
         }
 
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
@@ -190,5 +208,6 @@ namespace LocadoraDeVeiculos {
         private void btnFiltrar_Click(object sender, EventArgs e) {
             controlador.Filtrar();
         }
+        
     }
 }
