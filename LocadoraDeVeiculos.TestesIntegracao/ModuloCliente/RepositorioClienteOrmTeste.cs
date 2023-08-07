@@ -6,7 +6,8 @@ using LocadoraDeVeiculos.TestesIntegracao.Compartilhado;
 
 namespace LocadoraDeVeiculos.TestesIntegracao.ModuloCliente
 {
-    internal class RepositorioClienteOrmTeste : TesteIntegracaoBase
+    [TestClass]
+    public class RepositorioClienteOrmTeste : TesteIntegracaoBase
     {
 
         [TestMethod]
@@ -29,7 +30,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloCliente
             var clienteId = Builder<Cliente>.CreateNew().Persist().Id;
 
             var cliente = repositorioCliente.SelecionarPorId(clienteId);
-            cliente.Nome = "Deko";
+            cliente.Nome = "Cliente";
 
             //action
             repositorioCliente.Editar(cliente);
@@ -53,11 +54,11 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloCliente
         }
 
         [TestMethod]
-        public void Deve_selecionar_todas_clientes()
+        public void Deve_selecionar_todos_clientes()
         {
             //arrange
-            var matematica = Builder<Cliente>.CreateNew().With(x => x.Nome = "Matemática").Persist();
-            var portugues = Builder<Cliente>.CreateNew().With(x => x.Nome = "Português").Persist();
+            var cliente1 = Builder<Cliente>.CreateNew().With(x => x.Nome = "Cliente 1").Persist();
+            var cliente2 = Builder<Cliente>.CreateNew().With(x => x.Nome = "Cliente 2").Persist();
 
             //action
             var clientes = repositorioCliente.SelecionarTodos();
@@ -73,26 +74,26 @@ namespace LocadoraDeVeiculos.TestesIntegracao.ModuloCliente
         public void Deve_selecionar_cliente_por_nome()
         {
             //arrange
-            var deko = Builder<Cliente>.CreateNew().Persist();
+            var clienteTest = Builder<Cliente>.CreateNew().Persist();
 
             //action
-            var clientesEncontrado = repositorioCliente.SelecionarPorNome(deko.Nome);
+            var clientesEncontrado = repositorioCliente.SelecionarPorNome(clienteTest.Nome);
 
             //assert
-            clientesEncontrado.Should().Be(deko);
+            clientesEncontrado.Should().Be(clienteTest);
         }
 
         [TestMethod]
         public void Deve_selecionar_cliente_por_id()
         {
             //arrange
-            var deko = Builder<Cliente>.CreateNew().Persist();
+            var ClienteTest2 = Builder<Cliente>.CreateNew().Persist();
 
             //action
-            var clientesEncontrado = repositorioCliente.SelecionarPorId(deko.Id);
+            var clientesEncontrado = repositorioCliente.SelecionarPorId(ClienteTest2.Id);
 
             //assert            
-            clientesEncontrado.Should().Be(deko);
+            clientesEncontrado.Should().Be(ClienteTest2);
         }
     }   
 }

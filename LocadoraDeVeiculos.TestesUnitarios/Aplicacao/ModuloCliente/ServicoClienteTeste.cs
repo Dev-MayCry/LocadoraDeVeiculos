@@ -2,7 +2,6 @@
 using FluentResults;
 using LocadoraDeVeiculos.Aplicacao.ModuloCliente;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
-using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using Moq;
 using FluentResults.Extensions.FluentAssertions;
 
@@ -24,14 +23,14 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
             repositorioClienteMoq = new Mock<IRepositorioCliente>();
             validadorMoq = new Mock<IValidadorCliente>();
             servicoCliente = new ServicoCliente(repositorioClienteMoq.Object, validadorMoq.Object);
-            cliente = new Cliente("Desconto do Deko");
+            cliente = new Cliente("Nome do Cliente");
         }
 
         [TestMethod]
-        public void Deve_inserir_cliente_caso_ela_for_valido() //cenário 1
+        public void Deve_inserir_cliente_caso_ele_for_valido() //cenário 1
         {
             //arrange
-            cliente = new Cliente("Desconto do Deko");
+            cliente = new Cliente("Nome do Cliente");
 
             //action
             Result resultado = servicoCliente.Inserir(cliente);
@@ -45,7 +44,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
         public void Nao_deve_inserir_cliente_caso_o_nome_ja_esteja_cadastrado() //cenário 3
         {
             //arrange
-            string nomeCliente = "Desconto do Deko";
+            string nomeCliente = "Nome do Cliente";
             repositorioClienteMoq.Setup(x => x.SelecionarPorNome(nomeCliente))
                 .Returns(() => {
                     return new Cliente(nomeCliente);
@@ -73,14 +72,14 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
 
             //assert 
             resultado.Should().BeFailure();
-            resultado.Reasons[0].Message.Should().Be("Falha ao tentar inserir cliente.");
+            resultado.Reasons[0].Message.Should().Be("Falha ao tentar inserir Cliente");
         }
 
         [TestMethod]
         public void Deve_editar_cliente_caso_ele_for_valido() //cenário 1
         {
             //arrange           
-            cliente = new Cliente("iFood");
+            cliente = new Cliente("Nome do Cliente");
 
             //action
             Result resultado = servicoCliente.Editar(cliente);
@@ -95,10 +94,11 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
         {
             //arrange
             Guid id = new Guid();
-            repositorioClienteMoq.Setup(x => x.SelecionarPorNome("Desconto do Deko"))
+            repositorioClienteMoq.Setup(x => x.SelecionarPorNome("Nome do Cliente"))
                  .Returns(() => {
-                     return new Parceiro(id, "Desconto do Deko");
+                     return new Cliente(id,"nome","email","telefone","cpf","cnpj","cidade","bairro","rua","numeroDaCasa","estado",TipoClienteEnum.Juridica);
                  });
+           
 
             Cliente outroCliente = new Cliente();
             //action
@@ -114,12 +114,12 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
         public void Nao_deve_editar_Cliente_caso_o_nome_ja_esteja_cadastrado() //cenário 4
         {
             //arrange
-            repositorioClienteMoq.Setup(x => x.SelecionarPorNome("Desconto do Deko"))
+            repositorioClienteMoq.Setup(x => x.SelecionarPorNome("Nome do Cliente"))
                  .Returns(() => {
-                     return new Cliente("Desconto do Deko");
+                     return new Cliente("Nome do Cliente");
                  });
 
-            Cliente novoCliente = new Cliente("Desconto do Deko");
+            Cliente novoCliente = new Cliente("Nome do Cliente");
 
             //action
             var resultado = servicoCliente.Editar(novoCliente);
@@ -143,14 +143,14 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
 
             //assert 
             resultado.Should().BeFailure();
-            resultado.Errors[0].Message.Should().Be("Falha ao tentar editar cliente.");
+            resultado.Errors[0].Message.Should().Be("Falha ao tentar editar Cliente");
         }
 
         [TestMethod]
         public void Deve_excluir_cliente_caso_ele_esteja_cadastrado() //cenário 1
         {
             //arrange
-            var cliente = new Cliente("Desconto do Deko");
+            var cliente = new Cliente("Nome do Cliente");
 
             repositorioClienteMoq.Setup(x => x.Existe(cliente))
                .Returns(() => {
@@ -170,7 +170,7 @@ namespace LocadoraDeVeiculos.TestesUnitarios.Aplicacao.ModuloCliente
         {
             //arrange
 
-            var cliente = new Cliente("Desconto do Deko");
+            var cliente = new Cliente("Nome do Cliente");
 
             repositorioClienteMoq.Setup(x => x.Existe(cliente))
                .Returns(() => {

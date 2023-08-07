@@ -56,6 +56,7 @@ namespace LocadoraDeVeiculos.TestesIntegracao.Compartilhado
 
             string sqlLimpezaTabela =
                 @"
+                DELETE FROM [DBO].[TBCLIENTE]
                 DELETE FROM [DBO].[TBPARCEIRO]
                 DELETE FROM [DBO].[TBGRUPOAUTOMOVEL]
                 DELETE FROM [DBO].[TBFUNCIONARIO];

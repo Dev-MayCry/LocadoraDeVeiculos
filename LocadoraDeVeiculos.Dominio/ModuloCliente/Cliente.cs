@@ -43,10 +43,11 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
         {
             this.Nome = Nome;
         }
-        public Cliente( string nome,string email,string cpf,string cnpj,string cidade,string bairro,string rua,string numeroDaCasa,string estado,TipoClienteEnum tipoCliente) : this(nome)
+        public Cliente( string nome,string email,string telefone ,string cpf,string cnpj,string cidade,string bairro,string rua,string numeroDaCasa,string estado,TipoClienteEnum tipoCliente) : this(nome)
         {                 
             Nome = nome;
-            Email = email;          
+            Email = email; 
+            Telefone = telefone;
             Cpf = cpf;
             Cnpj = cnpj;
             Cidade = cidade;
@@ -55,6 +56,21 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
             NumeroDaCasa= numeroDaCasa;  
             Estado = estado;
             TipoCliente= tipoCliente;
-        }     
+        }
+        public Cliente(Guid id,string nome, string email, string telefone ,string cpf, string cnpj, string cidade, string bairro, string rua, string numeroDaCasa, string estado, TipoClienteEnum tipoCliente) : this(nome)
+        {
+            Id = id;
+            Nome = nome;
+            Email = email;
+            Telefone = telefone;
+            Cpf = cpf;
+            Cnpj = cnpj;
+            Cidade = cidade;
+            Bairro = bairro;
+            Rua = rua;
+            NumeroDaCasa = numeroDaCasa;
+            Estado = estado;
+            TipoCliente = tipoCliente;
+        }
     }
 }

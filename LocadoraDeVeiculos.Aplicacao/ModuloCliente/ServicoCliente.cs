@@ -1,13 +1,7 @@
 ﻿using FluentResults;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
-using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using Serilog;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
 {
@@ -27,7 +21,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
 
         public Result Inserir(Cliente cliente)
         {
-            Log.Debug("Tentando inserir cliente...{@d}", cliente);
+            Log.Debug("Tentando inserir Cliente...{@d}", cliente);
 
             List<string> erros = ValidarCliente(cliente);
 
@@ -38,13 +32,13 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
             {
                 repositorioCliente.Inserir(cliente);
 
-                Log.Debug("Cliente {ClienteId} inserida com sucesso", cliente.Id);
+                Log.Debug("Cliente {ClienteId} inserido com sucesso", cliente.Id);
 
                 return Result.Ok(); //cenário 1
             }
             catch (Exception exc)
             {
-                string msgErro = "Falha ao tentar inserir Cliente.";
+                string msgErro = "Falha ao tentar inserir Cliente";
 
                 Log.Error(exc, msgErro + "{@d}", cliente);
 
@@ -54,7 +48,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
 
         public Result Editar(Cliente cliente)
         {
-            Log.Debug("Tentando editar cliente...{@d}", cliente);
+            Log.Debug("Tentando editar Cliente...{@d}", cliente);
 
             List<string> erros = ValidarCliente(cliente);
 
@@ -65,13 +59,13 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
             {
                 repositorioCliente.Editar(cliente);
 
-                Log.Debug("Cliente {ClienteId} editada com sucesso", cliente.Id);
+                Log.Debug("Cliente {ClienteId} editado com sucesso", cliente.Id);
 
                 return Result.Ok();
             }
             catch (Exception exc)
             {
-                string msgErro = "Falha ao tentar editar cliente.";
+                string msgErro = "Falha ao tentar editar Cliente";
 
                 Log.Error(exc, msgErro + "{@d}", cliente);
 
@@ -81,7 +75,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
 
         public Result Excluir(Cliente cliente)
         {
-            Log.Debug("Tentando excluir cliente...{@d}", cliente);
+            Log.Debug("Tentando excluir Cliente...{@d}", cliente);
 
             try
             {
@@ -89,14 +83,14 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
 
                 if (clienteExiste == false)
                 {
-                    Log.Warning("Cliente {ClienteId} não encontrada para excluir", cliente.Id);
+                    Log.Warning("Cliente {ClienteId} não encontrado para excluir", cliente.Id);
 
-                    return Result.Fail("Cliente não encontrada");
+                    return Result.Fail("Cliente não encontrado");
                 }
 
                 repositorioCliente.Excluir(cliente);
 
-                Log.Debug("Cliente {ClienteId} excluída com sucesso", cliente.Id);
+                Log.Debug("Cliente {ClienteId} excluído com sucesso", cliente.Id);
 
                 return Result.Ok();
             }
@@ -109,7 +103,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
                 if (ex.Message.Contains("FK_TBMateria_TBCliente"))
                     msgErro = "Esta cliente está relacionado com uma locação e não pode ser excluído";
                 else
-                    msgErro = "Falha ao tentar excluir cliente";
+                    msgErro = "Falha ao tentar excluir Cliente";
 
                 erros.Add(msgErro);
 
