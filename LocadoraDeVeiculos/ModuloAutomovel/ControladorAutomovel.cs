@@ -116,7 +116,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
 
             tabelaAutomovel.AtualizarRegistros(automoveis);
 
-            mensagemRodape = string.Format($"Visualizando {automoveis.Count} automóve{0}", automoveis.Count == 1 ? "l" : "is");
+            mensagemRodape = string.Format("Visualizando {0} automóve{1}", automoveis.Count, automoveis.Count == 1 ? "l" : "is");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
         }
@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
         private void CarregarAutomoveis(List<Automovel> automoveis) {
             tabelaAutomovel.AtualizarRegistros(automoveis);
 
-            mensagemRodape = string.Format($"Visualizando {automoveis.Count} automóve{0}", automoveis.Count == 1 ? "l" : "is");
+            mensagemRodape = string.Format("Visualizando {0} automóve{1}", automoveis.Count, automoveis.Count == 1 ? "l" : "is");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
         }

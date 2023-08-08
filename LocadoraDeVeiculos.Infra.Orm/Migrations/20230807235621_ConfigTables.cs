@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 {
     /// <inheritdoc />
-    public partial class ConfigTBs : Migration
+    public partial class ConfigTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -53,9 +53,9 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nome = table.Column<string>(type: "varchar(100)", nullable: false),
-                    PossuiPlanoDiario = table.Column<bool>(type: "bit", nullable: false),
-                    PossuiPlanoControlador = table.Column<bool>(type: "bit", nullable: false),
-                    PossuiPlanoLivre = table.Column<bool>(type: "bit", nullable: false)
+                    PossuiPlanoDiario = table.Column<int>(type: "int", nullable: false),
+                    PossuiPlanoControlador = table.Column<int>(type: "int", nullable: false),
+                    PossuiPlanoLivre = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -72,6 +72,20 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TBParceiro", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TBTaxaServico",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nome = table.Column<string>(type: "varchar(100)", nullable: false),
+                    Preco = table.Column<decimal>(type: "decimal(18,0)", nullable: false),
+                    TipoPlano = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TBTaxaServico", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,6 +188,9 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 
             migrationBuilder.DropTable(
                 name: "TBPlanoCobranca");
+
+            migrationBuilder.DropTable(
+                name: "TBTaxaServico");
 
             migrationBuilder.DropTable(
                 name: "TBParceiro");

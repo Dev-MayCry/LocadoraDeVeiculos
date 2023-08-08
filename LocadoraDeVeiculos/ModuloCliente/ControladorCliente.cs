@@ -106,7 +106,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
 
             tabelaCliente.AtualizarRegistros(clientes);
 
-            mensagemRodape = string.Format("Visualizando {0} Clientes{1}", clientes.Count, clientes.Count == 1 ? "" : "s");
+            mensagemRodape = string.Format("Visualizando {0} cliente{1}", clientes.Count, clientes.Count == 1 ? "" : "s");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
         }

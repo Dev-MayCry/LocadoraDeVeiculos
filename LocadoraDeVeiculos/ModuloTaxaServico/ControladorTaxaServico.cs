@@ -101,7 +101,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloTaxaServico {
 
             tabelaTaxaServico.AtualizarRegistros(taxas);
 
-            mensagemRodape = string.Format($"Visualizando {taxas.Count} taxa{0}", taxas.Count == 1 ? "" : "s");
+            mensagemRodape = string.Format("Visualizando {0} taxa{1}", taxas.Count, taxas.Count == 1 ? "" : "s");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
         }

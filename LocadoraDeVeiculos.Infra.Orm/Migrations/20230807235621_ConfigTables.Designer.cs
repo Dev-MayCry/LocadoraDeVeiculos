@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadoraDeVeiculosDbContext))]
-    [Migration("20230807194917_ConfigTBs")]
-    partial class ConfigTBs
+    [Migration("20230807235621_ConfigTables")]
+    partial class ConfigTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -178,14 +178,14 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<bool>("PossuiPlanoControlador")
-                        .HasColumnType("bit");
+                    b.Property<int>("PossuiPlanoControlador")
+                        .HasColumnType("int");
 
-                    b.Property<bool>("PossuiPlanoDiario")
-                        .HasColumnType("bit");
+                    b.Property<int>("PossuiPlanoDiario")
+                        .HasColumnType("int");
 
-                    b.Property<bool>("PossuiPlanoLivre")
-                        .HasColumnType("bit");
+                    b.Property<int>("PossuiPlanoLivre")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -231,6 +231,26 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                     b.HasIndex("grupoId");
 
                     b.ToTable("TBPlanoCobranca", (string)null);
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloTaxaServico.TaxaServico", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("decimal");
+
+                    b.Property<int>("TipoPlano")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TBTaxaServico", (string)null);
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloAutomovel.Automovel", b =>

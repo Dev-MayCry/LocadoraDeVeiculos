@@ -98,7 +98,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloGrupoAutomovel {
 
             tabelaGrupoAutomovel.AtualizarRegistros(grupoAutomovel);
 
-            mensagemRodape = string.Format($"Visualizando {grupoAutomovel.Count} grupo{0}", grupoAutomovel.Count == 1 ? "" : "s");
+            mensagemRodape = string.Format("Visualizando {0} grupo{1}", grupoAutomovel.Count, grupoAutomovel.Count == 1 ? "" : "s");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
         }

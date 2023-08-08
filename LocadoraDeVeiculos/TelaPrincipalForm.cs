@@ -169,8 +169,6 @@ namespace LocadoraDeVeiculos
         {
             ConfigurarTelaPrincipal(controladores["ControladorCliente"]);
         }
-
-
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(controladores["ControladorParceiro"]);

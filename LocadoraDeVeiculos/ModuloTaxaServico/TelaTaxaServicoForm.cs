@@ -12,21 +12,28 @@ namespace LocadoraDeVeiculos.WinApp.ModuloTaxaServico {
         public TelaTaxaServicoForm() {
             InitializeComponent();
             this.ConfigurarDialog();
+            btnPrecoFixo.Checked = true;
         }
 
         public TaxaServico ObterTaxa() {
             taxaServico.Nome = txtNome.Text;
             taxaServico.Preco = Convert.ToDecimal(txtPreco.Text);
-            if (btnPrecoFixo.Enabled) taxaServico.TipoPlano = TipoPlanoCalculoEnum.PrecoFixo;
+            if (btnPrecoFixo.Checked) taxaServico.TipoPlano = TipoPlanoCalculoEnum.PrecoFixo;
             else taxaServico.TipoPlano = TipoPlanoCalculoEnum.CobrancaDiaria;
             return taxaServico;
         }
 
         public void ConfigurarTaxa(TaxaServico taxaServico) {
+            this.taxaServico = taxaServico;
             txtNome.Text = taxaServico.Nome;
             txtPreco.Text = taxaServico.Preco.ToString();
-            if (taxaServico.TipoPlano == TipoPlanoCalculoEnum.PrecoFixo) btnPrecoFixo.Checked = true;
-            else btnPrecoFixo.Checked = false;
+            if (taxaServico.TipoPlano == TipoPlanoCalculoEnum.CobrancaDiaria) {
+                btnPrecoFixo.Checked = false;
+                btnCobrancaDiaria.Checked = true;
+            } else {
+                btnPrecoFixo.Checked = true;
+                btnCobrancaDiaria.Checked = false;
+            }
         }
 
         private void textPreco_KeyPress(object sender, KeyPressEventArgs e) {

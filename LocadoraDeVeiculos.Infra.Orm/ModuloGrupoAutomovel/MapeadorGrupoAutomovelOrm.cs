@@ -13,7 +13,9 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloGrupoAutomovel {
             grupoAutomovelBuilder.Property(p => p.Nome).HasColumnType("varchar(100)").IsRequired();
 
             grupoAutomovelBuilder.Property(p => p.PossuiPlanoLivre).HasConversion<int>().IsRequired();
+            
             grupoAutomovelBuilder.Property(p => p.PossuiPlanoDiario).HasConversion<int>().IsRequired();
+            
             grupoAutomovelBuilder.Property(p => p.PossuiPlanoControlador).HasConversion<int>().IsRequired();
         }
     }
