@@ -17,6 +17,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloTaxaServico {
                 new DataGridViewTextBoxColumn { Name = "Nome", HeaderText = "Nome", FillWeight=15F },
 
                 new DataGridViewTextBoxColumn { Name = "Preço", HeaderText = "Preço", FillWeight=15F },
+
+                new DataGridViewTextBoxColumn { Name = "Tipo", HeaderText = "Tipo", FillWeight=15F }
             };
 
             return colunas;
@@ -30,7 +32,12 @@ namespace LocadoraDeVeiculos.WinApp.ModuloTaxaServico {
             grid.Rows.Clear();
 
             foreach (TaxaServico t in taxas) {
-                grid.Rows.Add(t.Id, t.Nome, t.Preco);
+                string tipo;
+                if (t.TipoPlano == TipoPlanoCalculoEnum.CobrancaDiaria)
+                    tipo = "Cobrança Diária";
+                else
+                    tipo = "Preço Fixo";
+                grid.Rows.Add(t.Id, t.Nome, t.Preco, tipo);
             }
         }
     }

@@ -51,10 +51,16 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloTaxaServico {
                 Log.Debug($"Taxa {taxaServico.Id} editada com sucesso");
 
                 return Result.Ok();
-            } catch (Exception exc) {
-                string msgErro = "Falha ao tentar editar taxa.";
+            } catch (Exception ex) {
+                string msgErro;
 
-                Log.Error(exc, msgErro + $"{taxaServico.Id}");
+                //Conferir depois quais bancos utilizam taxa
+                if (ex.Message.Contains("FK_TBAluguel_TBTaxaServico"))
+                    msgErro = "Esta taxa está relacionada com um aluguel em aberto e não pode ser editada";
+                else
+                    msgErro = "Falha ao tentar editar taxa";
+
+                Log.Error(ex, msgErro + $"{taxaServico.Id}");
 
                 return Result.Fail(msgErro);
             }
@@ -84,7 +90,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloTaxaServico {
 
                 //Conferir depois quais bancos utilizam taxa
                 if (ex.Message.Contains("FK_TBAluguel_TBTaxaServico"))
-                    msgErro = "Esta grupo está relacionada com uma matéria e não pode ser excluída";
+                    msgErro = "Esta taxa está relacionada com um aluguel em aberto e não pode ser excluída";
                 else
                     msgErro = "Falha ao tentar excluir taxa";
 

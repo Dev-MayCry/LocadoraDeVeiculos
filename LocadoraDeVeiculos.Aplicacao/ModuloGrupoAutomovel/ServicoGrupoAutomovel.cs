@@ -52,10 +52,19 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoAutomovel {
                 Log.Debug("Grupo {GrupoAutomovelId} editado com sucesso", grupoAutomovel.Id);
 
                 return Result.Ok();
-            } catch (Exception exc) {
-                string msgErro = "Falha ao tentar editar grupo.";
+            } catch (Exception ex) {
+                string msgErro;
 
-                Log.Error(exc, msgErro + $"{grupoAutomovel.Id}");
+                if (ex.Message.Contains("FK_TBAutomovel_TBGrupoAutomovel"))
+                    msgErro = "Este grupo está relacionado com um automóvel e não pode ser editado";
+                else if (ex.Message.Contains("FK_TBPlanoCobranca_TBGrupoAutomovel"))
+                    msgErro = "Este grupo está relacionado com um plano de cobrança e não pode ser editado";
+                else if (ex.Message.Contains("FK_TBAluguel_TBGrupoAutomovel"))
+                    msgErro = "Este grupo está relacionado com um alugul não concluído e não pode ser editado";
+                else
+                    msgErro = "Falha ao tentar editar grupo";
+
+                Log.Error(ex, msgErro + $"{grupoAutomovel.Id}");
 
                 return Result.Fail(msgErro);
             }
@@ -85,9 +94,11 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoAutomovel {
 
                 //não pode excluir caso esteja sendo utilizado em automoveis, planos de cobrança e alugueis abertos
                 if (ex.Message.Contains("FK_TBAutomovel_TBGrupoAutomovel"))
-                    msgErro = "Esta grupo está relacionada com um automóvel e não pode ser excluído";
+                    msgErro = "Este grupo está relacionado com um automóvel e não pode ser excluído";
+                else if (ex.Message.Contains("FK_TBPlanoCobranca_TBGrupoAutomovel"))
+                    msgErro = "Este grupo está relacionado com um plano de cobrança e não pode ser excluído";
                 else if (ex.Message.Contains("FK_TBAluguel_TBGrupoAutomovel"))
-                    msgErro = "Esta grupo está relacionada com um automóvel e não pode ser excluído";
+                    msgErro = "Este grupo está relacionado com um alugul não concluído e não pode ser excluído";
                 else
                     msgErro = "Falha ao tentar excluir grupo";
 

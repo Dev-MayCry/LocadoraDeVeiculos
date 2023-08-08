@@ -51,10 +51,16 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAutomovel {
                 Log.Debug($"Automóvel {automovel.Id} editado com sucesso");
 
                 return Result.Ok();
-            } catch (Exception exc) {
-                string msgErro = "Falha ao tentar editar automóvel.";
+            } catch (Exception ex) {
+                string msgErro;
 
-                Log.Error(exc, msgErro + $"{automovel.Id}");
+                //não pode excluir caso esteja sendo utilizado em alugueis abertos
+                if (ex.Message.Contains("FK_TBAluguel_TBAutomovel"))
+                    msgErro = "Este automóvel está relacionado com um aluguel aberto e não pode ser editado";
+                else
+                    msgErro = "Falha ao tentar editar automóvel";
+
+                Log.Error(ex, msgErro + $"{automovel.Id}");
 
                 return Result.Fail(msgErro);
             }
@@ -84,7 +90,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAutomovel {
 
                 //não pode excluir caso esteja sendo utilizado em alugueis abertos
                 if (ex.Message.Contains("FK_TBAluguel_TBAutomovel"))
-                    msgErro = "Este automóvel está relacionada com um aluguel aberto e não pode ser excluído";
+                    msgErro = "Este automóvel está relacionado com um aluguel aberto e não pode ser excluído";
                 else
                     msgErro = "Falha ao tentar excluir automóvel";
 
