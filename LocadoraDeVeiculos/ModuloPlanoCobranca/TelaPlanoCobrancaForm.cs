@@ -4,9 +4,6 @@ using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
-using System.Collections;
-using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
     public partial class TelaPlanoCobrancaForm : Form {

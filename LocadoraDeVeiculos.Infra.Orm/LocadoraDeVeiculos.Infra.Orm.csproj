@@ -11,9 +11,7 @@
     <Folder Include="ModuloAluguel\" />
     <Folder Include="ModuloAutomovel\" />
     <Folder Include="ModuloCliente\" />
-    <Folder Include="ModuloCondutor\" />
     <Folder Include="ModuloPlanoCobranca\" />
-    <Folder Include="ModuloCupom\" />
   </ItemGroup>
 
   <ItemGroup>

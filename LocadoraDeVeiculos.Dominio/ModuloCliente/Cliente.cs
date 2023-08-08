@@ -72,5 +72,9 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
             Estado = estado;
             TipoCliente = tipoCliente;
         }
+
+        public override string? ToString() {
+            return Nome;
+        }
     }
 }

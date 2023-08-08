@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using LocadoraDeVeiculos.Dominio.ModuloCupom;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloCupom
 {
