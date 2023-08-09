@@ -22,6 +22,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
         public event GravarRegistroDelegate<Aluguel> onGravarRegistro;
 
+        bool cupomAplicado = false;
+
         public TelaAluguelForm(List<Funcionario> funcionarios, List<Cliente> clientes, List<Condutor> condutores, List<GrupoAutomovel> grupos, List<Automovel> automoveis, List<PlanoCobranca> planos, List<TaxaServico> taxas, IRepositorioCupom cupons, RepositorioPrecosJson repositorioPrecos) {
             InitializeComponent();
             this.ConfigurarDialog();
@@ -78,7 +80,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             aluguel.KmAutomovel = Convert.ToInt32(txtKmAutomovel.Text);
 
             Cupom cupom = cupons.SelecionarPorNome(txtCupom.Text);
-            if (cupom != null) aluguel.Cupom = cupom;
+            if (cupomAplicado) aluguel.Cupom = cupom;
+            else cupom = null;
 
             foreach (TaxaServico item in listTaxasSelecionadas.CheckedItems) {
                 aluguel.TaxasSelecionadas.Add(item);
@@ -112,7 +115,9 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
         private decimal CalcularValorTotalPrevisto(Aluguel a) {
 
             //valor das diarias
-            TimeSpan diasPrevistos = a.DataDevolucaoPrevista - a.DataLocacao;
+            DateTime dataDevolucaoPrevista = a.DataDevolucaoPrevista.Date;
+            DateTime dataLocacao = a.DataLocacao.Date;
+            TimeSpan diasPrevistos = dataDevolucaoPrevista - dataLocacao;
             int dias = diasPrevistos.Days;
             decimal valorDiariasPrevistas = dias * a.PlanoCobranca.PrecoDiaria;
 
@@ -288,6 +293,14 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
         private void txtKmAutomovel_TextChanged(object sender, EventArgs e) {
             if (txtKmAutomovel.Text.Length < 1) {
                 txtKmAutomovel.Text = "0";
+            }
+        }
+
+        private void btnAplicarCupom_Click(object sender, EventArgs e) {
+            Cupom cupom = cupons.SelecionarPorNome(txtCupom.Text);
+            if(cupom != null) {
+                cupomAplicado = true;
+                txtCupom.ReadOnly = true;
             }
         }
     }
