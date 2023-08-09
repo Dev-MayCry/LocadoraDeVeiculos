@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Aplicacao.ModuloAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 
 namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
@@ -19,6 +20,9 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
         }
 
         public override void Inserir() {
+
+            if (VerificarGrupo()) return;
+
             TelaAutomovelForm tela = new TelaAutomovelForm(repositorioGrupoAutomovel);
 
             tela.onGravarRegistro += servicoAutomovel.Inserir;
@@ -127,6 +131,13 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
             mensagemRodape = string.Format("Visualizando {0} automóve{1}", automoveis.Count, automoveis.Count == 1 ? "l" : "is");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
+        }
+
+        private bool VerificarGrupo() {
+            if (repositorioGrupoAutomovel.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Grupo de Automóvel cadastrado", "Novo Automóvel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } else return false;
         }
     }
 }

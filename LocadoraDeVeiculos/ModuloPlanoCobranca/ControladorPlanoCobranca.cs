@@ -19,6 +19,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
 
         }
         public override void Inserir() {
+
+            if (VerificarGrupo()) return;
             TelaPlanoCobrancaForm tela = new TelaPlanoCobrancaForm(repositorioGrupoAutomovel.SelecionarTodos(),repositorioPlanoCobranca);
 
             tela.onGravarRegistro += servicoPlanoCobranca.Inserir;
@@ -95,6 +97,13 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
             CarregarPlanoCobrancas();
 
             return tabelaPlanoCobranca;
+        }
+
+        private bool VerificarGrupo() {
+            if (repositorioGrupoAutomovel.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Grupo de Automóvel cadastrado", "Novo Automóvel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } else return false;
         }
 
         private void CarregarPlanoCobrancas() {
