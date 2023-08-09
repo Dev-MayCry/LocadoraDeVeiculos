@@ -17,8 +17,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
             
             InitializeComponent();
             this.ConfigurarDialog();
-            GrupoAutomovel grupo = CarregarGrupos(grupos);
-            CarregarTipos(grupo);
+            CarregarGrupos(grupos);
+          
         }
 
         public TelaPlanoCobrancaForm(List<GrupoAutomovel> grupos) {
