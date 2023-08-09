@@ -32,14 +32,14 @@
             btnCliente = new CheckBox();
             txtEmail = new TextBox();
             label3 = new Label();
-            txtTelefone = new TextBox();
             label4 = new Label();
-            txtCpf = new TextBox();
             label5 = new Label();
-            txtCnh = new TextBox();
             label6 = new Label();
             label7 = new Label();
             txtData = new DateTimePicker();
+            txtTelefone = new MaskedTextBox();
+            txtCpf = new MaskedTextBox();
+            txtCnh = new MaskedTextBox();
             SuspendLayout();
             // 
             // txtNome
@@ -83,11 +83,13 @@
             // 
             // txtListaClientes
             // 
+            txtListaClientes.DropDownStyle = ComboBoxStyle.DropDownList;
             txtListaClientes.FormattingEnabled = true;
             txtListaClientes.Location = new Point(99, 53);
             txtListaClientes.Name = "txtListaClientes";
             txtListaClientes.Size = new Size(367, 23);
             txtListaClientes.TabIndex = 21;
+            txtListaClientes.SelectedIndexChanged += txtListaClientes_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -107,6 +109,7 @@
             btnCliente.TabIndex = 23;
             btnCliente.Text = "Cliente é condutor";
             btnCliente.UseVisualStyleBackColor = true;
+            btnCliente.CheckedChanged += btnCliente_CheckedChanged;
             // 
             // txtEmail
             // 
@@ -124,13 +127,6 @@
             label3.TabIndex = 24;
             label3.Text = "Email:";
             // 
-            // txtTelefone
-            // 
-            txtTelefone.Location = new Point(99, 165);
-            txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(155, 23);
-            txtTelefone.TabIndex = 27;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -140,13 +136,6 @@
             label4.TabIndex = 26;
             label4.Text = "Telefone:";
             // 
-            // txtCpf
-            // 
-            txtCpf.Location = new Point(311, 165);
-            txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(155, 23);
-            txtCpf.TabIndex = 29;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -155,13 +144,6 @@
             label5.Size = new Size(31, 15);
             label5.TabIndex = 28;
             label5.Text = "CPF:";
-            // 
-            // txtCnh
-            // 
-            txtCnh.Location = new Point(99, 194);
-            txtCnh.Name = "txtCnh";
-            txtCnh.Size = new Size(155, 23);
-            txtCnh.TabIndex = 31;
             // 
             // label6
             // 
@@ -190,18 +172,42 @@
             txtData.Size = new Size(155, 23);
             txtData.TabIndex = 33;
             // 
+            // txtTelefone
+            // 
+            txtTelefone.Location = new Point(99, 165);
+            txtTelefone.Mask = "(99) 0 0000-0000";
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.Size = new Size(155, 23);
+            txtTelefone.TabIndex = 34;
+            // 
+            // txtCpf
+            // 
+            txtCpf.Location = new Point(311, 165);
+            txtCpf.Mask = "000 000 000-00";
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(155, 23);
+            txtCpf.TabIndex = 35;
+            // 
+            // txtCnh
+            // 
+            txtCnh.Location = new Point(96, 194);
+            txtCnh.Mask = "0000000000";
+            txtCnh.Name = "txtCnh";
+            txtCnh.Size = new Size(158, 23);
+            txtCnh.TabIndex = 36;
+            // 
             // TelaCondutorForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(478, 268);
+            Controls.Add(txtCnh);
+            Controls.Add(txtCpf);
+            Controls.Add(txtTelefone);
             Controls.Add(txtData);
             Controls.Add(label7);
-            Controls.Add(txtCnh);
             Controls.Add(label6);
-            Controls.Add(txtCpf);
             Controls.Add(label5);
-            Controls.Add(txtTelefone);
             Controls.Add(label4);
             Controls.Add(txtEmail);
             Controls.Add(label3);
@@ -228,13 +234,13 @@
         private CheckBox btnCliente;
         private TextBox txtEmail;
         private Label label3;
-        private TextBox txtTelefone;
         private Label label4;
-        private TextBox txtCpf;
         private Label label5;
-        private TextBox txtCnh;
         private Label label6;
         private Label label7;
         private DateTimePicker txtData;
+        private MaskedTextBox txtTelefone;
+        private MaskedTextBox txtCpf;
+        private MaskedTextBox txtCnh;
     }
 }

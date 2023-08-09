@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCondutor {
 
         public void ConfigurarCondutor(Condutor condutor) {
             this.condutor = condutor;
-            if(condutor == null) {
+            if (condutor == null) {
                 txtListaClientes.SelectedItem = condutor.Cliente;
                 txtNome.Text = condutor.Nome;
                 txtEmail.Text = condutor.Email;
@@ -58,6 +58,44 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCondutor {
                 TelaPrincipalForm.Instancia.AtualizarRodape(erro);
 
                 DialogResult = DialogResult.None;
+            }
+        }
+
+        private void btnCliente_CheckedChanged(object sender, EventArgs e) {
+            if (btnCliente.Checked) {
+                Cliente cliente = (Cliente)txtListaClientes.SelectedItem;
+                if (cliente.TipoCliente == TipoClienteEnum.Fisica) {
+                    txtNome.Text = cliente.Nome;
+                    txtEmail.Text = cliente.Email;
+                    txtTelefone.Text = cliente.Telefone;
+                    txtCpf.Text = cliente.Cpf;
+                    AlteraTextBoxs(true);
+                } else {
+                    btnCliente.Checked = false;
+                    MessageBox.Show("Esse Cliente é jurídico e não pode ser condutor!", "Cadastro de Condutores");
+                    AlteraTextBoxs(false);
+                }
+            } else {
+                btnCliente.Checked = false;
+                txtNome.Text = "";
+                txtEmail.Text = "";
+                txtTelefone.Text = "";
+                txtCpf.Text = "";
+                AlteraTextBoxs(false);
+            }
+        }
+
+        private void AlteraTextBoxs(bool boolean) {
+            txtNome.ReadOnly = boolean;
+            txtEmail.ReadOnly = boolean;
+            txtTelefone.ReadOnly = boolean;
+            txtCpf.ReadOnly = boolean;
+
+        }
+
+        private void txtListaClientes_SelectedIndexChanged(object sender, EventArgs e) {
+            if(btnCliente.Checked) {
+                btnCliente.Checked = false;
             }
         }
     }

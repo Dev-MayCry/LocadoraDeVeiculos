@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCondutor {
             grid.Rows.Clear();
 
             foreach (Condutor c in condutores) {
-                grid.Rows.Add(c.Id, c.Nome, c.Cliente.Nome, c.Cpf, c.Cnh, c.DataValidade.ToString());
+                grid.Rows.Add(c.Id, c.Nome, c.Cliente.Nome, c.Cpf, c.Cnh, c.DataValidade.ToShortDateString());
             }
         }
     }

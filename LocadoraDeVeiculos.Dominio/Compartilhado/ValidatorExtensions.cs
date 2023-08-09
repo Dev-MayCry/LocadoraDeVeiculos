@@ -6,5 +6,8 @@ namespace LocadoraDeVeiculos.Dominio.Compartilhado {
         public static IRuleBuilderOptions<T, string> VerificadorDePlacas<T>(this IRuleBuilder<T, string> ruleBuilder) {
             return ruleBuilder.SetValidator(new PlacasValidator<T>());
         }
+        public static IRuleBuilderOptions<T, string> VerificadorDeEmails<T>(this IRuleBuilder<T, string> ruleBuilder) {
+            return ruleBuilder.SetValidator(new EmailValidator<T>());
+        }
     }
 }

@@ -3,20 +3,16 @@ using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 
 
-namespace LocadoraDeVeiculos.WinApp.ModuloCliente
-{
-    public partial class TelaClienteForm : Form
-    {
+namespace LocadoraDeVeiculos.WinApp.ModuloCliente {
+    public partial class TelaClienteForm : Form {
         private Cliente cliente;
         public event GravarRegistroDelegate<Cliente> onGravarRegistro;
-        public TelaClienteForm(List<Cliente> clientes)
-        {
+        public TelaClienteForm(List<Cliente> clientes) {
             InitializeComponent();
             this.ConfigurarDialog();
             btnFisica.Checked = true;
         }
-        public Cliente ObterCliente()
-        {
+        public Cliente ObterCliente() {
             cliente.Rua = txtRua.Text;
             cliente.Nome = txtNome.Text;
             cliente.Telefone = txtTelefone.Text;
@@ -33,8 +29,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
 
             return cliente;
         }
-        public void ConfigurarCliente(Cliente cliente)
-        {
+        public void ConfigurarCliente(Cliente cliente) {
             this.cliente = cliente;
             txtNome.Text = cliente.Nome;
             txtEstado.Text = cliente.Estado;
@@ -47,13 +42,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
             txtCidade.Text = cliente.Cidade;
             TxtBairro.Text = cliente.Bairro;
 
-            if (cliente.TipoCliente == TipoClienteEnum.Juridica)
-            {
+            if (cliente.TipoCliente == TipoClienteEnum.Juridica) {
                 btnJuridica.Checked = true;
                 btnFisica.Checked = false;
-            }
-            else
-            {
+            } else {
                 btnJuridica.Checked = false;
                 btnFisica.Checked = true;
             }
@@ -62,14 +54,12 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
 
 
         }
-        private void btnGravar_Click(object sender, EventArgs e)
-        {
+        private void btnGravar_Click(object sender, EventArgs e) {
             this.cliente = ObterCliente();
 
             Result resultado = onGravarRegistro(cliente);
 
-            if (resultado.IsFailed)
-            {
+            if (resultado.IsFailed) {
                 string erro = resultado.Errors[0].Message;
 
                 TelaPrincipalForm.Instancia.AtualizarRodape(erro);
@@ -78,20 +68,16 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
             }
         }
 
-        private void btnJuridica_CheckedChanged(object sender, EventArgs e)
-        {
-            if (btnJuridica.Checked == true)
-            {
+        private void btnJuridica_CheckedChanged(object sender, EventArgs e) {
+            if (btnJuridica.Checked == true) {
                 txtCpf.Enabled = false;
                 txtCnpj.Enabled = true;
             }
 
         }
 
-        private void btnFisica_CheckedChanged(object sender, EventArgs e)
-        {
-            if (btnFisica.Checked == true)
-            {
+        private void btnFisica_CheckedChanged(object sender, EventArgs e) {
+            if (btnFisica.Checked == true) {
                 txtCpf.Enabled = true;
                 txtCnpj.Enabled = false;
             }

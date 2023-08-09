@@ -1,7 +1,5 @@
-﻿namespace LocadoraDeVeiculos.WinApp.ModuloCliente
-{
-    partial class TelaClienteForm
-    {
+﻿namespace LocadoraDeVeiculos.WinApp.ModuloCliente {
+    partial class TelaClienteForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,10 +9,8 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -26,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -246,7 +241,7 @@
             // txtTelefone
             // 
             txtTelefone.Location = new Point(74, 91);
-            txtTelefone.Mask = "(00) 0000-0000";
+            txtTelefone.Mask = "(00) 0 0000-0000";
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(114, 23);
             txtTelefone.TabIndex = 27;
