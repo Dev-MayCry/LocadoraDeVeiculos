@@ -172,7 +172,7 @@ namespace LocadoraDeVeiculos {
 
             controladores.Add("ControladorCondutor", new ControladorCondutor(repositorioCondutor, servicoCondutor, repositorioCliente));
 
-            
+
             IRepositorioAluguel repositorioAluguel = new RepositorioAluguelOrm(dbContext);
 
             SerializadorDadosEmJson serializador = new SerializadorDadosEmJson();
@@ -185,9 +185,9 @@ namespace LocadoraDeVeiculos {
 
             ServicoAluguel servicoAluguel = new ServicoAluguel(repositorioAluguel, validadorAluguel);
 
-            controladores.Add("ControladorAluguel", new ControladorAluguel(repositorioAluguel, servicoAluguel, repositorioFuncionario, repositorioCliente, repositorioCondutor, repositorioGrupoAutomovel, repositorioAutomovel, repositorioPlanoCobranca, repositorioTaxaServico, repositorioCupom,repositorioPrecos));
+            controladores.Add("ControladorAluguel", new ControladorAluguel(repositorioAluguel, servicoAluguel, repositorioFuncionario, repositorioCliente, repositorioCondutor, repositorioGrupoAutomovel, repositorioAutomovel, repositorioPlanoCobranca, repositorioTaxaServico, repositorioCupom, repositorioPrecos));
 
-            
+
         }
         private void cupomToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
