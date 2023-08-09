@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using LocadoraDeVeiculos.Dominio.ModuloAluguel;
+using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using Serilog;
 using System.Data.SqlClient;
 
@@ -106,25 +107,40 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAluguel {
             if (resultadoValidacao != null)
                 erros.AddRange(resultadoValidacao.Errors.Select(x => x.ErrorMessage));
 
-            //if (NomeDuplicado(aluguel))
-              //  erros.Add($"Este nome '{aluguel.Automovel}' já está sendo utilizado");
+            if (AutomovelDuplicado(aluguel))
+                erros.Add($"Este automóvel '{aluguel.Automovel}' já está sendo utilizado");
+            
+            if (CNHVencida(aluguel))
+                erros.Add($"Este condutor '{aluguel.Condutor}' já está sendo utilizado");
 
             foreach (string erro in erros) {
                 Log.Warning(erro);
             }
             return erros;
         }
-        /*
-        private bool NomeDuplicado(Aluguel aluguel) {
-            Aluguel aluguelEncontrada = repositorioAluguel.SelecionarPorNome(aluguel.Nome);
+        
+        private bool AutomovelDuplicado(Aluguel aluguel) {
+            Aluguel aluguelEncontrada = repositorioAluguel.SelecionarPorAutomovel(aluguel.Automovel);
 
             if (aluguelEncontrada != null &&
                 aluguelEncontrada.Id != aluguel.Id &&
-                aluguelEncontrada.Nome == aluguel.Nome) {
+                aluguelEncontrada.Automovel == aluguel.Automovel) {
                 return true;
             }
 
             return false;
-        }*/
+        }
+
+        private bool CNHVencida(Aluguel aluguel) {
+            Aluguel aluguelEncontrada = repositorioAluguel.SelecionarPorCondutor(aluguel.Condutor);
+
+            if (aluguelEncontrada != null &&
+                aluguelEncontrada.Id != aluguel.Id &&
+                aluguelEncontrada.Condutor == aluguel.Condutor) {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

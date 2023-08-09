@@ -204,6 +204,7 @@
             // 
             txtKmAutomovel.Location = new Point(530, 129);
             txtKmAutomovel.Name = "txtKmAutomovel";
+            txtKmAutomovel.ReadOnly = true;
             txtKmAutomovel.Size = new Size(258, 23);
             txtKmAutomovel.TabIndex = 20;
             txtKmAutomovel.TextChanged += txtKmAutomovel_TextChanged;

@@ -1,5 +1,8 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloAluguel;
+using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloAluguel {
     public class RepositorioAluguelOrm : RepositorioBaseORM<Aluguel>, IRepositorioAluguel {
@@ -20,6 +23,13 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloAluguel {
 
         public List<Aluguel> SelecionarPorEncerrado() {
             return registros.Where(x => x.Encerrado == true).ToList();
+        }
+
+        public Aluguel SelecionarPorAutomovel(Automovel a) {
+            return registros.FirstOrDefault(x => x.Automovel == a);
+        }
+        public Aluguel SelecionarPorCondutor(Condutor c) {
+            return registros.FirstOrDefault(x => x.Condutor == c);
         }
     }
 }

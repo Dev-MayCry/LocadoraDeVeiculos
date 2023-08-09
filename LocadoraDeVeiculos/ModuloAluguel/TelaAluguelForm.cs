@@ -7,7 +7,6 @@ using LocadoraDeVeiculos.Dominio.ModuloCupom;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
-using LocadoraDeVeiculos.Dominio.ModuloPrecos;
 using LocadoraDeVeiculos.Dominio.ModuloTaxaServico;
 using LocadoraDeVeiculos.Infra.Json.ModuloPrecos;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
@@ -56,12 +55,12 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             foreach (Automovel item in automoveis)
                 cmbAutomovel.Items.Add(item);
             cmbAutomovel.SelectedIndex = 0;
-            
+
             cmbPlanoCobranca.Items.Clear();
             foreach (PlanoCobranca item in planos)
                 cmbPlanoCobranca.Items.Add(item);
             cmbPlanoCobranca.SelectedIndex = 0;
-            
+
             listTaxasSelecionadas.Items.Clear();
             foreach (TaxaServico item in taxas)
                 listTaxasSelecionadas.Items.Add(item);
@@ -99,7 +98,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
                 cmbGrupoAutomovel.SelectedItem = aluguel.GrupoAutomovel;
                 cmbAutomovel.SelectedItem = aluguel.Automovel;
                 cmbPlanoCobranca.SelectedItem = aluguel.PlanoCobranca;
-                txtKmAutomovel.Text = aluguel.KmAutomovel.ToString();
+                txtKmAutomovel.Text = aluguel.Automovel.Quilometragem.ToString();
                 txtCupom.Text = aluguel.Cupom.Nome;
 
                 foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
@@ -241,10 +240,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             decimal PrecoDiesel = 0;
 
             foreach (var item in combustiveis) {
-               PrecoAlcool = item.Alcool;
-               PrecoGas = item.Gas;
-               PrecoGasolina = item.Gasolina;
-               PrecoDiesel = item.Diesel;
+                PrecoAlcool = item.Alcool;
+                PrecoGas = item.Gas;
+                PrecoGasolina = item.Gasolina;
+                PrecoDiesel = item.Diesel;
             }
 
             Decimal valorParaCompletarTanque = 0;
@@ -287,7 +286,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
         }
 
         private void txtKmAutomovel_TextChanged(object sender, EventArgs e) {
-            if(txtKmAutomovel.Text.Length < 1) {
+            if (txtKmAutomovel.Text.Length < 1) {
                 txtKmAutomovel.Text = "0";
             }
         }
