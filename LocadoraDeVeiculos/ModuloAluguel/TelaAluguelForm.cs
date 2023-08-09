@@ -35,24 +35,37 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             cmbFuncionario.Items.Clear();
             foreach (Funcionario item in funcionarios)
                 cmbFuncionario.Items.Add(item);
+            cmbFuncionario.SelectedIndex = 0;
+
             cmbCliente.Items.Clear();
             foreach (Cliente item in clientes)
                 cmbCliente.Items.Add(item);
+            cmbCliente.SelectedIndex = 0;
+
             cmbCondutor.Items.Clear();
             foreach (Condutor item in condutores)
                 cmbCondutor.Items.Add(item);
+            cmbCondutor.SelectedIndex = 0;
+
             cmbGrupoAutomovel.Items.Clear();
             foreach (GrupoAutomovel item in grupos)
                 cmbGrupoAutomovel.Items.Add(item);
+            cmbGrupoAutomovel.SelectedIndex = 0;
+
             cmbAutomovel.Items.Clear();
             foreach (Automovel item in automoveis)
                 cmbAutomovel.Items.Add(item);
+            cmbAutomovel.SelectedIndex = 0;
+            
             cmbPlanoCobranca.Items.Clear();
             foreach (PlanoCobranca item in planos)
                 cmbPlanoCobranca.Items.Add(item);
+            cmbPlanoCobranca.SelectedIndex = 0;
+            
             listTaxasSelecionadas.Items.Clear();
             foreach (TaxaServico item in taxas)
                 listTaxasSelecionadas.Items.Add(item);
+
             txtKmAutomovel.Text = "0";
         }
 
