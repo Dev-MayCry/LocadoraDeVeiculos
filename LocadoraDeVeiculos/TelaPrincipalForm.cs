@@ -42,6 +42,8 @@ using LocadoraDeVeiculos.Dominio.ModuloAluguel;
 using LocadoraDeVeiculos.Infra.Orm.ModuloAluguel;
 using LocadoraDeVeiculos.Aplicacao.ModuloAluguel;
 using LocadoraDeVeiculos.WinApp.ModuloAluguel;
+using LocadoraDeVeiculos.Infra.Json.ModuloPrecos;
+using LocadoraDeVeiculos.Infra.Json.Serializadores;
 
 namespace LocadoraDeVeiculos {
     public partial class TelaPrincipalForm : Form {
@@ -173,12 +175,19 @@ namespace LocadoraDeVeiculos {
             
             IRepositorioAluguel repositorioAluguel = new RepositorioAluguelOrm(dbContext);
 
+            SerializadorDadosEmJson serializador = new SerializadorDadosEmJson();
+
+            ContextoDadosPrecos contexto = new ContextoDadosPrecos(serializador);
+
+            RepositorioPrecosJson repositorioPrecos = new RepositorioPrecosJson(contexto);
+
             ValidadorAluguel validadorAluguel = new ValidadorAluguel();
 
             ServicoAluguel servicoAluguel = new ServicoAluguel(repositorioAluguel, validadorAluguel);
 
-            controladores.Add("ControladorAluguel", new ControladorAluguel(repositorioAluguel, servicoAluguel, repositorioFuncionario, repositorioCliente, repositorioCondutor, repositorioGrupoAutomovel, repositorioAutomovel, repositorioPlanoCobranca, repositorioTaxaServico, repositorioCupom));
+            controladores.Add("ControladorAluguel", new ControladorAluguel(repositorioAluguel, servicoAluguel, repositorioFuncionario, repositorioCliente, repositorioCondutor, repositorioGrupoAutomovel, repositorioAutomovel, repositorioPlanoCobranca, repositorioTaxaServico, repositorioCupom,repositorioPrecos));
 
+            
         }
         private void cupomToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
@@ -214,12 +223,14 @@ namespace LocadoraDeVeiculos {
             btnInserir.Enabled = configuracao.InserirHabilitado;
             btnEditar.Enabled = configuracao.EditarHabilitado;
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
+            btnConfigurar.Enabled = configuracao.ConfigurarHabilitado;
         }
 
         private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao) {
             btnInserir.ToolTipText = configuracao.TooltipInserir;
             btnEditar.ToolTipText = configuracao.TooltipEditar;
             btnExcluir.ToolTipText = configuracao.TooltipExcluir;
+            btnConfigurar.ToolTipText = configuracao.TooltipConfigurar;
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador) {
@@ -276,6 +287,8 @@ namespace LocadoraDeVeiculos {
             controlador.Filtrar();
         }
 
-        
+        private void toolStripButton1_Click(object sender, EventArgs e) {
+            controlador.ConfigurarPreco();
+        }
     }
 }

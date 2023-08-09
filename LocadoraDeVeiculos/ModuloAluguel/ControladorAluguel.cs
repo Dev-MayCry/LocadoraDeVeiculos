@@ -10,6 +10,8 @@ using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
 using LocadoraDeVeiculos.Dominio.ModuloTaxaServico;
 using LocadoraDeVeiculos.Dominio.ModuloCupom;
+using LocadoraDeVeiculos.Dominio.ModuloPrecos;
+using LocadoraDeVeiculos.Infra.Json.ModuloPrecos;
 
 namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
     public class ControladorAluguel : ControladorBase{
@@ -25,8 +27,9 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
         IRepositorioPlanoCobranca repositorioPlanoCobranca;
         IRepositorioTaxaServico repositorioTaxaServico;
         IRepositorioCupom repositorioCupom;
+        RepositorioPrecosJson repositorioPrecos;
 
-        public ControladorAluguel(IRepositorioAluguel repositorioAluguel, ServicoAluguel servicoAluguel, IRepositorioFuncionario repositorioFuncionario, IRepositorioCliente repositorioCliente, IRepositorioCondutor repositorioCondutor, IRepositorioGrupoAutomovel repositorioGrupoAutomovel, IRepositorioAutomovel repositorioAutomovel, IRepositorioPlanoCobranca repositorioPlanoCobranca, IRepositorioTaxaServico repositorioTaxaServico, IRepositorioCupom repositorioCupom){
+        public ControladorAluguel(IRepositorioAluguel repositorioAluguel, ServicoAluguel servicoAluguel, IRepositorioFuncionario repositorioFuncionario, IRepositorioCliente repositorioCliente, IRepositorioCondutor repositorioCondutor, IRepositorioGrupoAutomovel repositorioGrupoAutomovel, IRepositorioAutomovel repositorioAutomovel, IRepositorioPlanoCobranca repositorioPlanoCobranca, IRepositorioTaxaServico repositorioTaxaServico, IRepositorioCupom repositorioCupom, RepositorioPrecosJson repositorioPrecos){
             this.repositorioAluguel = repositorioAluguel;
             this.servicoAluguel = servicoAluguel;
             this.repositorioFuncionario = repositorioFuncionario;
@@ -37,10 +40,13 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             this.repositorioPlanoCobranca = repositorioPlanoCobranca;
             this.repositorioTaxaServico = repositorioTaxaServico;
             this.repositorioCupom = repositorioCupom;
+            this.repositorioPrecos = repositorioPrecos;
         }
 
         public override void Inserir() {
-            TelaAluguelForm tela = new(repositorioFuncionario.SelecionarTodos(), repositorioCliente.SelecionarTodos(),repositorioCondutor.SelecionarTodos(), repositorioGrupoAutomovel.SelecionarTodos(), repositorioAutomovel.SelecionarTodos(), repositorioPlanoCobranca.SelecionarTodos(), repositorioTaxaServico.SelecionarTodos(), repositorioCupom);
+
+            
+            TelaAluguelForm tela = new(repositorioFuncionario.SelecionarTodos(), repositorioCliente.SelecionarTodos(),repositorioCondutor.SelecionarTodos(), repositorioGrupoAutomovel.SelecionarTodos(), repositorioAutomovel.SelecionarTodos(), repositorioPlanoCobranca.SelecionarTodos(), repositorioTaxaServico.SelecionarTodos(), repositorioCupom,repositorioPrecos);
 
             tela.onGravarRegistro += servicoAluguel.Inserir;
 
@@ -53,6 +59,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             }
         }
 
+        
         public override void Editar() {
             Guid id = tabelaAluguel.ObtemIdSelecionado();
 
@@ -64,7 +71,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
                 return;
             }
 
-            TelaAluguelForm tela = new(repositorioFuncionario.SelecionarTodos(), repositorioCliente.SelecionarTodos(), repositorioCondutor.SelecionarTodos(), repositorioGrupoAutomovel.SelecionarTodos(), repositorioAutomovel.SelecionarTodos(), repositorioPlanoCobranca.SelecionarTodos(), repositorioTaxaServico.SelecionarTodos(), repositorioCupom);
+            TelaAluguelForm tela = new(repositorioFuncionario.SelecionarTodos(), repositorioCliente.SelecionarTodos(), repositorioCondutor.SelecionarTodos(), repositorioGrupoAutomovel.SelecionarTodos(), repositorioAutomovel.SelecionarTodos(), repositorioPlanoCobranca.SelecionarTodos(), repositorioTaxaServico.SelecionarTodos(), repositorioCupom,repositorioPrecos);
 
             tela.onGravarRegistro += servicoAluguel.Editar;
 
@@ -101,6 +108,24 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
                     return;
                 }
                 CarregarAlugueis();
+            }
+        }
+
+        public override void ConfigurarPreco() {
+            Precos registroPreco = repositorioPrecos.ObterRegistros().FirstOrDefault();
+
+            if (registroPreco == null) {
+                registroPreco = new Precos(Guid.NewGuid(), 0, 0, 0, 0);
+            }
+
+            TelaPrecoForm tela = new TelaPrecoForm(registroPreco);
+            tela.ConfigurarPrecos(registroPreco);
+
+            DialogResult opcaoEscolhida = tela.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK) {
+                Precos precoEscolhido = tela.ObterPrecos();
+                repositorioPrecos.Salvar(registroPreco);
             }
         }
 

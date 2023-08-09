@@ -11,18 +11,13 @@ namespace LocadoraDeVeiculos.WinApp.Compartilhado {
 
         public abstract string TooltipExcluir { get; }
 
-        public virtual string TooltipAdicionarItens { get; }
-
-        public virtual string TooltipAtualizarItens { get; }
+        public virtual string TooltipConfigurar { get; }
 
         public virtual string TooltipFiltrar { get; }
 
         public virtual string TooltipGerarPdf { get; }
 
-        public virtual string TooltipDuplicar { get; }
-
-        public virtual string TooltipVisualizar { get; }
-
+       
         #endregion
 
         #region estados dos botões
@@ -32,9 +27,7 @@ namespace LocadoraDeVeiculos.WinApp.Compartilhado {
 
         public virtual bool ExcluirHabilitado { get { return true; } }
 
-        public virtual bool AdicionarItensHabilitado { get { return false; } }
-
-        public virtual bool AtualizarItensHabilitado { get { return false; } }
+        public virtual bool ConfigurarHabilitado { get { return false; } }
 
         public virtual bool FiltrarHabilitado { get { return false; } }
 
