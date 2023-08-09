@@ -162,6 +162,7 @@
             // 
             txtDataLocacao.Format = DateTimePickerFormat.Short;
             txtDataLocacao.Location = new Point(152, 158);
+            txtDataLocacao.MinDate = new DateTime(2023, 8, 9, 0, 0, 0, 0);
             txtDataLocacao.Name = "txtDataLocacao";
             txtDataLocacao.Size = new Size(258, 23);
             txtDataLocacao.TabIndex = 15;
@@ -223,6 +224,7 @@
             // 
             txtDataDevolucaoPrevista.Format = DateTimePickerFormat.Short;
             txtDataDevolucaoPrevista.Location = new Point(530, 158);
+            txtDataDevolucaoPrevista.MinDate = new DateTime(2023, 8, 9, 0, 0, 0, 0);
             txtDataDevolucaoPrevista.Name = "txtDataDevolucaoPrevista";
             txtDataDevolucaoPrevista.Size = new Size(258, 23);
             txtDataDevolucaoPrevista.TabIndex = 23;

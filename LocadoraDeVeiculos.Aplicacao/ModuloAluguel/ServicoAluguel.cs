@@ -134,9 +134,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAluguel {
         private bool CNHVencida(Aluguel aluguel) {
             Aluguel aluguelEncontrada = repositorioAluguel.SelecionarPorCondutor(aluguel.Condutor);
 
-            if (aluguelEncontrada != null &&
-                aluguelEncontrada.Id != aluguel.Id &&
-                aluguelEncontrada.Condutor == aluguel.Condutor) {
+            if (aluguelEncontrada.Condutor.DataValidade.CompareTo(aluguel.DataLocacao) < 0) {
                 return true;
             }
 

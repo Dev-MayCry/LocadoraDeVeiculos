@@ -168,6 +168,7 @@
             txtData.CustomFormat = "dd/MM/yyyy";
             txtData.Format = DateTimePickerFormat.Custom;
             txtData.Location = new Point(99, 226);
+            txtData.MinDate = new DateTime(2023, 8, 9, 0, 0, 0, 0);
             txtData.Name = "txtData";
             txtData.Size = new Size(155, 23);
             txtData.TabIndex = 33;

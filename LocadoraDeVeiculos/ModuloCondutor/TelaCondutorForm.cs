@@ -94,7 +94,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCondutor {
         }
 
         private void txtListaClientes_SelectedIndexChanged(object sender, EventArgs e) {
-            if(btnCliente.Checked) {
+            if (btnCliente.Checked) {
                 btnCliente.Checked = false;
             }
         }
