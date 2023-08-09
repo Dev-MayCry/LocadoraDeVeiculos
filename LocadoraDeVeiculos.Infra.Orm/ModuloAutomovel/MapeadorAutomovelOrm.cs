@@ -1,7 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Drawing;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloAutomovel {
     public class MapeadorAutomovelOrm : IEntityTypeConfiguration<Automovel> {
