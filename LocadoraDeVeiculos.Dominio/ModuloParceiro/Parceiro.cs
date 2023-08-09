@@ -14,11 +14,9 @@ namespace LocadoraDeVeiculos.Dominio.ModuloParceiro {
         }
         public override void Atualizar(Parceiro registro) {
             Nome = registro.Nome;
-            
         }
 
-        public override string? ToString()
-        {
+        public override string? ToString() {
             return Nome;
         }
     }

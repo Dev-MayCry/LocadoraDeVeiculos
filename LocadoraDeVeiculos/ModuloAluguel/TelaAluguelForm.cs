@@ -48,6 +48,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             listTaxasSelecionadas.Items.Clear();
             foreach (TaxaServico item in taxas)
                 listTaxasSelecionadas.Items.Add(item);
+            txtKmAutomovel.Text = "0";
         }
 
         public Aluguel ObterAluguel() {
@@ -58,12 +59,11 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             aluguel.Automovel = (Automovel)cmbAutomovel.SelectedItem;
             aluguel.PlanoCobranca = (PlanoCobranca)cmbPlanoCobranca.SelectedItem;
             aluguel.KmAutomovel = Convert.ToInt32(txtKmAutomovel.Text);
-                        
+
             Cupom cupom = cupons.SelecionarPorNome(txtCupom.Text);
             if (cupom != null) aluguel.Cupom = cupom;
 
-            foreach (TaxaServico item in listTaxasSelecionadas.CheckedItems)
-            { 
+            foreach (TaxaServico item in listTaxasSelecionadas.CheckedItems) {
                 aluguel.TaxasSelecionadas.Add(item);
             }
 
@@ -84,8 +84,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
                 txtKmAutomovel.Text = aluguel.KmAutomovel.ToString();
                 txtCupom.Text = aluguel.Cupom.Nome;
 
-                foreach (TaxaServico item in aluguel.TaxasSelecionadas)
-                {
+                foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
                     listTaxasSelecionadas.SetItemChecked(listTaxasSelecionadas.Items.IndexOf(item), true);
                 }
 
@@ -255,6 +254,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
         }
 
-        
+        private void txtKmAutomovel_TextChanged(object sender, EventArgs e) {
+            if(txtKmAutomovel.Text.Length < 1) {
+                txtKmAutomovel.Text = "0";
+            }
+        }
     }
 }

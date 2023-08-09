@@ -29,6 +29,11 @@ namespace LocadoraDeVeiculos.Dominio.ModuloFuncionario {
             Salario = registro.Salario;
         }
 
+        public override string? ToString() {
+            return Nome;
+        }
+
+
 
         //public Funcionario(Guid id, string nome) : this(nome) {
         //    Id = id;

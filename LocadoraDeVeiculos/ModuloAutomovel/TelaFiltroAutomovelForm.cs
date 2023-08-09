@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
             foreach (var item in repositorioGrupoAutomovel.SelecionarTodos()) {
                 txtListaGrupoAutomoveis.Items.Add(item);
             }
-
+            txtListaGrupoAutomoveis.SelectedIndex = 0;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) {

@@ -63,11 +63,16 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
 
                 return Result.Ok();
             }
-            catch (Exception exc)
+            catch (Exception ex)
             {
-                string msgErro = "Falha ao tentar editar Cliente";
+                string msgErro;
 
-                Log.Error(exc, msgErro + "{@d}", cliente);
+                if (ex.Message.Contains("FK_TBAluguel_TBCliente"))
+                    msgErro = "Este cliente está relacionado com um aluguel em aberto e não pode ser editado";
+                else
+                    msgErro = "Falha ao tentar editar Cliente";
+
+                Log.Error(ex, msgErro + "{@d}", cliente);
 
                 return Result.Fail(msgErro);
             }
@@ -100,8 +105,8 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCliente
 
                 string msgErro;
 
-                if (ex.Message.Contains("FK_TBMateria_TBCliente"))
-                    msgErro = "Esta cliente está relacionado com uma locação e não pode ser excluído";
+                if (ex.Message.Contains("FK_TBAluguel_TBCliente"))
+                    msgErro = "Este cliente está relacionado com um aluguel em aberto e não pode ser excluído";
                 else
                     msgErro = "Falha ao tentar excluir Cliente";
 

@@ -23,14 +23,3 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
     }
 
 }
-/*          Nome = registro.Nome;
-            Email = registro.Email;           
-            Telefone = registro.Telefone;
-            Cpf = registro.Cpf; 
-            Cnpj = registro.Cnpj;  
-            Cidade = registro.Cidade;
-            Bairro = registro.Bairro;
-            Rua = registro.Rua;
-            NumeroDaCasa = registro.NumeroDaCasa;
-            Estado = registro.Estado;
-            TipoCliente = registro.TipoCliente;*/

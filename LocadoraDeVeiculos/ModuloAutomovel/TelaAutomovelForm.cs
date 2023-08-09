@@ -17,14 +17,18 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
         }
 
         private void ConfigurarComboBox(IRepositorioGrupoAutomovel repositorioGrupoAutomovel) {
-            foreach (var item in repositorioGrupoAutomovel.SelecionarTodos()) {
+            foreach (var item in repositorioGrupoAutomovel.SelecionarTodos())
                 txtListaGrupoAutomoveis.Items.Add(item);
-            }
+            txtListaGrupoAutomoveis.SelectedIndex = 0;
+
             txtListaTipoCombustivel.Items.Add(TipoCombustivelEnum.Alcool);
             txtListaTipoCombustivel.Items.Add(TipoCombustivelEnum.Diesel);
             txtListaTipoCombustivel.Items.Add(TipoCombustivelEnum.Gas);
             txtListaTipoCombustivel.Items.Add(TipoCombustivelEnum.Gasolina);
+            txtListaTipoCombustivel.SelectedIndex = 0;
 
+            txtCapacidadeLitros.Text = "0";
+            txtQuilometragem.Text = "0";
         }
 
         public Automovel ObterAutomovel() {
@@ -49,19 +53,22 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
         public void ConfigurarAutomovel(Automovel automovel) {
 
             this.automovel = automovel;
-            txtAno.Value = automovel.Ano;
-            txtPlaca.Text = automovel.Placa;
-            txtModelo.Text = automovel.Modelo;
-            txtMarca.Text = automovel.Marca;
-            txtCor.Text = automovel.Cor;
-            txtCapacidadeLitros.Text = automovel.CapacidadeLitros.ToString();
-            txtQuilometragem.Text = automovel.Quilometragem.ToString();
-            txtListaTipoCombustivel.SelectedItem = automovel.TipoCombustivel;
-            txtListaGrupoAutomoveis.SelectedItem = automovel.GrupoAutomovel;
+            if (automovel.Placa != null) {
+                txtAno.Value = automovel.Ano;
+                txtPlaca.Text = automovel.Placa;
+                txtModelo.Text = automovel.Modelo;
+                txtMarca.Text = automovel.Marca;
+                txtCor.Text = automovel.Cor;
+                txtCapacidadeLitros.Text = automovel.CapacidadeLitros.ToString();
+                txtQuilometragem.Text = automovel.Quilometragem.ToString();
+                txtListaTipoCombustivel.SelectedItem = automovel.TipoCombustivel;
+                txtListaGrupoAutomoveis.SelectedItem = automovel.GrupoAutomovel;
 
-            Image foto = null;
-            foto = ConverterByteArrayEmImagem(automovel, foto);
-            fotoAutomovel.Image = foto;
+                Image foto = null;
+                foto = ConverterByteArrayEmImagem(automovel, foto);
+                fotoAutomovel.Image = foto;
+            }
+
         }
 
         private byte[] ConverterImagemEmByteArray(byte[] foto) {
@@ -131,6 +138,24 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
 
         private void btnApagar_Click(object sender, EventArgs e) {
             fotoAutomovel.Image = null;
+        }
+
+        private void txtCapacidadeLitros_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+        }
+
+        private void txtQuilometragem_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+        }
+
+        private void txtQuilometragem_TextChanged(object sender, EventArgs e) {
+            if (txtQuilometragem.Text.Length < 1)
+                txtQuilometragem.Text = "0";
+        }
+
+        private void txtCapacidadeLitros_TextChanged(object sender, EventArgs e) {
+            if (txtCapacidadeLitros.Text.Length < 1)
+                txtCapacidadeLitros.Text = "0";
         }
     }
 }

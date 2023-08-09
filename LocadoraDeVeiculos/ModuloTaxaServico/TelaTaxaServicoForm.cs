@@ -53,5 +53,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloTaxaServico {
                 DialogResult = DialogResult.None;
             }
         }
+
+        private void txtPreco_TextChanged(object sender, EventArgs e) {
+            if(txtPreco.Text.Length < 1) 
+                txtPreco.Text = "0";
+        }
     }
 }

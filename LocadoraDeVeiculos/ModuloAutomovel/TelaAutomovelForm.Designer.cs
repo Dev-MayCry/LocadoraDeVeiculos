@@ -122,6 +122,8 @@
             txtCapacidadeLitros.Name = "txtCapacidadeLitros";
             txtCapacidadeLitros.Size = new Size(367, 23);
             txtCapacidadeLitros.TabIndex = 23;
+            txtCapacidadeLitros.TextChanged += txtCapacidadeLitros_TextChanged;
+            txtCapacidadeLitros.KeyPress += txtCapacidadeLitros_KeyPress;
             // 
             // label6
             // 
@@ -152,6 +154,7 @@
             // 
             // txtListaGrupoAutomoveis
             // 
+            txtListaGrupoAutomoveis.DropDownStyle = ComboBoxStyle.DropDownList;
             txtListaGrupoAutomoveis.FormattingEnabled = true;
             txtListaGrupoAutomoveis.Location = new Point(161, 197);
             txtListaGrupoAutomoveis.Name = "txtListaGrupoAutomoveis";
@@ -160,6 +163,7 @@
             // 
             // txtListaTipoCombustivel
             // 
+            txtListaTipoCombustivel.DropDownStyle = ComboBoxStyle.DropDownList;
             txtListaTipoCombustivel.FormattingEnabled = true;
             txtListaTipoCombustivel.Location = new Point(161, 313);
             txtListaTipoCombustivel.Name = "txtListaTipoCombustivel";
@@ -243,6 +247,8 @@
             txtQuilometragem.Name = "txtQuilometragem";
             txtQuilometragem.Size = new Size(367, 23);
             txtQuilometragem.TabIndex = 39;
+            txtQuilometragem.TextChanged += txtQuilometragem_TextChanged;
+            txtQuilometragem.KeyPress += txtQuilometragem_KeyPress;
             // 
             // label10
             // 

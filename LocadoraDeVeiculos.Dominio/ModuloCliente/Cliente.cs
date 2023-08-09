@@ -18,7 +18,6 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
         public string Rua { get; set; }  
         public TipoClienteEnum  TipoCliente { get; set; }
         
-        //public enum   TipoDePessoa { get; set; }
         public override void Atualizar(Cliente registro)
         {
             
@@ -34,17 +33,12 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
             Estado = registro.Estado;
             TipoCliente = registro.TipoCliente;
         }
-        public Cliente()
-        {
+        public Cliente(){}
 
-        }
-
-        public Cliente(string Nome)
-        {
+        public Cliente(string Nome){
             this.Nome = Nome;
         }
-        public Cliente( string nome,string email,string telefone ,string cpf,string cnpj,string cidade,string bairro,string rua,string numeroDaCasa,string estado,TipoClienteEnum tipoCliente) : this(nome)
-        {                 
+        public Cliente( string nome,string email,string telefone ,string cpf,string cnpj,string cidade,string bairro,string rua,string numeroDaCasa,string estado,TipoClienteEnum tipoCliente) : this(nome){                 
             Nome = nome;
             Email = email; 
             Telefone = telefone;
@@ -57,8 +51,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
             Estado = estado;
             TipoCliente= tipoCliente;
         }
-        public Cliente(Guid id,string nome, string email, string telefone ,string cpf, string cnpj, string cidade, string bairro, string rua, string numeroDaCasa, string estado, TipoClienteEnum tipoCliente) : this(nome)
-        {
+        public Cliente(Guid id,string nome, string email, string telefone ,string cpf, string cnpj, string cidade, string bairro, string rua, string numeroDaCasa, string estado, TipoClienteEnum tipoCliente) : this(nome){
             Id = id;
             Nome = nome;
             Email = email;

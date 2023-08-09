@@ -80,6 +80,7 @@
             txtPreco.Name = "txtPreco";
             txtPreco.Size = new Size(259, 23);
             txtPreco.TabIndex = 15;
+            txtPreco.TextChanged += txtPreco_TextChanged;
             txtPreco.KeyPress += textPreco_KeyPress;
             // 
             // label2

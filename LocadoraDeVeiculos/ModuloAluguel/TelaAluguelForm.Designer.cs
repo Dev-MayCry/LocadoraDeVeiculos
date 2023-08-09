@@ -47,8 +47,8 @@
             txtCupom = new TextBox();
             tabControl = new TabControl();
             tp1 = new TabPage();
-            tp2 = new TabPage();
             listTaxasSelecionadas = new CheckedListBox();
+            tp2 = new TabPage();
             listTaxasAdicionais = new CheckedListBox();
             btnAplicarCupom = new Button();
             label11 = new Label();
@@ -206,6 +206,7 @@
             txtKmAutomovel.Name = "txtKmAutomovel";
             txtKmAutomovel.Size = new Size(258, 23);
             txtKmAutomovel.TabIndex = 20;
+            txtKmAutomovel.TextChanged += txtKmAutomovel_TextChanged;
             txtKmAutomovel.KeyPress += txtKmAutomovel_KeyPress;
             // 
             // label8
@@ -271,6 +272,14 @@
             tp1.Text = "Taxas Selecionadas";
             tp1.UseVisualStyleBackColor = true;
             // 
+            // listTaxasSelecionadas
+            // 
+            listTaxasSelecionadas.FormattingEnabled = true;
+            listTaxasSelecionadas.Location = new Point(6, 6);
+            listTaxasSelecionadas.Name = "listTaxasSelecionadas";
+            listTaxasSelecionadas.Size = new Size(748, 256);
+            listTaxasSelecionadas.TabIndex = 0;
+            // 
             // tp2
             // 
             tp2.Controls.Add(listTaxasAdicionais);
@@ -281,14 +290,6 @@
             tp2.TabIndex = 1;
             tp2.Text = "Taxas Adicionais";
             tp2.UseVisualStyleBackColor = true;
-            // 
-            // listTaxasSelecionadas
-            // 
-            listTaxasSelecionadas.FormattingEnabled = true;
-            listTaxasSelecionadas.Location = new Point(6, 6);
-            listTaxasSelecionadas.Name = "listTaxasSelecionadas";
-            listTaxasSelecionadas.Size = new Size(748, 256);
-            listTaxasSelecionadas.TabIndex = 0;
             // 
             // listTaxasAdicionais
             // 

@@ -12,21 +12,21 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
         private IRepositorioPlanoCobranca repositorioPlanoCobranca;
 
         public event GravarRegistroDelegate<PlanoCobranca> onGravarRegistro;
-        public TelaPlanoCobrancaForm(List<GrupoAutomovel> grupos,IRepositorioPlanoCobranca repositorioPlanoCobranca) {
+        public TelaPlanoCobrancaForm(List<GrupoAutomovel> grupos, IRepositorioPlanoCobranca repositorioPlanoCobranca) {
             this.repositorioPlanoCobranca = repositorioPlanoCobranca;
-            
+
             InitializeComponent();
             this.ConfigurarDialog();
             CarregarGrupos(grupos);
-          
+
         }
 
         public TelaPlanoCobrancaForm(List<GrupoAutomovel> grupos) {
-            
+
 
             InitializeComponent();
             this.ConfigurarDialog();
-           
+
         }
 
         public PlanoCobranca ObterPlanoCobranca() {
@@ -35,11 +35,11 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
             planoCobranca.tipo = (TipoPlanoEnum)cmbNomesPlanos.SelectedItem;
             planoCobranca.PrecoDiaria = Convert.ToDecimal(txtPrecoDiaria.Text);
 
-            if(planoCobranca.tipo == TipoPlanoEnum.PlanoDiario) {
+            if (planoCobranca.tipo == TipoPlanoEnum.PlanoDiario) {
                 planoCobranca.PrecoKm = Convert.ToDecimal(txtPrecoKm.Text);
                 planoCobranca.KmDisponiveis = 0;
             }
-            if(planoCobranca.tipo == TipoPlanoEnum.PlanoControlador) {
+            if (planoCobranca.tipo == TipoPlanoEnum.PlanoControlador) {
                 planoCobranca.PrecoKm = Convert.ToDecimal(txtPrecoKm.Text);
                 planoCobranca.KmDisponiveis = Convert.ToInt32(txtKmDisponiveis.Text);
             }
@@ -59,16 +59,16 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
 
             //cmbGrupoAutomoveis.SelectedItem = planoCobranca.grupo;
             //cmbNomesPlanos.SelectedItem = planoCobranca.tipo;
-            txtPrecoDiaria.Text = "";
-            txtPrecoKm.Text = "";
-            txtKmDisponiveis.Text = "";
+            txtPrecoDiaria.Text = "0";
+            txtPrecoKm.Text = "0";
+            txtKmDisponiveis.Text = "0";
         }
 
         public void ConfigurarPlanoCobrancaEdicao(PlanoCobranca planoCobranca) {
 
             this.planoCobranca = planoCobranca;
             ConfigurarCmbEdicao(planoCobranca);
-            
+
             txtPrecoDiaria.Text = planoCobranca.PrecoDiaria.ToString();
             txtPrecoKm.Text = planoCobranca.PrecoKm.ToString();
             txtKmDisponiveis.Text = planoCobranca.KmDisponiveis.ToString();
@@ -90,13 +90,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
 
             if (cmbGrupoAutomoveis.Items.Count > 0) {
                 cmbGrupoAutomoveis.SelectedItem = cmbGrupoAutomoveis.Items[0];
-                
+
             }
 
             return (GrupoAutomovel)cmbGrupoAutomoveis.SelectedItem;
-
-
-
         }
 
         private void CarregarTipos(GrupoAutomovel grupo) {
@@ -141,7 +138,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
 
         }
 
-      
+
 
         private void btnGravar_Click(object sender, EventArgs e) {
             this.planoCobranca = ObterPlanoCobranca();
@@ -159,26 +156,53 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
 
         private void cmbNomesPlanos_SelectedIndexChanged(object sender, EventArgs e) {
 
-                var tipo = (TipoPlanoEnum)cmbNomesPlanos.SelectedItem;
+            var tipo = (TipoPlanoEnum)cmbNomesPlanos.SelectedItem;
 
-                if (tipo == TipoPlanoEnum.PlanoDiario) {
-                    txtPrecoKm.Enabled = true;
-                    txtKmDisponiveis.Enabled = false;
+            if (tipo == TipoPlanoEnum.PlanoDiario) {
+                txtPrecoKm.Enabled = true;
+                txtKmDisponiveis.Enabled = false;
 
-                } else if (tipo == TipoPlanoEnum.PlanoLivre) {
-                    txtPrecoKm.Enabled = false;
-                    txtKmDisponiveis.Enabled = false;
+            } else if (tipo == TipoPlanoEnum.PlanoLivre) {
+                txtPrecoKm.Enabled = false;
+                txtKmDisponiveis.Enabled = false;
 
-                } else if (tipo == TipoPlanoEnum.PlanoControlador) {
-                    txtPrecoKm.Enabled = true;
-                    txtKmDisponiveis.Enabled = true;
-                }
-            
+            } else if (tipo == TipoPlanoEnum.PlanoControlador) {
+                txtPrecoKm.Enabled = true;
+                txtKmDisponiveis.Enabled = true;
+            }
+
         }
 
         private void cmbGrupoAutomoveis_SelectedIndexChanged(object sender, EventArgs e) {
             GrupoAutomovel grupo = (GrupoAutomovel)cmbGrupoAutomoveis.SelectedItem;
             CarregarTipos(grupo);
+        }
+
+        private void txtPrecoDiaria_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+        }
+
+        private void txtPrecoDiaria_TextChanged(object sender, EventArgs e) {
+            if (txtPrecoDiaria.Text.Length < 1)
+                txtPrecoDiaria.Text = "0";
+        }
+
+        private void txtPrecoKm_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+        }
+
+        private void txtPrecoKm_TextChanged(object sender, EventArgs e) {
+            if (txtPrecoDiaria.Text.Length < 1)
+                txtPrecoDiaria.Text = "0";
+        }
+
+        private void txtKmDisponiveis_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
+        }
+
+        private void txtKmDisponiveis_TextChanged(object sender, EventArgs e) {
+            if (txtPrecoDiaria.Text.Length < 1)
+                txtPrecoDiaria.Text = "0";
         }
     }
 }

@@ -41,6 +41,8 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca {
             throw new NotImplementedException();
         }
 
-        
+        public override string? ToString() {
+            return tipo.ToString();
+        }
     }
 }
