@@ -63,7 +63,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             if (cupom != null) aluguel.Cupom = cupom;
 
             foreach (TaxaServico item in listTaxasSelecionadas.CheckedItems)
-            {
+            { 
                 aluguel.TaxasSelecionadas.Add(item);
             }
 

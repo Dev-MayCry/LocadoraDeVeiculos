@@ -27,7 +27,9 @@ namespace LocadoraDeVeiculos.Dominio.ModuloAluguel {
         public decimal ValorTotal { get; set; }
         public bool Encerrado { get; set; } = false;
 
-        public Aluguel() {}
+        public Aluguel() {
+            TaxasSelecionadas = new();
+        }
 
         public Aluguel(Funcionario funcionario, Cliente cliente, Condutor condutor, GrupoAutomovel grupoAutomovel, Automovel automovel, PlanoCobranca planoCobranca, int kmAutomovel, DateTime dataLocacao, DateTime dataDevolucaoPrevista, List<TaxaServico> taxasSelecionadas, DateTime dataDevolucao, decimal valorTotal) {
             Funcionario = funcionario;
