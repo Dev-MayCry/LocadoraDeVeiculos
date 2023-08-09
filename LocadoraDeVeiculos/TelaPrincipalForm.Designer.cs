@@ -29,32 +29,33 @@
         
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
-            menu = new MenuStrip();
-            cadastrosToolStripMenuItem = new ToolStripMenuItem();
-            disciplinaMenuItem = new ToolStripMenuItem();
-            funcionárioToolStripMenuItem = new ToolStripMenuItem();
-            grupoDeAutomóvelToolStripMenuItem = new ToolStripMenuItem();
-            clienteMenuItem = new ToolStripMenuItem();
-            condutorToolStripMenuItem = new ToolStripMenuItem();
-            planoECobrançaToolStripMenuItem = new ToolStripMenuItem();
-            taxaEServiçoToolStripMenuItem = new ToolStripMenuItem();
-            aluguelToolStripMenuItem = new ToolStripMenuItem();
-            automóvelToolStripMenuItem = new ToolStripMenuItem();
-            cupomToolStripMenuItem = new ToolStripMenuItem();
-            toolbox = new ToolStrip();
-            btnInserir = new ToolStripButton();
-            btnEditar = new ToolStripButton();
-            btnExcluir = new ToolStripButton();
-            btnFiltrar = new ToolStripButton();
-            toolStripSeparator2 = new ToolStripSeparator();
-            labelTipoCadastro = new ToolStripLabel();
-            panelRegistros = new Panel();
-            statusStrip1 = new StatusStrip();
-            labelRodape = new ToolStripStatusLabel();
-            menu.SuspendLayout();
-            toolbox.SuspendLayout();
-            statusStrip1.SuspendLayout();
-            SuspendLayout();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.disciplinaMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grupoDeAutomóvelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.condutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.planoECobrançaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taxaEServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aluguelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.automóvelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cupomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraçãoDePreçosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolbox = new System.Windows.Forms.ToolStrip();
+            this.btnInserir = new System.Windows.Forms.ToolStripButton();
+            this.btnEditar = new System.Windows.Forms.ToolStripButton();
+            this.btnExcluir = new System.Windows.Forms.ToolStripButton();
+            this.btnFiltrar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
+            this.panelRegistros = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menu.SuspendLayout();
+            this.toolbox.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // menu
             // 
@@ -69,24 +70,29 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaMenuItem, funcionárioToolStripMenuItem, grupoDeAutomóvelToolStripMenuItem, clienteMenuItem, condutorToolStripMenuItem, planoECobrançaToolStripMenuItem, taxaEServiçoToolStripMenuItem, aluguelToolStripMenuItem, automóvelToolStripMenuItem, cupomToolStripMenuItem });
-            cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            cadastrosToolStripMenuItem.Size = new Size(71, 20);
-            cadastrosToolStripMenuItem.Text = "Cadastros";
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clienteMenuItem,
             this.disciplinaMenuItem,
             this.funcionárioToolStripMenuItem,
             this.grupoDeAutomóvelToolStripMenuItem,
-            
             this.condutorToolStripMenuItem,
             this.planoECobrançaToolStripMenuItem,
             this.taxaEServiçoToolStripMenuItem,
             this.aluguelToolStripMenuItem,
             this.automóvelToolStripMenuItem,
-            this.cupomToolStripMenuItem});
+            this.cupomToolStripMenuItem,
+            this.configuraçãoDePreçosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            // 
+            // clienteMenuItem
+            // 
+            this.clienteMenuItem.Name = "clienteMenuItem";
+            this.clienteMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.clienteMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.clienteMenuItem.Text = "Cliente";
+            this.clienteMenuItem.Click += new System.EventHandler(this.clienteMenuItem_Click);
             // 
             // disciplinaMenuItem
             // 
@@ -111,16 +117,6 @@
             this.grupoDeAutomóvelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.grupoDeAutomóvelToolStripMenuItem.Text = "Grupo de Automóvel";
             this.grupoDeAutomóvelToolStripMenuItem.Click += new System.EventHandler(this.grupoDeAutomoveisMenuItem_Click);
-            // 
-            // clienteMenuItem
-            // 
-            clienteMenuItem.Name = "clienteMenuItem";
-            clienteMenuItem.ShortcutKeys = Keys.F4;
-            clienteMenuItem.Size = new Size(204, 22);
-            clienteMenuItem.Text = "Cliente";
-            clienteMenuItem.Click += clienteMenuItem_Click;
-            
-      
             // 
             // condutorToolStripMenuItem
             // 
@@ -152,31 +148,39 @@
             // 
             // automóvelToolStripMenuItem
             // 
-            automóvelToolStripMenuItem.Name = "automóvelToolStripMenuItem";
-            automóvelToolStripMenuItem.Size = new Size(204, 22);
-            automóvelToolStripMenuItem.Text = "Automóvel";
-            automóvelToolStripMenuItem.Click += automóvelToolStripMenuItem_Click;
+            this.automóvelToolStripMenuItem.Name = "automóvelToolStripMenuItem";
+            this.automóvelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.automóvelToolStripMenuItem.Text = "Automóvel";
             // 
             // cupomToolStripMenuItem
             // 
-            cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
-            cupomToolStripMenuItem.Size = new Size(204, 22);
-            cupomToolStripMenuItem.Text = "Cupom";
-            cupomToolStripMenuItem.Click += cupomToolStripMenuItem_Click;
             this.cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
             this.cupomToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.cupomToolStripMenuItem.Text = "Cupom";
             // 
+            // configuraçãoDePreçosToolStripMenuItem
+            // 
+            this.configuraçãoDePreçosToolStripMenuItem.Name = "configuraçãoDePreçosToolStripMenuItem";
+            this.configuraçãoDePreçosToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.configuraçãoDePreçosToolStripMenuItem.Text = "Configuração de Preços";
+            this.configuraçãoDePreçosToolStripMenuItem.Click += new System.EventHandler(this.configuraçãoDePreçosToolStripMenuItem_Click);
+            // 
             // toolbox
             // 
-            toolbox.Enabled = false;
-            toolbox.ImageScalingSize = new Size(20, 20);
-            toolbox.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltrar, toolStripSeparator2, labelTipoCadastro });
-            toolbox.Location = new Point(0, 24);
-            toolbox.Name = "toolbox";
-            toolbox.Size = new Size(800, 32);
-            toolbox.TabIndex = 2;
-            toolbox.Text = "toolStrip1";
+            this.toolbox.Enabled = false;
+            this.toolbox.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolbox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnInserir,
+            this.btnEditar,
+            this.btnExcluir,
+            this.btnFiltrar,
+            this.toolStripSeparator2,
+            this.labelTipoCadastro});
+            this.toolbox.Location = new System.Drawing.Point(0, 24);
+            this.toolbox.Name = "toolbox";
+            this.toolbox.Size = new System.Drawing.Size(800, 32);
+            this.toolbox.TabIndex = 2;
+            this.toolbox.Text = "toolStrip1";
             // 
             // btnInserir
             // 
@@ -213,13 +217,12 @@
             // 
             // btnFiltrar
             // 
-            btnFiltrar.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnFiltrar.Image = (Image)resources.GetObject("btnFiltrar.Image");
-            btnFiltrar.ImageTransparentColor = Color.Magenta;
-            btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(41, 29);
-            btnFiltrar.Text = "Filtrar";
-            btnFiltrar.Click += btnFiltrar_Click;
+            this.btnFiltrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
+            this.btnFiltrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(41, 29);
+            this.btnFiltrar.Text = "Filtrar";
             // 
             // toolStripSeparator2
             // 
@@ -306,5 +309,6 @@
         private ToolStripMenuItem automóvelToolStripMenuItem;
         private ToolStripMenuItem cupomToolStripMenuItem;
         private ToolStripButton btnFiltrar;
+        private ToolStripMenuItem configuraçãoDePreçosToolStripMenuItem;
     }
 }

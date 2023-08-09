@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 Acesso a Dados", "4.1 A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.Orm", "LocadoraDeVeiculos.Infra.Orm\LocadoraDeVeiculos.Infra.Orm.csproj", "{39530F06-B5E0-40AB-8E6B-252ED536DEA6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 Acesso a Dados em Arquivo", "4.2 Acesso a Dados em Arquivo", "{C02A0993-DE12-4299-A94E-B02099E16D36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadorDeVeiculos.Infra.Arquivo", "LocadorDeVeiculos.Infra.Arquivo\LocadorDeVeiculos.Infra.Arquivo.csproj", "{E25C00A1-6F7E-49BD-856C-CD0495A28FE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,10 @@ Global
 		{39530F06-B5E0-40AB-8E6B-252ED536DEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39530F06-B5E0-40AB-8E6B-252ED536DEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39530F06-B5E0-40AB-8E6B-252ED536DEA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25C00A1-6F7E-49BD-856C-CD0495A28FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25C00A1-6F7E-49BD-856C-CD0495A28FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25C00A1-6F7E-49BD-856C-CD0495A28FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25C00A1-6F7E-49BD-856C-CD0495A28FE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +83,8 @@ Global
 		{4AA985F2-4EF9-4605-8879-BFAAE7C4A6C0} = {8CF4D587-7AE5-40FF-9E07-33F97D4D31D6}
 		{D5D46717-A223-4C3E-8E01-34591FA50C14} = {187B85D8-F299-471C-8B6B-1B3C18A9ED01}
 		{39530F06-B5E0-40AB-8E6B-252ED536DEA6} = {D5D46717-A223-4C3E-8E01-34591FA50C14}
+		{C02A0993-DE12-4299-A94E-B02099E16D36} = {187B85D8-F299-471C-8B6B-1B3C18A9ED01}
+		{E25C00A1-6F7E-49BD-856C-CD0495A28FE1} = {C02A0993-DE12-4299-A94E-B02099E16D36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E8674C34-DB84-4979-86F3-A0989F5125F3}

@@ -30,6 +30,10 @@ using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
 using LocadoraDeVeiculos.Aplicacao.ModuloCliente;
 using LocadoraDeVeiculos.WinApp.ModuloCliente;
+using LocadoraDeVeiculos.Dominio.ModuloConfiguracaoDePrecos;
+using LocadoraDeVeiculos.Infra.Json.ModuloConfigPreco;
+using LocadoraDeVeiculos.Aplicacao.ModuloConfiguracaoDePrecos;
+using LocadoraDeVeiculos.WinApp.ModuloConfiguracaoDePrecos;
 
 namespace LocadoraDeVeiculos
 {
@@ -142,6 +146,12 @@ namespace LocadoraDeVeiculos
             ValidadorCliente validadorCliente = new ValidadorCliente();
             ServicoCliente servicoCliente = new ServicoCliente(repositorioCliente, validadorCliente);
             controladores.Add("ControladorCliente", new ControladorCliente(repositorioCliente, servicoCliente));
+
+            IRepositorioConfiguracaoPreco repositorioConfiguracaoPreco = new RepositorioConfiguradorPreco(true);
+            ValidadorConfiguracaoPreco validadorConfiguracao = new ValidadorConfiguracaoPreco();
+            ServicoConfiguracaodePreco servicoConfiguracaodePreco = new ServicoConfiguracaodePreco(repositorioConfiguracaoPreco, validadorConfiguracao);
+            controladores.Add("ControladorConfiguracaoPreco", new ControladorConfiguracaoDePreco(repositorioConfiguracaoPreco, servicoConfiguracaodePreco));
+
         }
         private void cupomToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -174,6 +184,9 @@ namespace LocadoraDeVeiculos
 
         private void planoECobrançaToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorPlanoCobranca"]);
+        }
+        private void configuraçãoDePreçosToolStripMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorConfiguracaoPreco"]);
         }
 
        
@@ -254,7 +267,6 @@ namespace LocadoraDeVeiculos
         private void btnFiltrar_Click(object sender, EventArgs e) {
             controlador.Filtrar();
         }
-        
-        
+
     }
 }

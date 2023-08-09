@@ -20,8 +20,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
             
             InitializeComponent();
             this.ConfigurarDialog();
-            GrupoAutomovel grupo = CarregarGrupos(grupos);
-            CarregarTipos(grupo);
+            CarregarGrupos(grupos);
+            //CarregarTipos(grupo);
         }
 
         public TelaPlanoCobrancaForm(List<GrupoAutomovel> grupos) {
@@ -60,8 +60,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
             this.planoCobranca = planoCobranca;
 
 
-            //cmbGrupoAutomoveis.SelectedItem = planoCobranca.grupo;
-            //cmbNomesPlanos.SelectedItem = planoCobranca.tipo;
+            cmbGrupoAutomoveis.SelectedItem = planoCobranca.grupo;
+            cmbNomesPlanos.SelectedItem = planoCobranca.tipo;
             txtPrecoDiaria.Text = "";
             txtPrecoKm.Text = "";
             txtKmDisponiveis.Text = "";
