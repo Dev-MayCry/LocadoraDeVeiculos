@@ -65,19 +65,25 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCupom
 
         public override void Inserir()
         {
-            TelaCupomForm tela = new TelaCupomForm(repositorioParceiro.SelecionarTodos());
+            if (VerificarParceiro()) return;
 
-            tela.onGravarRegistro += servicoCupom.Inserir;
+                TelaCupomForm tela = new TelaCupomForm(repositorioParceiro.SelecionarTodos());
 
-            tela.ConfigurarCupom(new Cupom());
+                tela.onGravarRegistro += servicoCupom.Inserir;
 
-            DialogResult resultado = tela.ShowDialog();
+                tela.ConfigurarCupom(new Cupom());
 
-            if (resultado == DialogResult.OK)
-            {
-                CarregarCupom();
-            }
+                DialogResult resultado = tela.ShowDialog();
+
+                if (resultado == DialogResult.OK) {
+                    CarregarCupom();
+                }
+            
         }
+
+
+        
+
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox()
         {
             return new ConfigurarToolBoxCupom();
@@ -118,6 +124,13 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCupom
             {
                 CarregarCupom();
             }
+        }
+
+        private bool VerificarParceiro() {
+            if (repositorioParceiro.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Parceiro cadastrado", "Novo Cupom", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } else return false;
         }
     }
 }
