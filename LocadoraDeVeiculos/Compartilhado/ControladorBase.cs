@@ -10,13 +10,9 @@ namespace LocadoraDeVeiculos.WinApp.Compartilhado {
 
         public abstract void Excluir();
 
-        public virtual void Duplicar() { }
-
         public virtual void Filtrar() { }
 
-        public virtual void GerarPdf() { }
-
-        public virtual void Visualizar() { }
+        public virtual void ConfigurarPreco() { }
 
         public abstract UserControl ObtemListagem();
 

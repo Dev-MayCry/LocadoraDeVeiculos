@@ -7,7 +7,9 @@ using LocadoraDeVeiculos.Dominio.ModuloCupom;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Dominio.ModuloPrecos;
 using LocadoraDeVeiculos.Dominio.ModuloTaxaServico;
+using LocadoraDeVeiculos.Infra.Json.ModuloPrecos;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 
 namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
@@ -17,13 +19,16 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
         IRepositorioCupom cupons;
 
+        RepositorioPrecosJson repositorioPrecos;
+
         public event GravarRegistroDelegate<Aluguel> onGravarRegistro;
 
-        public TelaAluguelForm(List<Funcionario> funcionarios, List<Cliente> clientes, List<Condutor> condutores, List<GrupoAutomovel> grupos, List<Automovel> automoveis, List<PlanoCobranca> planos, List<TaxaServico> taxas, IRepositorioCupom cupons) {
+        public TelaAluguelForm(List<Funcionario> funcionarios, List<Cliente> clientes, List<Condutor> condutores, List<GrupoAutomovel> grupos, List<Automovel> automoveis, List<PlanoCobranca> planos, List<TaxaServico> taxas, IRepositorioCupom cupons, RepositorioPrecosJson repositorioPrecos) {
             InitializeComponent();
             this.ConfigurarDialog();
             ConfigurarComboBox(funcionarios, clientes, condutores, grupos, automoveis, planos, taxas);
             this.cupons = cupons;
+            this.repositorioPrecos = repositorioPrecos;
         }
 
         private void ConfigurarComboBox(List<Funcionario> funcionarios, List<Cliente> clientes, List<Condutor> condutores, List<GrupoAutomovel> grupos, List<Automovel> automoveis, List<PlanoCobranca> planos, List<TaxaServico> taxas) {
@@ -215,11 +220,25 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
         private decimal VerificarPrecoCombustivel(TipoCombustivelEnum tipoCombustivel, int litrosUsados) {
 
+            var combustiveis = repositorioPrecos.ObterRegistros();
+
+            decimal PrecoAlcool = 0;
+            decimal PrecoGas = 0;
+            decimal PrecoGasolina = 0;
+            decimal PrecoDiesel = 0;
+
+            foreach (var item in combustiveis) {
+               PrecoAlcool = item.Alcool;
+               PrecoGas = item.Gas;
+               PrecoGasolina = item.Gasolina;
+               PrecoDiesel = item.Diesel;
+            }
+
             Decimal valorParaCompletarTanque = 0;
-            if (tipoCombustivel == TipoCombustivelEnum.Gasolina) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * 1); //preço da Gasolina
-            else if (tipoCombustivel == TipoCombustivelEnum.Alcool) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * 1); //preço do alcool
-            else if (tipoCombustivel == TipoCombustivelEnum.Gas) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * 1); //preço do Gas
-            else if (tipoCombustivel == TipoCombustivelEnum.Diesel) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * 1); //preço da Diesel
+            if (tipoCombustivel == TipoCombustivelEnum.Gasolina) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * PrecoGasolina); //preço da Gasolina
+            else if (tipoCombustivel == TipoCombustivelEnum.Alcool) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * PrecoAlcool); //preço do alcool
+            else if (tipoCombustivel == TipoCombustivelEnum.Gas) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * PrecoGas); //preço do Gas
+            else if (tipoCombustivel == TipoCombustivelEnum.Diesel) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * PrecoDiesel); //preço da Diesel
 
             return valorParaCompletarTanque;
         }
