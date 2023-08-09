@@ -2,6 +2,14 @@
 using LocadoraDeVeiculos.Dominio.ModuloAluguel;
 using FluentResults;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
+using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
+using LocadoraDeVeiculos.Dominio.ModuloCliente;
+using LocadoraDeVeiculos.Dominio.ModuloCondutor;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
+using LocadoraDeVeiculos.Dominio.ModuloTaxaServico;
+using LocadoraDeVeiculos.Dominio.ModuloCupom;
 
 namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
     public class ControladorAluguel : ControladorBase{
@@ -9,13 +17,30 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
         TabelaAluguelControl tabelaAluguel;
         ServicoAluguel servicoAluguel;
 
-        public ControladorAluguel(IRepositorioAluguel repositorioAluguel, ServicoAluguel servicoAluguel) {
+        IRepositorioFuncionario repositorioFuncionario;
+        IRepositorioCliente repositorioCliente;
+        IRepositorioCondutor repositorioCondutor;
+        IRepositorioGrupoAutomovel repositorioGrupoAutomovel;
+        IRepositorioAutomovel repositorioAutomovel;
+        IRepositorioPlanoCobranca repositorioPlanoCobranca;
+        IRepositorioTaxaServico repositorioTaxaServico;
+        IRepositorioCupom repositorioCupom;
+
+        public ControladorAluguel(IRepositorioAluguel repositorioAluguel, ServicoAluguel servicoAluguel, IRepositorioFuncionario repositorioFuncionario, IRepositorioCliente repositorioCliente, IRepositorioCondutor repositorioCondutor, IRepositorioGrupoAutomovel repositorioGrupoAutomovel, IRepositorioAutomovel repositorioAutomovel, IRepositorioPlanoCobranca repositorioPlanoCobranca, IRepositorioTaxaServico repositorioTaxaServico, IRepositorioCupom repositorioCupom){
             this.repositorioAluguel = repositorioAluguel;
             this.servicoAluguel = servicoAluguel;
+            this.repositorioFuncionario = repositorioFuncionario;
+            this.repositorioCliente = repositorioCliente;
+            this.repositorioCondutor = repositorioCondutor;
+            this.repositorioGrupoAutomovel = repositorioGrupoAutomovel;
+            this.repositorioAutomovel = repositorioAutomovel;
+            this.repositorioPlanoCobranca = repositorioPlanoCobranca;
+            this.repositorioTaxaServico = repositorioTaxaServico;
+            this.repositorioCupom = repositorioCupom;
         }
 
         public override void Inserir() {
-            TelaAluguelForm tela = new();
+            TelaAluguelForm tela = new(repositorioFuncionario.SelecionarTodos(), repositorioCliente.SelecionarTodos(),repositorioCondutor.SelecionarTodos(), repositorioGrupoAutomovel.SelecionarTodos(), repositorioAutomovel.SelecionarTodos(), repositorioPlanoCobranca.SelecionarTodos(), repositorioTaxaServico.SelecionarTodos(), repositorioCupom);
 
             tela.onGravarRegistro += servicoAluguel.Inserir;
 
@@ -39,7 +64,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
                 return;
             }
 
-            TelaAluguelForm tela = new();
+            TelaAluguelForm tela = new(repositorioFuncionario.SelecionarTodos(), repositorioCliente.SelecionarTodos(), repositorioCondutor.SelecionarTodos(), repositorioGrupoAutomovel.SelecionarTodos(), repositorioAutomovel.SelecionarTodos(), repositorioPlanoCobranca.SelecionarTodos(), repositorioTaxaServico.SelecionarTodos(), repositorioCupom);
 
             tela.onGravarRegistro += servicoAluguel.Editar;
 

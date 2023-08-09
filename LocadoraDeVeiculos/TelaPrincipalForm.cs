@@ -38,6 +38,10 @@ using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
 using LocadoraDeVeiculos.Aplicacao.ModuloCondutor;
 using LocadoraDeVeiculos.WinApp.ModuloCondutor;
+using LocadoraDeVeiculos.Dominio.ModuloAluguel;
+using LocadoraDeVeiculos.Infra.Orm.ModuloAluguel;
+using LocadoraDeVeiculos.Aplicacao.ModuloAluguel;
+using LocadoraDeVeiculos.WinApp.ModuloAluguel;
 
 namespace LocadoraDeVeiculos {
     public partial class TelaPrincipalForm : Form {
@@ -166,6 +170,15 @@ namespace LocadoraDeVeiculos {
 
             controladores.Add("ControladorCondutor", new ControladorCondutor(repositorioCondutor, servicoCondutor, repositorioCliente));
 
+            
+            IRepositorioAluguel repositorioAluguel = new RepositorioAluguelOrm(dbContext);
+
+            ValidadorAluguel validadorAluguel = new ValidadorAluguel();
+
+            ServicoAluguel servicoAluguel = new ServicoAluguel(repositorioAluguel, validadorAluguel);
+
+            controladores.Add("ControladorAluguel", new ControladorAluguel(repositorioAluguel, servicoAluguel, repositorioFuncionario, repositorioCliente, repositorioCondutor, repositorioGrupoAutomovel, repositorioAutomovel, repositorioPlanoCobranca, repositorioTaxaServico, repositorioCupom));
+
         }
         private void cupomToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorCupom"]);
@@ -194,7 +207,9 @@ namespace LocadoraDeVeiculos {
         private void condutorToolStripMenuItem_Click(object sender, EventArgs e) {
             ConfigurarTelaPrincipal(controladores["ControladorCondutor"]);
         }
-
+        private void aluguelToolStripMenuItem_Click(object sender, EventArgs e) {
+            ConfigurarTelaPrincipal(controladores["ControladorAluguel"]);
+        }
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao) {
             btnInserir.Enabled = configuracao.InserirHabilitado;
             btnEditar.Enabled = configuracao.EditarHabilitado;
@@ -261,6 +276,6 @@ namespace LocadoraDeVeiculos {
             controlador.Filtrar();
         }
 
-
+        
     }
 }

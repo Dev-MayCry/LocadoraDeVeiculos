@@ -16,8 +16,6 @@ namespace LocadoraDeVeiculos.Dominio.ModuloAluguel {
             RuleFor(x => x.DataDevolucao).NotNull().NotEmpty();
             RuleFor(x => x.KmPercorrido);
             RuleFor(x => x.NivelTanque);
-            RuleFor(x => x.TaxasAdicionais);
-            RuleFor(x => x.ValorTotalPrevisto).NotNull().NotEmpty();
             RuleFor(x => x.ValorTotal);
         }
     }

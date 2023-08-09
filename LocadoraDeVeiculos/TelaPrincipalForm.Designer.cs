@@ -27,10 +27,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
             menu = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
+            clienteMenuItem = new ToolStripMenuItem();
             disciplinaMenuItem = new ToolStripMenuItem();
             funcionárioToolStripMenuItem = new ToolStripMenuItem();
             grupoDeAutomóvelToolStripMenuItem = new ToolStripMenuItem();
-            clienteMenuItem = new ToolStripMenuItem();
             condutorToolStripMenuItem = new ToolStripMenuItem();
             planoECobrançaToolStripMenuItem = new ToolStripMenuItem();
             taxaEServiçoToolStripMenuItem = new ToolStripMenuItem();
@@ -69,6 +69,14 @@
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
+            // clienteMenuItem
+            // 
+            clienteMenuItem.Name = "clienteMenuItem";
+            clienteMenuItem.ShortcutKeys = Keys.F4;
+            clienteMenuItem.Size = new Size(204, 22);
+            clienteMenuItem.Text = "Cliente";
+            clienteMenuItem.Click += clienteMenuItem_Click;
+            // 
             // disciplinaMenuItem
             // 
             disciplinaMenuItem.Name = "disciplinaMenuItem";
@@ -92,14 +100,6 @@
             grupoDeAutomóvelToolStripMenuItem.Size = new Size(204, 22);
             grupoDeAutomóvelToolStripMenuItem.Text = "Grupo de Automóvel";
             grupoDeAutomóvelToolStripMenuItem.Click += grupoDeAutomoveisMenuItem_Click;
-            // 
-            // clienteMenuItem
-            // 
-            clienteMenuItem.Name = "clienteMenuItem";
-            clienteMenuItem.ShortcutKeys = Keys.F4;
-            clienteMenuItem.Size = new Size(204, 22);
-            clienteMenuItem.Text = "Cliente";
-            clienteMenuItem.Click += clienteMenuItem_Click;
             // 
             // condutorToolStripMenuItem
             // 
@@ -130,6 +130,7 @@
             aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
             aluguelToolStripMenuItem.Size = new Size(204, 22);
             aluguelToolStripMenuItem.Text = "Aluguel";
+            aluguelToolStripMenuItem.Click += aluguelToolStripMenuItem_Click;
             // 
             // automóvelToolStripMenuItem
             // 

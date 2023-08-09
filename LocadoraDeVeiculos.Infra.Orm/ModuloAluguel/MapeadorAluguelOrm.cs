@@ -47,9 +47,9 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloAluguel {
 
             aluguelBuilder.Property(a => a.KmAutomovel).HasColumnType("int").IsRequired();
 
-            aluguelBuilder.Property(a => a.DataLocacao).HasColumnType("Data").IsRequired();
+            aluguelBuilder.Property(a => a.DataLocacao).HasColumnType("Date").IsRequired();
 
-            aluguelBuilder.Property(a => a.DataDevolucaoPrevista).HasColumnType("Data").IsRequired();
+            aluguelBuilder.Property(a => a.DataDevolucaoPrevista).HasColumnType("Date").IsRequired();
 
             aluguelBuilder.HasOne(a => a.Cupom)
                 .WithMany()
@@ -61,7 +61,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloAluguel {
                 .WithMany()
                 .UsingEntity(x => x.ToTable("TBAluguel_TBTaxaServico"));
 
-            aluguelBuilder.Property(a => a.DataDevolucao).HasColumnType("Data").IsRequired();
+            aluguelBuilder.Property(a => a.DataDevolucao).HasColumnType("Date").IsRequired();
 
             aluguelBuilder.Property(a => a.KmPercorrido).HasColumnType("int").IsRequired();
 

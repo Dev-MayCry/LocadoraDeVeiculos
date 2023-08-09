@@ -29,6 +29,36 @@ namespace LocadoraDeVeiculos.Dominio.ModuloAluguel {
 
         public Aluguel() {}
 
+        public Aluguel(Funcionario funcionario, Cliente cliente, Condutor condutor, GrupoAutomovel grupoAutomovel, Automovel automovel, PlanoCobranca planoCobranca, int kmAutomovel, DateTime dataLocacao, DateTime dataDevolucaoPrevista, List<TaxaServico> taxasSelecionadas, DateTime dataDevolucao, decimal valorTotal) {
+            Funcionario = funcionario;
+            Cliente = cliente;
+            Condutor = condutor;
+            GrupoAutomovel = grupoAutomovel;
+            Automovel = automovel;
+            PlanoCobranca = planoCobranca;
+            KmAutomovel = kmAutomovel;
+            DataLocacao = dataLocacao;
+            DataDevolucaoPrevista = dataDevolucaoPrevista;
+            TaxasSelecionadas = taxasSelecionadas;
+            DataDevolucao = dataDevolucao;
+            ValorTotal = valorTotal;
+        }
+        public Aluguel(Guid id, Funcionario funcionario, Cliente cliente, Condutor condutor, GrupoAutomovel grupoAutomovel, Automovel automovel, PlanoCobranca planoCobranca, int kmAutomovel, DateTime dataLocacao, DateTime dataDevolucaoPrevista, List<TaxaServico> taxasSelecionadas, DateTime dataDevolucao, decimal valorTotal) {
+            Id = id;
+            Funcionario = funcionario;
+            Cliente = cliente;
+            Condutor = condutor;
+            GrupoAutomovel = grupoAutomovel;
+            Automovel = automovel;
+            PlanoCobranca = planoCobranca;
+            KmAutomovel = kmAutomovel;
+            DataLocacao = dataLocacao;
+            DataDevolucaoPrevista = dataDevolucaoPrevista;
+            TaxasSelecionadas = taxasSelecionadas;
+            DataDevolucao = dataDevolucao;
+            ValorTotal = valorTotal;
+        }
+
         public Aluguel(Funcionario funcionario, Cliente cliente, Condutor condutor, GrupoAutomovel grupoAutomovel, Automovel automovel, PlanoCobranca planoCobranca, int kmAutomovel, DateTime dataLocacao, DateTime dataDevolucaoPrevista, Cupom cupom, List<TaxaServico> taxasSelecionadas, DateTime dataDevolucao, decimal valorTotal) {
             Funcionario = funcionario;
             Cliente = cliente;

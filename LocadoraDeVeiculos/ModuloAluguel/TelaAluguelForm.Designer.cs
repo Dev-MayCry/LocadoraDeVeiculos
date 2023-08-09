@@ -51,6 +51,8 @@
             listTaxasSelecionadas = new CheckedListBox();
             listTaxasAdicionais = new CheckedListBox();
             btnAplicarCupom = new Button();
+            label11 = new Label();
+            txtValorTotal = new Label();
             tabControl.SuspendLayout();
             tp1.SuspendLayout();
             tp2.SuspendLayout();
@@ -305,11 +307,32 @@
             btnAplicarCupom.Text = "Aplicar Cupom";
             btnAplicarCupom.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(30, 542);
+            label11.Name = "label11";
+            label11.Size = new Size(109, 15);
+            label11.TabIndex = 28;
+            label11.Text = "Valor Total Previsto:";
+            // 
+            // txtValorTotal
+            // 
+            txtValorTotal.AutoSize = true;
+            txtValorTotal.ForeColor = Color.Green;
+            txtValorTotal.Location = new Point(145, 542);
+            txtValorTotal.Name = "txtValorTotal";
+            txtValorTotal.Size = new Size(35, 15);
+            txtValorTotal.TabIndex = 29;
+            txtValorTotal.Text = "R$ 00";
+            // 
             // TelaAluguelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 592);
+            Controls.Add(txtValorTotal);
+            Controls.Add(label11);
             Controls.Add(btnAplicarCupom);
             Controls.Add(tabControl);
             Controls.Add(label10);
@@ -373,5 +396,7 @@
         private TabPage tp2;
         private CheckedListBox listTaxasAdicionais;
         private Button btnAplicarCupom;
+        private Label label11;
+        private Label txtValorTotal;
     }
 }
