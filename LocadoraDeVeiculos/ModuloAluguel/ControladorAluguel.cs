@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
         public override void Inserir() {
 
-            
+            if (VerificarDependencias()) return;
             TelaAluguelForm tela = new(repositorioFuncionario.SelecionarTodos(), repositorioCliente.SelecionarTodos(),repositorioCondutor.SelecionarTodos(), repositorioGrupoAutomovel.SelecionarTodos(), repositorioAutomovel.SelecionarTodos(), repositorioPlanoCobranca.SelecionarTodos(), repositorioTaxaServico.SelecionarTodos(), repositorioCupom,repositorioPrecos);
 
             tela.onGravarRegistro += servicoAluguel.Inserir;
@@ -176,6 +176,31 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             mensagemRodape = string.Format("Visualizando {0} alugue{1}", alugueis.Count, alugueis.Count == 1 ? "l" : "éis");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
+        }
+
+        private bool VerificarDependencias() {
+            if (repositorioGrupoAutomovel.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Grupo de Automóveis cadastrado", "Novo Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            else if (repositorioCliente.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Cliente cadastrado", "Novo Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } 
+            else if (repositorioAutomovel.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Automóvel cadastrado", "Novo Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } 
+            else if (repositorioPlanoCobranca.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Plano de Cobrança cadastrado", "Novo Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } else if (repositorioCliente.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Cliente cadastrado", "Novo Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } else if (repositorioFuncionario.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Funcionário cadastrado", "Novo Aluguel", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } else return false;
         }
     }
 }

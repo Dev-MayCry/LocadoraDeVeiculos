@@ -1,6 +1,7 @@
 ﻿using FluentResults;
 using LocadoraDeVeiculos.Aplicacao.ModuloPlanoCobranca;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoCobranca;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 
@@ -19,6 +20,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
 
         }
         public override void Inserir() {
+            if (VerificarGrupos()) return;
             TelaPlanoCobrancaForm tela = new TelaPlanoCobrancaForm(repositorioGrupoAutomovel.SelecionarTodos(),repositorioPlanoCobranca);
 
             tela.onGravarRegistro += servicoPlanoCobranca.Inserir;
@@ -105,6 +107,13 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
             mensagemRodape = string.Format("Visualizando {0} plano{1} de cobrança.", planoCobrancas.Count, planoCobrancas.Count == 1 ? "" : "s");
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
+        }
+
+        private bool VerificarGrupos() {
+            if (repositorioGrupoAutomovel.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Grupo de Automóveis cadastrado", "Novo Plano de Cobrança", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } else return false;
         }
     }
 }

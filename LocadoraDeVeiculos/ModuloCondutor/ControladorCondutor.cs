@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Aplicacao.ModuloCondutor;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Dominio.ModuloCondutor;
+using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 
 namespace LocadoraDeVeiculos.WinApp.ModuloCondutor {
@@ -18,6 +19,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCondutor {
         }
 
         public override void Inserir() {
+            if (VerificarCliente()) return;
             TelaCondutorForm tela = new(repositorioCliente.SelecionarTodos());
 
             tela.onGravarRegistro += servicoCondutor.Inserir;
@@ -104,5 +106,14 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCondutor {
 
             TelaPrincipalForm.Instancia.AtualizarRodape(mensagemRodape);
         }
+
+        private bool VerificarCliente() {
+            if (repositorioCliente.SelecionarTodos().Count() == 0) {
+                MessageBox.Show($"Nenhum Cliente cadastrado", "Novo Condutor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            } else return false;
+        }
+
+        
     }
 }

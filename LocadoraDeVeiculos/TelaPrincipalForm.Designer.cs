@@ -95,6 +95,7 @@
             this.automóvelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.automóvelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.automóvelToolStripMenuItem.Text = "Automóvel";
+            this.automóvelToolStripMenuItem.Click += new System.EventHandler(this.automóvelToolStripMenuItem_Click);
             // 
             // clienteMenuItem
             // 
