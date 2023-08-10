@@ -139,6 +139,7 @@
             cmbPlanoCobranca.Name = "cmbPlanoCobranca";
             cmbPlanoCobranca.Size = new Size(258, 23);
             cmbPlanoCobranca.TabIndex = 13;
+            cmbPlanoCobranca.SelectedIndexChanged += cmbPlanoCobranca_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -166,6 +167,7 @@
             txtDataLocacao.Name = "txtDataLocacao";
             txtDataLocacao.Size = new Size(258, 23);
             txtDataLocacao.TabIndex = 15;
+            txtDataLocacao.ValueChanged += txtDataLocacao_ValueChanged;
             // 
             // cmbCondutor
             // 
@@ -191,6 +193,7 @@
             cmbAutomovel.Name = "cmbAutomovel";
             cmbAutomovel.Size = new Size(258, 23);
             cmbAutomovel.TabIndex = 19;
+            cmbAutomovel.SelectedIndexChanged += cmbAutomovel_SelectedIndexChanged;
             // 
             // label7
             // 
@@ -228,6 +231,7 @@
             txtDataDevolucaoPrevista.Name = "txtDataDevolucaoPrevista";
             txtDataDevolucaoPrevista.Size = new Size(258, 23);
             txtDataDevolucaoPrevista.TabIndex = 23;
+            txtDataDevolucaoPrevista.ValueChanged += txtDataDevolucaoPrevista_ValueChanged;
             // 
             // label9
             // 
@@ -282,6 +286,7 @@
             listTaxasSelecionadas.Name = "listTaxasSelecionadas";
             listTaxasSelecionadas.Size = new Size(748, 256);
             listTaxasSelecionadas.TabIndex = 0;
+            listTaxasSelecionadas.ItemCheck += listTaxasSelecionadas_ItemCheck;
             // 
             // tp2
             // 
@@ -317,19 +322,19 @@
             label11.AutoSize = true;
             label11.Location = new Point(30, 542);
             label11.Name = "label11";
-            label11.Size = new Size(109, 15);
+            label11.Size = new Size(125, 15);
             label11.TabIndex = 28;
-            label11.Text = "Valor Total Previsto:";
+            label11.Text = "Valor Total Previsto: R$";
             // 
             // txtValorTotal
             // 
             txtValorTotal.AutoSize = true;
             txtValorTotal.ForeColor = Color.Green;
-            txtValorTotal.Location = new Point(145, 542);
+            txtValorTotal.Location = new Point(152, 542);
             txtValorTotal.Name = "txtValorTotal";
-            txtValorTotal.Size = new Size(35, 15);
+            txtValorTotal.Size = new Size(13, 15);
             txtValorTotal.TabIndex = 29;
-            txtValorTotal.Text = "R$ 00";
+            txtValorTotal.Text = "0";
             // 
             // TelaAluguelForm
             // 

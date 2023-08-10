@@ -111,7 +111,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAluguel {
                 erros.Add($"Este automóvel '{aluguel.Automovel}' já está sendo utilizado");
             
             if (CNHVencida(aluguel))
-                erros.Add($"Este condutor '{aluguel.Condutor}' já está sendo utilizado");
+                erros.Add($"Este condutor '{aluguel.Condutor}' está com a CNH vencida");
 
             foreach (string erro in erros) {
                 Log.Warning(erro);
@@ -132,9 +132,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAluguel {
         }
 
         private bool CNHVencida(Aluguel aluguel) {
-            Aluguel aluguelEncontrada = repositorioAluguel.SelecionarPorCondutor(aluguel.Condutor);
-
-            if (aluguelEncontrada.Condutor.DataValidade.CompareTo(aluguel.DataLocacao) < 0) {
+            if (aluguel.Condutor.DataValidade.CompareTo(aluguel.DataLocacao) < 0) {
                 return true;
             }
 

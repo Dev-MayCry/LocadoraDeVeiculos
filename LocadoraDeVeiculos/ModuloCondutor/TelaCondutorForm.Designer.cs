@@ -172,6 +172,7 @@
             txtData.Name = "txtData";
             txtData.Size = new Size(155, 23);
             txtData.TabIndex = 33;
+            txtData.Value = new DateTime(2023, 8, 9, 21, 8, 20, 0);
             // 
             // txtTelefone
             // 

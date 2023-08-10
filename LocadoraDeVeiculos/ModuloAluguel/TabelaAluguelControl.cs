@@ -25,8 +25,6 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
                 new DataGridViewTextBoxColumn { Name = "DataPrevista", HeaderText = "Data de Devolução Prevista", FillWeight=15F },
 
-                new DataGridViewTextBoxColumn { Name = "DataDevolucao", HeaderText = "Data de Devolução", FillWeight=15F },
-
                 new DataGridViewTextBoxColumn { Name = "ValorTotal", HeaderText = "Valor Total", FillWeight=15F }
             };
 

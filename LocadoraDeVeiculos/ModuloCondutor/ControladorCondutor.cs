@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCondutor {
 
             tela.onGravarRegistro += servicoCondutor.Editar;
 
-            tela.ConfigurarCondutor(condutorSelecionada);
+            tela.ConfigurarCondutorEdicao(condutorSelecionada);
 
             DialogResult resultado = tela.ShowDialog();
 

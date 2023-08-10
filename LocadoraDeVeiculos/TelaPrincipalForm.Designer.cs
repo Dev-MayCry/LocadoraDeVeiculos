@@ -59,7 +59,7 @@
             menu.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem });
             menu.Location = new Point(0, 0);
             menu.Name = "menu";
-            menu.Size = new Size(800, 24);
+            menu.Size = new Size(1264, 24);
             menu.TabIndex = 1;
             menu.Text = "menuStrip1";
             // 
@@ -154,7 +154,7 @@
             toolbox.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltrar, toolStripSeparator2, btnConfigurar, labelTipoCadastro });
             toolbox.Location = new Point(0, 24);
             toolbox.Name = "toolbox";
-            toolbox.Size = new Size(800, 32);
+            toolbox.Size = new Size(1264, 32);
             toolbox.TabIndex = 2;
             toolbox.Text = "toolStrip1";
             // 
@@ -228,16 +228,16 @@
             panelRegistros.Dock = DockStyle.Fill;
             panelRegistros.Location = new Point(0, 56);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(800, 394);
+            panelRegistros.Size = new Size(1264, 625);
             panelRegistros.TabIndex = 4;
             // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(20, 20);
             statusStrip1.Items.AddRange(new ToolStripItem[] { labelRodape });
-            statusStrip1.Location = new Point(0, 428);
+            statusStrip1.Location = new Point(0, 659);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.Size = new Size(1264, 22);
             statusStrip1.TabIndex = 5;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -251,7 +251,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1264, 681);
             Controls.Add(statusStrip1);
             Controls.Add(panelRegistros);
             Controls.Add(toolbox);

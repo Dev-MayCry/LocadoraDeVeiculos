@@ -36,15 +36,17 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCondutor {
 
         public void ConfigurarCondutor(Condutor condutor) {
             this.condutor = condutor;
-            if (condutor == null) {
-                txtListaClientes.SelectedItem = condutor.Cliente;
-                txtNome.Text = condutor.Nome;
-                txtEmail.Text = condutor.Email;
-                txtTelefone.Text = condutor.Telefone;
-                txtCpf.Text = condutor.Cpf;
-                txtCnh.Text = condutor.Cnh;
-                txtData.Value = condutor.DataValidade;
-            }
+        }
+
+        public void ConfigurarCondutorEdicao(Condutor condutor) {
+            this.condutor = condutor;
+            txtListaClientes.SelectedItem = condutor.Cliente;
+            txtNome.Text = condutor.Nome;
+            txtEmail.Text = condutor.Email;
+            txtTelefone.Text = condutor.Telefone;
+            txtCpf.Text = condutor.Cpf;
+            txtCnh.Text = condutor.Cnh;
+            txtData.Value = condutor.DataValidade;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) {

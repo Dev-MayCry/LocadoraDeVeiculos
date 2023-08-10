@@ -75,7 +75,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
             tela.onGravarRegistro += servicoAluguel.Editar;
 
-            tela.ConfigurarAluguel(aluguelSelecionada);
+            tela.ConfigurarAluguelEdicao(aluguelSelecionada);
 
             DialogResult resultado = tela.ShowDialog();
 
