@@ -87,7 +87,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             foreach (TaxaServico item in listTaxasSelecionadas.CheckedItems) {
                 aluguel.TaxasSelecionadas.Add(item);
             }
-
+            
             aluguel.ValorTotal = CalcularValorTotalPrevisto(aluguel);
 
             return aluguel;
@@ -146,140 +146,6 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
             return valorTotalPrevisto;
 
-        }
-
-        private decimal CalcularValorTotalFinal(Aluguel a) {
-
-            if (a.PlanoCobranca.tipo == TipoPlanoEnum.PlanoLivre) return EncerrarAluguelPlanoLivre(a);
-            else if (a.PlanoCobranca.tipo == TipoPlanoEnum.PlanoControlador) return EncerrarAluguelPlanoControlador(a);
-            else if (a.PlanoCobranca.tipo == TipoPlanoEnum.PlanoDiario) return EncerrarAluguelPlanoDiario(a);
-
-            return 0;
-
-        }
-
-        private decimal EncerrarAluguelPlanoLivre(Aluguel a) {
-
-            decimal valorTotalPrevisto = CalcularValorTotalPrevisto(a);
-
-            //verificar atraso
-
-            TimeSpan diferenca = a.DataDevolucao - a.DataDevolucaoPrevista;
-            int diasAtrasados = diferenca.Days;
-            decimal multaAtraso = 0;
-            if (diasAtrasados > 0) {
-                multaAtraso = valorTotalPrevisto * (decimal)0.1;
-                multaAtraso += diasAtrasados * 50;
-            }
-
-            //Verificar Combustivel
-
-            int litrosUsados = VerificarCombustivel(a);
-            decimal valorParaCompletarTanque = VerificarPrecoCombustivel(a.Automovel.TipoCombustivel, litrosUsados);
-
-            decimal valorTotalFinal = valorTotalPrevisto + multaAtraso + valorParaCompletarTanque;
-
-            return valorTotalFinal;
-        }
-
-        private decimal EncerrarAluguelPlanoControlador(Aluguel a) {
-
-            decimal valorTotalPrevisto = CalcularValorTotalPrevisto(a);
-
-            //verificar atraso
-
-            TimeSpan diferenca = a.DataDevolucao - a.DataDevolucaoPrevista;
-            int diasAtrasados = diferenca.Days;
-            decimal multaAtraso = 0;
-            if (diasAtrasados > 0) {
-                multaAtraso = valorTotalPrevisto * (decimal)0.1;
-                multaAtraso += diasAtrasados * 50;
-            }
-
-            //verificar kilometragem
-
-            decimal multaKmExtrapolado = 0;
-            int kmRodados = a.KmPercorrido - a.KmAutomovel;
-            if (kmRodados > a.PlanoCobranca.KmDisponiveis) {
-                multaKmExtrapolado = kmRodados * a.PlanoCobranca.PrecoKm;
-            }
-
-
-            //Verificar Combustivel
-
-            int litrosUsados = VerificarCombustivel(a);
-            decimal valorParaCompletarTanque = VerificarPrecoCombustivel(a.Automovel.TipoCombustivel, litrosUsados);
-
-            decimal valorTotalFinal = valorTotalPrevisto + multaAtraso + multaKmExtrapolado + valorParaCompletarTanque;
-            return valorTotalFinal;
-        }
-
-        private decimal EncerrarAluguelPlanoDiario(Aluguel a) {
-
-            decimal valorTotalPrevisto = CalcularValorTotalPrevisto(a);
-
-            //verificar atraso
-
-            TimeSpan diferenca = a.DataDevolucao - a.DataDevolucaoPrevista;
-            int diasAtrasados = diferenca.Days;
-            decimal multaAtraso = 0;
-            if (diasAtrasados > 0) {
-                multaAtraso = valorTotalPrevisto * (decimal)0.1;
-                multaAtraso += diasAtrasados * 50;
-            }
-
-            //verificar kilometragem
-
-
-            int kmRodados = a.KmPercorrido - a.KmAutomovel;
-            decimal valorKMRodados = kmRodados * a.PlanoCobranca.PrecoKm;
-
-
-            //Verificar Combustivel
-
-            int litrosUsados = VerificarCombustivel(a);
-            decimal valorParaCompletarTanque = VerificarPrecoCombustivel(a.Automovel.TipoCombustivel, litrosUsados);
-
-            decimal valorTotalFinal = valorTotalPrevisto + multaAtraso + valorKMRodados + valorParaCompletarTanque;
-
-            return valorTotalFinal;
-        }
-
-        private decimal VerificarPrecoCombustivel(TipoCombustivelEnum tipoCombustivel, int litrosUsados) {
-
-            var combustiveis = repositorioPrecos.ObterRegistros();
-
-            decimal PrecoAlcool = 0;
-            decimal PrecoGas = 0;
-            decimal PrecoGasolina = 0;
-            decimal PrecoDiesel = 0;
-
-            foreach (var item in combustiveis) {
-                PrecoAlcool = item.Alcool;
-                PrecoGas = item.Gas;
-                PrecoGasolina = item.Gasolina;
-                PrecoDiesel = item.Diesel;
-            }
-
-            Decimal valorParaCompletarTanque = 0;
-            if (tipoCombustivel == TipoCombustivelEnum.Gasolina) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * PrecoGasolina); //preço da Gasolina
-            else if (tipoCombustivel == TipoCombustivelEnum.Alcool) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * PrecoAlcool); //preço do alcool
-            else if (tipoCombustivel == TipoCombustivelEnum.Gas) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * PrecoGas); //preço do Gas
-            else if (tipoCombustivel == TipoCombustivelEnum.Diesel) valorParaCompletarTanque = Convert.ToDecimal(litrosUsados * PrecoDiesel); //preço da Diesel
-
-            return valorParaCompletarTanque;
-        }
-
-        private int VerificarCombustivel(Aluguel a) {
-
-            int litrosUsados = 0;
-            if (a.NivelTanque == TipoNivelTanqueEnum.Vazio) litrosUsados = a.Automovel.CapacidadeLitros;
-            else if (a.NivelTanque == TipoNivelTanqueEnum.UmQuarto) litrosUsados = Convert.ToInt32((a.Automovel.CapacidadeLitros) * 0.75);
-            else if (a.NivelTanque == TipoNivelTanqueEnum.UmMeio) litrosUsados = Convert.ToInt32((a.Automovel.CapacidadeLitros) * 0.5);
-            else if (a.NivelTanque == TipoNivelTanqueEnum.TresQuartos) litrosUsados = Convert.ToInt32((a.Automovel.CapacidadeLitros) * 0.25);
-            else if (a.NivelTanque == TipoNivelTanqueEnum.Cheio) litrosUsados = 0;
-
-            return litrosUsados;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) {

@@ -124,7 +124,9 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAluguel {
 
             if (aluguelEncontrada != null &&
                 aluguelEncontrada.Id != aluguel.Id &&
-                aluguelEncontrada.Automovel == aluguel.Automovel) {
+                aluguelEncontrada.Automovel == aluguel.Automovel &&
+                aluguelEncontrada.Encerrado == false
+                ) {
                 return true;
             }
 

@@ -25,7 +25,9 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
                 new DataGridViewTextBoxColumn { Name = "DataPrevista", HeaderText = "Data de Devolução Prevista", FillWeight=15F },
 
-                new DataGridViewTextBoxColumn { Name = "ValorTotal", HeaderText = "Valor Total", FillWeight=15F }
+                new DataGridViewTextBoxColumn { Name = "ValorTotal", HeaderText = "Valor Total", FillWeight=15F },
+
+                new DataGridViewTextBoxColumn { Name = "Status", HeaderText = "Status", FillWeight=15F }
             };
 
             return colunas;
@@ -39,8 +41,17 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             grid.Rows.Clear();
 
             foreach (Aluguel a in alugueis) {
-                grid.Rows.Add(a.Id, a.Condutor, a.Automovel, a.PlanoCobranca, a.DataLocacao, a.DataDevolucaoPrevista, a.ValorTotal);
+                string status = VerificarStatus(a);
+                grid.Rows.Add(a.Id, a.Condutor, a.Automovel, a.PlanoCobranca, a.DataLocacao.ToShortDateString(), a.DataDevolucaoPrevista.ToShortDateString(), a.ValorTotal,status);
             }
+        }
+
+        private string VerificarStatus(Aluguel aluguel) {
+            string status;
+            if (aluguel.Encerrado == true) status = "Encerrado";
+            else status = "Em aberto";
+
+            return status;
         }
     }
 }

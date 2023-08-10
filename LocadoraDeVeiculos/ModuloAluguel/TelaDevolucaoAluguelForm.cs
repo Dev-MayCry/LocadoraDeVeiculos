@@ -63,6 +63,12 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
                 cmbPlanoCobranca.Items.Add(item);
             cmbPlanoCobranca.SelectedIndex = 0;
 
+            cmbNivelTanque.Items.Clear();
+            foreach (TipoNivelTanqueEnum item in Enum.GetValues(typeof(TipoNivelTanqueEnum)))
+                cmbNivelTanque.Items.Add(item);
+            cmbNivelTanque.SelectedIndex = 0;
+
+
             listTaxasSelecionadas.Items.Clear();
             foreach (TaxaServico item in taxas)
                 listTaxasSelecionadas.Items.Add(item);
@@ -83,6 +89,12 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             aluguel.KmAutomovel = Convert.ToInt32(txtKmAutomovel.Text);
             aluguel.DataLocacao = txtDataLocacao.Value;
             aluguel.DataDevolucaoPrevista = txtDataDevolucaoPrevista.Value;
+            aluguel.DataDevolucao = txtDataDevolucao.Value;
+            aluguel.KmPercorrido = Convert.ToInt32(txtKmPercorrida.Text);
+            aluguel.NivelTanque = (TipoNivelTanqueEnum)cmbNivelTanque.SelectedItem;
+
+
+
 
             Cupom cupom = cupons.SelecionarPorNome(txtCupom.Text);
             if (cupomAplicado) aluguel.Cupom = cupom;
@@ -109,6 +121,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             txtCupom.Text = aluguel.Cupom.Nome;
             txtDataLocacao.Value = aluguel.DataLocacao;
             txtDataDevolucaoPrevista.Value = aluguel.DataDevolucaoPrevista;
+            txtDataDevolucao.Value = aluguel.DataDevolucaoPrevista;
+            txtKmPercorrida.Minimum = aluguel.Automovel.Quilometragem;
+            cmbNivelTanque.SelectedItem = aluguel.NivelTanque;
+
 
             foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
                 listTaxasSelecionadas.SetItemChecked(listTaxasSelecionadas.Items.IndexOf(item), true);
@@ -136,7 +152,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             txtDataLocacao.Value = aluguel.DataLocacao;
             txtDataDevolucaoPrevista.Value = aluguel.DataDevolucaoPrevista;
             txtDataDevolucao.Value = aluguel.DataDevolucao;
-            txtKmPercorrida.Text = aluguel.KmPercorrido.ToString();
+            txtKmPercorrida.Text = aluguel.Automovel.Quilometragem.ToString();
+            txtKmPercorrida.Minimum = aluguel.Automovel.Quilometragem;
             cmbNivelTanque.SelectedItem = aluguel.NivelTanque;
 
             foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
