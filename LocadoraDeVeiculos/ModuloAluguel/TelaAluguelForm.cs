@@ -14,7 +14,7 @@ using LocadoraDeVeiculos.WinApp.Compartilhado;
 namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
     public partial class TelaAluguelForm : Form {
 
-        Aluguel aluguel;
+        public Aluguel aluguel;
 
         IRepositorioCupom cupons;
 

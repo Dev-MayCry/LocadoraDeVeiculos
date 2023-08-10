@@ -56,6 +56,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
             if (resultado == DialogResult.OK) {
                 CarregarAlugueis();
+                GerarPDF(tela.aluguel, false);
             }
         }
 
@@ -164,19 +165,18 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
                 aluguelSelecionada.Automovel.Quilometragem = aluguelSelecionada.KmPercorrido;
                 aluguelSelecionada.Encerrado = true;
                 CarregarAlugueis();
-                GerarPDF(aluguelSelecionada);
+                GerarPDF(aluguelSelecionada, true);
             }
         }
 
-        private void GerarPDF(Aluguel aluguel) {
+        private void GerarPDF(Aluguel aluguel, bool encerrado) {
 
             if (aluguel == null) {
                 MessageBox.Show("Selecione um Aluguel primeiro", "Gerar Pdf de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            servicoAluguel.GerarAluguelEmPDF(aluguel);
-
+            servicoAluguel.GerarAluguelEmPDF(aluguel, encerrado);
         }
 
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox() {

@@ -102,11 +102,11 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAluguel {
             }
         }
 
-        public Result GerarAluguelEmPDF(Aluguel aluguel) {
+        public Result GerarAluguelEmPDF(Aluguel aluguel, bool encerrado) {
             Log.Debug("Tentando gerar PDF do aluguel...{AluguelId}", aluguel.Id);
 
             try {
-                geradorArquivoPdf.GerarAluguel(aluguel);
+                geradorArquivoPdf.GerarAluguel(aluguel, encerrado);
 
                 Log.Debug("Aluguel {AluguelId} em PDF gerado com sucesso", aluguel.Id);
 
