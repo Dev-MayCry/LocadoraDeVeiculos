@@ -13,9 +13,9 @@ namespace LocadoraDeVeiculos.Infra.Pdf {
             PdfDocument document = new();
             PdfPage page = document.AddPage();
             XGraphics gfx = XGraphics.FromPdfPage(page);
-            XFont fonte = new("Verdana", 10, XFontStyle.Regular);
+            XFont fonte = new("Verdana", 12, XFontStyle.Regular);
             XFont fonteTitulo = new("Verdana", 24, XFontStyle.Regular);
-            XFont fonteIntroducao = new("Verdana", 12, XFontStyle.Regular);
+            XFont fonteIntroducao = new("Verdana", 10, XFontStyle.Regular);
             if (encerrado) EscreverAluguelEncerrado(document, page, gfx, fonte, aluguel, fonteTitulo, fonteIntroducao);
             else EscreverAluguelAberto(document, page, gfx, fonte, aluguel, fonteTitulo, fonteIntroducao);
             EnviarPorEmail(document, gfx, aluguel);
@@ -23,42 +23,60 @@ namespace LocadoraDeVeiculos.Infra.Pdf {
 
         private void EscreverAluguelAberto(PdfDocument document, PdfPage page, XGraphics gfx, XFont fonte, Aluguel aluguel, XFont fonteTitulo, XFont fonteIntroducao) {
             gfx.DrawString("Locadora de Veículos Top", fonteTitulo, XBrushes.Black, new XRect(0, -380, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString($"Olá, {aluguel.Cliente.Nome}! Obrigado por escolher nossos", fonteIntroducao, XBrushes.Black, new XRect(0, -320, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("sua opção preferida. Nossa seleção de itens de aluguel", fonteIntroducao, XBrushes.Black, new XRect(0, -300, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("foi cuidadosamente projetada para tornar sua experiência", fonteIntroducao, XBrushes.Black, new XRect(0, -280, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("excepcional e sem complicações. Desde opções de cobrança", fonteIntroducao, XBrushes.Black, new XRect(0, -260, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("até recursos personalizados, estamos aqui para garantir que", fonteIntroducao, XBrushes.Black, new XRect(0, -240, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("você tenha uma jornada memorável e conveniente. Explore", fonteIntroducao, XBrushes.Black, new XRect(0, -220, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("nossa oferta e comece a sua aventura com confiança.", fonteIntroducao, XBrushes.Black, new XRect(0, -200, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("Bem-vindo à sua viagem perfeita!", fonteIntroducao, XBrushes.Black, new XRect(0, -180, page.Width, page.Height), XStringFormats.Center);
+           
+            gfx.DrawString($"Olá, {aluguel.Cliente.Nome}! Obrigado por escolher a Locadora de Veículos Top sua opção preferida", fonteIntroducao, XBrushes.Black, new XRect(20, -340, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("para aluguel de veículos. Estamos empolgados por fazer parte da sua jornada.", fonteIntroducao, XBrushes.Black, new XRect(20, -320, page.Width, page.Height), XStringFormats.Center);
+           
 
-            gfx.DrawString($"Id: {aluguel.Id}", fonte, XBrushes.Black, new XRect(50, -120, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Nome do Condutor: {aluguel.Condutor.Nome}", fonte, XBrushes.Black, new XRect(50, -100, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Veículo: {aluguel.Automovel}", fonte, XBrushes.Black, new XRect(50, -80, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Data de Saída: {aluguel.DataLocacao.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -60, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Data Prevista: {aluguel.DataDevolucaoPrevista.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -40, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Data de Devolução: {aluguel.DataDevolucao.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -20, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Valor Total: R$ {aluguel.ValorTotal}", fonte, XBrushes.Black, new XRect(50, 0, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Detalhes do Aluguel:", fonte, XBrushes.Black, new XRect(0, -270, page.Width, page.Height), XStringFormats.Center);
+            
+
+            gfx.DrawString($"Id do Aluguel: {aluguel.Id}", fonte, XBrushes.Black, new XRect(50, -220, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Nome do Condutor: {aluguel.Condutor.Nome}", fonte, XBrushes.Black, new XRect(50, -200, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Veículo: {aluguel.Automovel}", fonte, XBrushes.Black, new XRect(50, -180, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Data de Saída: {aluguel.DataLocacao.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -160, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Data Prevista: {aluguel.DataDevolucaoPrevista.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -140, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Valor Total: R$ {aluguel.ValorTotal}", fonte, XBrushes.Black, new XRect(50, -120, page.Width, page.Height), XStringFormats.CenterLeft);
+
+
+            gfx.DrawString("Estamos comprometidos em tornar sua experiência excepcional e sem complicações. " ,fonteIntroducao, XBrushes.Black, new XRect(20, -40, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Nossa seleção de itens de aluguel foi cuidadosamente projetada para garantir sua comodidade. " ,fonteIntroducao, XBrushes.Black, new XRect(20, -20, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Desde opções flexíveis de cobrança até recursos personalizados," ,fonteIntroducao, XBrushes.Black, new XRect(20, 0, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("estamos aqui para garantir que você tenha uma jornada memorável e conveniente.." ,fonteIntroducao, XBrushes.Black, new XRect(20, 20, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Fique à vontade para nos contatar a qualquer momento caso precise de assistência durante sua viagem", fonteIntroducao, XBrushes.Black, new XRect(20, 60, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Explore nossa ampla oferta e comece sua aventura com confiança.", fonteIntroducao, XBrushes.Black, new XRect(20, 80, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Bem-vindo à sua viagem perfeita!", fonteIntroducao, XBrushes.Black, new XRect(20, 100, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Atenciosamente,", fonteIntroducao, XBrushes.Black, new XRect(20, 130, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Equipe da Locadora de Veículos Top", fonteIntroducao, XBrushes.Black, new XRect(20, 140, page.Width, page.Height), XStringFormats.CenterLeft);
+
         }
 
         private void EscreverAluguelEncerrado(PdfDocument document, PdfPage page, XGraphics gfx, XFont fonte, Aluguel aluguel,XFont fonteTitulo, XFont fonteIntroducao) {
             gfx.DrawString("Locadora de Veículos Top", fonteTitulo, XBrushes.Black, new XRect(0, -380, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString($"Olá, {aluguel.Cliente.Nome}! Obrigado por escolher nossos", fonteIntroducao, XBrushes.Black, new XRect(0, -320, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("sua opção preferida. Nossa seleção de itens de aluguel", fonteIntroducao, XBrushes.Black, new XRect(0, -300, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("foi cuidadosamente projetada para tornar sua experiência", fonteIntroducao, XBrushes.Black, new XRect(0, -280, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("excepcional e sem complicações. Desde opções de cobrança", fonteIntroducao, XBrushes.Black, new XRect(0, -260, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("até recursos personalizados, estamos aqui para garantir que", fonteIntroducao, XBrushes.Black, new XRect(0, -240, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("você tenha uma jornada memorável e conveniente. Explore", fonteIntroducao, XBrushes.Black, new XRect(0, -220, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("nossa oferta e comece a sua aventura com confiança.", fonteIntroducao, XBrushes.Black, new XRect(0, -200, page.Width, page.Height), XStringFormats.Center);
-            gfx.DrawString("Bem-vindo à sua viagem perfeita!", fonteIntroducao, XBrushes.Black, new XRect(0, -180, page.Width, page.Height), XStringFormats.Center);
 
-            gfx.DrawString($"Id: {aluguel.Id}", fonte, XBrushes.Black, new XRect(50, -120, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Nome do Condutor: {aluguel.Condutor.Nome}", fonte, XBrushes.Black, new XRect(50, -100, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Veículo: {aluguel.Automovel}", fonte, XBrushes.Black, new XRect(50, -80, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Data de Saída: {aluguel.DataLocacao.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -60, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Data Prevista: {aluguel.DataDevolucaoPrevista.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -40, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Data de Devolução: {aluguel.DataDevolucao.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -20, page.Width, page.Height), XStringFormats.CenterLeft);
-            gfx.DrawString($"Valor Total: R$ {aluguel.ValorTotal}", fonte, XBrushes.Black, new XRect(50, 0, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Olá, {aluguel.Cliente.Nome}!", fonteIntroducao, XBrushes.Black, new XRect(20, -340, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("Esperamos que sua jornada com a Locadora de Veículos Top tenha sido excelente.", fonteIntroducao, XBrushes.Black, new XRect(20, -320, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString("Agradecemos por escolher nossos serviços para atender às suas necessidades de mobilidade.", fonteIntroducao, XBrushes.Black, new XRect(20, -300, page.Width, page.Height), XStringFormats.Center);
+
+
+            gfx.DrawString("Detalhes do Aluguel Encerrado:", fonte, XBrushes.Black, new XRect(0, -270, page.Width, page.Height), XStringFormats.Center);
+
+
+            gfx.DrawString($"Id do Aluguel: {aluguel.Id}", fonte, XBrushes.Black, new XRect(50, -220, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Nome do Condutor: {aluguel.Condutor.Nome}", fonte, XBrushes.Black, new XRect(50, -200, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Veículo: {aluguel.Automovel}", fonte, XBrushes.Black, new XRect(50, -180, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Data de Saída: {aluguel.DataLocacao.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -160, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Data de Devolução Realizada: {aluguel.DataDevolucao.ToShortDateString()}", fonte, XBrushes.Black, new XRect(50, -140, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString($"Valor Total: R$ {aluguel.ValorTotal}", fonte, XBrushes.Black, new XRect(50, -120, page.Width, page.Height), XStringFormats.CenterLeft);
+
+
+            gfx.DrawString("Esperamos que tenha desfrutado de sua viagem e que tenha encontrado nosso serviço confiável e conveniente. ", fonteIntroducao, XBrushes.Black, new XRect(20, -40, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Sua satisfação é nossa prioridade e estamos sempre aqui para ajudar. ", fonteIntroducao, XBrushes.Black, new XRect(20, -20, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Caso tenha alguma dúvidaapós o encerramento do aluguel, não hesite em nos contatar.", fonteIntroducao, XBrushes.Black, new XRect(20, 0, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Agradecemos novamente por sua confiança e esperamos atendê-lo novamente no futuro.", fonteIntroducao, XBrushes.Black, new XRect(20, 20, page.Width, page.Height), XStringFormats.CenterLeft);
+          
+            gfx.DrawString("Atenciosamente,", fonteIntroducao, XBrushes.Black, new XRect(20, 130, page.Width, page.Height), XStringFormats.CenterLeft);
+            gfx.DrawString("Equipe da Locadora de Veículos Top", fonteIntroducao, XBrushes.Black, new XRect(20, 140, page.Width, page.Height), XStringFormats.CenterLeft);
         }
 
         private void EnviarPorEmail(PdfDocument document, XGraphics gfx, Aluguel aluguel) {
