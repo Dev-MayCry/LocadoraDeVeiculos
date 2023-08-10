@@ -254,15 +254,6 @@
             this.btnEncerrar.Text = "Encerrar Aluguel";
             this.btnEncerrar.Click += new System.EventHandler(this.btnEncerrar_Click);
             // 
-            // btnEncerrar
-            // 
-            btnEncerrar.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnEncerrar.ImageTransparentColor = Color.Magenta;
-            btnEncerrar.Name = "btnEncerrar";
-            btnEncerrar.Size = new Size(98, 29);
-            btnEncerrar.Text = "Encerrar Aluguel";
-            btnEncerrar.Click += btnEncerrar_Click;
-            // 
             // labelTipoCadastro
             // 
             this.labelTipoCadastro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
