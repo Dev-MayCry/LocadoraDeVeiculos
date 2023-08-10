@@ -14,6 +14,8 @@ namespace LocadoraDeVeiculos.WinApp.Compartilhado {
 
         public virtual void ConfigurarPreco() { }
 
+        public virtual void Encerrar() { }
+
         public abstract UserControl ObtemListagem();
 
         public abstract ConfiguracaoToolboxBase ObtemConfiguracaoToolbox();

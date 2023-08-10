@@ -12,8 +12,7 @@ using LocadoraDeVeiculos.Infra.Json.ModuloPrecos;
 using LocadoraDeVeiculos.WinApp.Compartilhado;
 
 namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
-    public partial class TelaAluguelForm : Form {
-
+    public partial class TelaDevolucaoAluguelForm : Form {
         Aluguel aluguel;
 
         IRepositorioCupom cupons;
@@ -25,7 +24,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
         bool cupomAplicado = false;
         bool configurado = false;
 
-        public TelaAluguelForm(List<Funcionario> funcionarios, List<Cliente> clientes, List<Condutor> condutores, List<GrupoAutomovel> grupos, List<Automovel> automoveis, List<PlanoCobranca> planos, List<TaxaServico> taxas, IRepositorioCupom cupons, RepositorioPrecosJson repositorioPrecos) {
+        public TelaDevolucaoAluguelForm(List<Funcionario> funcionarios, List<Cliente> clientes, List<Condutor> condutores, List<GrupoAutomovel> grupos, List<Automovel> automoveis, List<PlanoCobranca> planos, List<TaxaServico> taxas, IRepositorioCupom cupons, RepositorioPrecosJson repositorioPrecos) {
             InitializeComponent();
             this.ConfigurarDialog();
             ConfigurarComboBox(funcionarios, clientes, condutores, grupos, automoveis, planos, taxas);
@@ -67,6 +66,11 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             listTaxasSelecionadas.Items.Clear();
             foreach (TaxaServico item in taxas)
                 listTaxasSelecionadas.Items.Add(item);
+
+            listTaxasAdicionais.Items.Clear();
+            foreach (TaxaServico item in taxas)
+                if (listTaxasSelecionadas.Items.Contains(item) == false)
+                    listTaxasSelecionadas.Items.Add(item);
         }
 
         public Aluguel ObterAluguel() {
@@ -95,6 +99,27 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
         public void ConfigurarAluguel(Aluguel aluguel) {
             this.aluguel = aluguel;
+            cmbFuncionario.SelectedItem = aluguel.Funcionario;
+            cmbCliente.SelectedItem = aluguel.Cliente;
+            cmbCondutor.SelectedItem = aluguel.Condutor;
+            cmbGrupoAutomovel.SelectedItem = aluguel.GrupoAutomovel;
+            cmbAutomovel.SelectedItem = aluguel.Automovel;
+            cmbPlanoCobranca.SelectedItem = aluguel.PlanoCobranca;
+            txtKmAutomovel.Text = aluguel.Automovel.Quilometragem.ToString();
+            txtCupom.Text = aluguel.Cupom.Nome;
+            txtDataLocacao.Value = aluguel.DataLocacao;
+            txtDataDevolucaoPrevista.Value = aluguel.DataDevolucaoPrevista;
+
+            foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
+                listTaxasSelecionadas.SetItemChecked(listTaxasSelecionadas.Items.IndexOf(item), true);
+            }
+
+            foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
+                listTaxasSelecionadas.SetItemChecked(listTaxasAdicionais.Items.IndexOf(item), true);
+            }
+
+            txtValorTotal.Text = aluguel.ValorTotal.ToString();
+
             configurado = true;
         }
 
@@ -110,9 +135,16 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             txtCupom.Text = aluguel.Cupom.Nome;
             txtDataLocacao.Value = aluguel.DataLocacao;
             txtDataDevolucaoPrevista.Value = aluguel.DataDevolucaoPrevista;
+            txtDataDevolucao.Value = aluguel.DataDevolucao;
+            txtKmPercorrida.Text = aluguel.KmPercorrido.ToString();
+            cmbNivelTanque.SelectedItem = aluguel.NivelTanque;
 
             foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
                 listTaxasSelecionadas.SetItemChecked(listTaxasSelecionadas.Items.IndexOf(item), true);
+            }
+
+            foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
+                listTaxasSelecionadas.SetItemChecked(listTaxasAdicionais.Items.IndexOf(item), true);
             }
 
             txtValorTotal.Text = aluguel.ValorTotal.ToString();
@@ -296,51 +328,34 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             }
         }
 
-        private void txtKmAutomovel_KeyPress(object sender, KeyPressEventArgs e) {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
-        }
-
-        private void txtKmAutomovel_TextChanged(object sender, EventArgs e) {
-            if (txtKmAutomovel.Text.Length < 1) {
-                txtKmAutomovel.Text = "0";
-            }
-        }
-
-        private void btnAplicarCupom_Click(object sender, EventArgs e) {
-            Cupom cupom = cupons.SelecionarPorNome(txtCupom.Text);
-            if (cupom != null) {
-                cupomAplicado = true;
-                txtCupom.ReadOnly = true;
-            }
-            AtualizaValorTotal(configurado);
-        }
-
         private void AtualizaValorTotal(bool x) {
             if (x) {
                 aluguel = ObterAluguel();
-                txtValorTotal.Text = CalcularValorTotalPrevisto(aluguel).ToString();
+                txtValorTotal.Text = CalcularValorTotalFinal(aluguel).ToString();
             }
         }
 
-        private void cmbAutomovel_SelectedIndexChanged(object sender, EventArgs e) {
-            Automovel automovel = (Automovel)cmbAutomovel.SelectedItem;
-            txtKmAutomovel.Text = automovel.Quilometragem.ToString();
-        }
-
-        private void cmbPlanoCobranca_SelectedIndexChanged(object sender, EventArgs e) {
+        private void txtDataDevolucao_ValueChanged(object sender, EventArgs e) {
             AtualizaValorTotal(configurado);
         }
 
-        private void txtDataDevolucaoPrevista_ValueChanged(object sender, EventArgs e) {
+        private void cmbNivelTanque_SelectedIndexChanged(object sender, EventArgs e) {
             AtualizaValorTotal(configurado);
         }
 
-        private void txtDataLocacao_ValueChanged(object sender, EventArgs e) {
+        private void listTaxasAdicionais_ItemCheck(object sender, ItemCheckEventArgs e) {
             AtualizaValorTotal(configurado);
         }
 
-        private void listTaxasSelecionadas_ItemCheck(object sender, ItemCheckEventArgs e) {
+        private void txtKmPercorrida_TextChanged(object sender, EventArgs e) {
+            if (txtKmPercorrida.Text.Length < 1) {
+                txtKmPercorrida.Text = "0";
+            }
             AtualizaValorTotal(configurado);
+        }
+
+        private void txtKmPercorrida_KeyPress(object sender, KeyPressEventArgs e) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) e.Handled = true;
         }
     }
 }

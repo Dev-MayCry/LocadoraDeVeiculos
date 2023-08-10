@@ -48,6 +48,7 @@
             panelRegistros = new Panel();
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
+            btnEncerrar = new ToolStripButton();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -151,7 +152,7 @@
             // 
             toolbox.Enabled = false;
             toolbox.ImageScalingSize = new Size(20, 20);
-            toolbox.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltrar, toolStripSeparator2, btnConfigurar, labelTipoCadastro });
+            toolbox.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, btnFiltrar, toolStripSeparator2, btnConfigurar, btnEncerrar, labelTipoCadastro });
             toolbox.Location = new Point(0, 24);
             toolbox.Name = "toolbox";
             toolbox.Size = new Size(1264, 32);
@@ -247,6 +248,16 @@
             labelRodape.Size = new Size(52, 17);
             labelRodape.Text = "[rodapé]";
             // 
+            // btnEncerrar
+            // 
+            btnEncerrar.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnEncerrar.Image = (Image)resources.GetObject("btnEncerrar.Image");
+            btnEncerrar.ImageTransparentColor = Color.Magenta;
+            btnEncerrar.Name = "btnEncerrar";
+            btnEncerrar.Size = new Size(98, 29);
+            btnEncerrar.Text = "Encerrar Aluguel";
+            btnEncerrar.Click += btnEncerrar_Click;
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -295,5 +306,6 @@
         private ToolStripMenuItem cupomToolStripMenuItem;
         private ToolStripButton btnFiltrar;
         private ToolStripButton btnConfigurar;
+        private ToolStripButton btnEncerrar;
     }
 }

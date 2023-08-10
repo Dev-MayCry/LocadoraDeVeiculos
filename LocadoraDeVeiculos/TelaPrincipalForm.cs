@@ -290,5 +290,9 @@ namespace LocadoraDeVeiculos {
         private void toolStripButton1_Click(object sender, EventArgs e) {
             controlador.ConfigurarPreco();
         }
+
+        private void btnEncerrar_Click(object sender, EventArgs e) {
+            controlador.Encerrar();
+        }
     }
 }
