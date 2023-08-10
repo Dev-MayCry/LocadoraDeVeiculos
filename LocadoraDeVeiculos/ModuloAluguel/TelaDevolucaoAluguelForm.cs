@@ -69,14 +69,14 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             cmbNivelTanque.SelectedIndex = 0;
 
 
-            listTaxasSelecionadas.Items.Clear();
+            listTaxasAdicionais.Items.Clear();
             foreach (TaxaServico item in taxas)
-                listTaxasSelecionadas.Items.Add(item);
+                listTaxasAdicionais.Items.Add(item);
 
             listTaxasAdicionais.Items.Clear();
             foreach (TaxaServico item in taxas)
                 if (listTaxasSelecionadas.Items.Contains(item) == false)
-                    listTaxasSelecionadas.Items.Add(item);
+                    listTaxasAdicionais.Items.Add(item);
         }
 
         public Aluguel ObterAluguel() {
@@ -92,8 +92,6 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             aluguel.DataDevolucao = txtDataDevolucao.Value;
             aluguel.KmPercorrido = Convert.ToInt32(txtKmPercorrida.Text);
             aluguel.NivelTanque = (TipoNivelTanqueEnum)cmbNivelTanque.SelectedItem;
-
-
 
 
             Cupom cupom = cupons.SelecionarPorNome(txtCupom.Text);
@@ -118,7 +116,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             cmbAutomovel.SelectedItem = aluguel.Automovel;
             cmbPlanoCobranca.SelectedItem = aluguel.PlanoCobranca;
             txtKmAutomovel.Text = aluguel.Automovel.Quilometragem.ToString();
-            txtCupom.Text = aluguel.Cupom.Nome;
+            if(aluguel.Cupom != null) txtCupom.Text = aluguel.Cupom.Nome;
             txtDataLocacao.Value = aluguel.DataLocacao;
             txtDataDevolucaoPrevista.Value = aluguel.DataDevolucaoPrevista;
             txtDataDevolucao.Value = aluguel.DataDevolucaoPrevista;
@@ -127,12 +125,14 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
 
             foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
-                listTaxasSelecionadas.SetItemChecked(listTaxasSelecionadas.Items.IndexOf(item), true);
+                
+                listTaxasAdicionais.SetItemChecked(listTaxasAdicionais.Items.IndexOf(item), true);
+                   
             }
 
-            foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
-                listTaxasSelecionadas.SetItemChecked(listTaxasAdicionais.Items.IndexOf(item), true);
-            }
+            //foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
+            //    listTaxasSelecionadas.SetItemChecked(listTaxasAdicionais.Items.IndexOf(item), true);
+            //}
 
             txtValorTotal.Text = aluguel.ValorTotal.ToString();
 

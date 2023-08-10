@@ -227,6 +227,8 @@ namespace LocadoraDeVeiculos {
             btnEditar.Enabled = configuracao.EditarHabilitado;
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
             btnConfigurar.Enabled = configuracao.ConfigurarHabilitado;
+            btnFiltrar.Enabled = configuracao.FiltrarHabilitado;
+            btnEncerrar.Enabled = configuracao.EncerrarHabilitado;
         }
 
         private void ConfigurarTooltips(ConfiguracaoToolboxBase configuracao) {
@@ -234,6 +236,8 @@ namespace LocadoraDeVeiculos {
             btnEditar.ToolTipText = configuracao.TooltipEditar;
             btnExcluir.ToolTipText = configuracao.TooltipExcluir;
             btnConfigurar.ToolTipText = configuracao.TooltipConfigurar;
+            btnFiltrar.ToolTipText = configuracao.TooltipFiltrar;
+            btnEncerrar.ToolTipText = configuracao.TooltipEncerrar;
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador) {

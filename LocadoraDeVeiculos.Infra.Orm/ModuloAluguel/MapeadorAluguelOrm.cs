@@ -53,7 +53,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloAluguel {
 
             aluguelBuilder.HasOne(a => a.Cupom)
                 .WithMany()
-                .IsRequired()
+                .IsRequired(false)
                 .HasConstraintName("FK_TBAluguel_TBCupom")
                 .OnDelete(DeleteBehavior.NoAction);
 

@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloAluguel {
         public int KmAutomovel { get; set; }
         public DateTime DataLocacao { get; set; }
         public DateTime DataDevolucaoPrevista { get; set; }
-        public Cupom Cupom { get; set; }
+        public Cupom? Cupom { get; set; }
         public List<TaxaServico> TaxasSelecionadas { get; set; }
         public DateTime DataDevolucao { get; set; }
         public int KmPercorrido { get; set; }

@@ -84,14 +84,16 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             if (cupomAplicado) aluguel.Cupom = cupom;
 
             aluguel.TaxasSelecionadas.Clear();
+
             foreach (TaxaServico item in listTaxasSelecionadas.CheckedItems) {
                 aluguel.TaxasSelecionadas.Add(item);
             }
-            
+
             aluguel.ValorTotal = CalcularValorTotalPrevisto(aluguel);
 
             return aluguel;
         }
+
 
         public void ConfigurarAluguel(Aluguel aluguel) {
             this.aluguel = aluguel;
@@ -107,7 +109,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             cmbAutomovel.SelectedItem = aluguel.Automovel;
             cmbPlanoCobranca.SelectedItem = aluguel.PlanoCobranca;
             txtKmAutomovel.Text = aluguel.Automovel.Quilometragem.ToString();
-            txtCupom.Text = aluguel.Cupom.Nome;
+
+            if(aluguel.Cupom !=null)txtCupom.Text = aluguel.Cupom.Nome;
             txtDataLocacao.Value = aluguel.DataLocacao;
             txtDataDevolucaoPrevista.Value = aluguel.DataDevolucaoPrevista;
 
@@ -174,9 +177,12 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
         private void btnAplicarCupom_Click(object sender, EventArgs e) {
             Cupom cupom = cupons.SelecionarPorNome(txtCupom.Text);
-            if (cupom != null) {
+            
+            if (cupom != null && cupom.DataValidade > DateTime.Today) {
                 cupomAplicado = true;
                 txtCupom.ReadOnly = true;
+            } else {
+                MessageBox.Show("Cupom Inválido ou expirado!","Aplicação de Cupom",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             AtualizaValorTotal(configurado);
         }
@@ -206,7 +212,16 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
         }
 
         private void listTaxasSelecionadas_ItemCheck(object sender, ItemCheckEventArgs e) {
+
+            AtualizaValorTotal(configurado);
+
+        }
+
+        private void cmbGrupoAutomovel_SelectedIndexChanged(object sender, EventArgs e) {
             AtualizaValorTotal(configurado);
         }
+
+        
     }
+    
 }

@@ -11,7 +11,10 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
         public override string TooltipExcluir => "Excluir um Aluguel existente";
 
         public override string TooltipConfigurar => "Configurar preços dos combustíveis";
+        public override string TooltipEncerrar => "Encerrar um Aluguel existente";
 
         public override bool ConfigurarHabilitado => true;
+        public override bool EncerrarHabilitado => true;
+       
     }
 }
