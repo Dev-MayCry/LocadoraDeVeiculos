@@ -256,7 +256,6 @@
             // btnEncerrar
             // 
             btnEncerrar.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnEncerrar.Image = (Image)resources.GetObject("btnEncerrar.Image");
             btnEncerrar.ImageTransparentColor = Color.Magenta;
             btnEncerrar.Name = "btnEncerrar";
             btnEncerrar.Size = new Size(98, 29);
