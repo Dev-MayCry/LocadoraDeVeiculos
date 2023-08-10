@@ -84,6 +84,7 @@
             // aluguelToolStripMenuItem
             // 
             this.aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
+            this.aluguelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.aluguelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.aluguelToolStripMenuItem.Text = "Aluguel";
             this.aluguelToolStripMenuItem.Click += new System.EventHandler(this.aluguelToolStripMenuItem_Click);
@@ -91,13 +92,14 @@
             // automóvelToolStripMenuItem
             // 
             this.automóvelToolStripMenuItem.Name = "automóvelToolStripMenuItem";
+            this.automóvelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.automóvelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.automóvelToolStripMenuItem.Text = "Automóvel";
             // 
             // clienteMenuItem
             // 
             this.clienteMenuItem.Name = "clienteMenuItem";
-            this.clienteMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.clienteMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.clienteMenuItem.Size = new System.Drawing.Size(204, 22);
             this.clienteMenuItem.Text = "Cliente";
             this.clienteMenuItem.Click += new System.EventHandler(this.clienteMenuItem_Click);
@@ -105,6 +107,7 @@
             // cupomToolStripMenuItem
             // 
             this.cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
+            this.cupomToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
             this.cupomToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.cupomToolStripMenuItem.Text = "Cupom";
             this.cupomToolStripMenuItem.Click += new System.EventHandler(this.cupomToolStripMenuItem_Click);
@@ -120,7 +123,7 @@
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.funcionárioToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
@@ -128,7 +131,7 @@
             // grupoDeAutomóvelToolStripMenuItem
             // 
             this.grupoDeAutomóvelToolStripMenuItem.Name = "grupoDeAutomóvelToolStripMenuItem";
-            this.grupoDeAutomóvelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.grupoDeAutomóvelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
             this.grupoDeAutomóvelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.grupoDeAutomóvelToolStripMenuItem.Text = "Grupo de Automóvel";
             this.grupoDeAutomóvelToolStripMenuItem.Click += new System.EventHandler(this.grupoDeAutomoveisMenuItem_Click);
@@ -136,7 +139,7 @@
             // disciplinaMenuItem
             // 
             this.disciplinaMenuItem.Name = "disciplinaMenuItem";
-            this.disciplinaMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.disciplinaMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F8;
             this.disciplinaMenuItem.Size = new System.Drawing.Size(204, 22);
             this.disciplinaMenuItem.Text = "Parceiro";
             this.disciplinaMenuItem.Click += new System.EventHandler(this.disciplinaMenuItem_Click);
@@ -144,7 +147,7 @@
             // planoECobrançaToolStripMenuItem
             // 
             this.planoECobrançaToolStripMenuItem.Name = "planoECobrançaToolStripMenuItem";
-            this.planoECobrançaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.planoECobrançaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
             this.planoECobrançaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.planoECobrançaToolStripMenuItem.Text = "Plano e Cobrança";
             this.planoECobrançaToolStripMenuItem.Click += new System.EventHandler(this.planoECobrançaToolStripMenuItem_Click);
@@ -152,7 +155,7 @@
             // taxaEServiçoToolStripMenuItem
             // 
             this.taxaEServiçoToolStripMenuItem.Name = "taxaEServiçoToolStripMenuItem";
-            this.taxaEServiçoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.taxaEServiçoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
             this.taxaEServiçoToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.taxaEServiçoToolStripMenuItem.Text = "Taxa e Serviço";
             this.taxaEServiçoToolStripMenuItem.Click += new System.EventHandler(this.taxaEServiçoToolStripMenuItem_Click);
