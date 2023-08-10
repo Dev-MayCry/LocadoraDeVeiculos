@@ -44,6 +44,7 @@ using LocadoraDeVeiculos.Aplicacao.ModuloAluguel;
 using LocadoraDeVeiculos.WinApp.ModuloAluguel;
 using LocadoraDeVeiculos.Infra.Json.ModuloPrecos;
 using LocadoraDeVeiculos.Infra.Json.Serializadores;
+using LocadoraDeVeiculos.Infra.Pdf;
 
 namespace LocadoraDeVeiculos {
     public partial class TelaPrincipalForm : Form {
@@ -179,11 +180,13 @@ namespace LocadoraDeVeiculos {
 
             ContextoDadosPrecos contexto = new ContextoDadosPrecos(serializador);
 
+            IGeradorArquivo geradorArquivo = new GeradorAluguelEmPdf();
+
             RepositorioPrecosJson repositorioPrecos = new RepositorioPrecosJson(contexto);
 
             ValidadorAluguel validadorAluguel = new ValidadorAluguel();
 
-            ServicoAluguel servicoAluguel = new ServicoAluguel(repositorioAluguel, validadorAluguel);
+            ServicoAluguel servicoAluguel = new ServicoAluguel(repositorioAluguel, validadorAluguel, geradorArquivo);
 
             controladores.Add("ControladorAluguel", new ControladorAluguel(repositorioAluguel, servicoAluguel, repositorioFuncionario, repositorioCliente, repositorioCondutor, repositorioGrupoAutomovel, repositorioAutomovel, repositorioPlanoCobranca, repositorioTaxaServico, repositorioCupom, repositorioPrecos));
 

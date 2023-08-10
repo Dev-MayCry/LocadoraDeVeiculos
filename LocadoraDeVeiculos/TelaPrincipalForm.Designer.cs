@@ -44,11 +44,11 @@
             btnFiltrar = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             btnConfigurar = new ToolStripButton();
+            btnEncerrar = new ToolStripButton();
             labelTipoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
             statusStrip1 = new StatusStrip();
             labelRodape = new ToolStripStatusLabel();
-            btnEncerrar = new ToolStripButton();
             menu.SuspendLayout();
             toolbox.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -217,6 +217,16 @@
             btnConfigurar.Text = "Configurar Preço";
             btnConfigurar.Click += toolStripButton1_Click;
             // 
+            // btnEncerrar
+            // 
+            btnEncerrar.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            btnEncerrar.Image = (Image)resources.GetObject("btnEncerrar.Image");
+            btnEncerrar.ImageTransparentColor = Color.Magenta;
+            btnEncerrar.Name = "btnEncerrar";
+            btnEncerrar.Size = new Size(98, 29);
+            btnEncerrar.Text = "Encerrar Aluguel";
+            btnEncerrar.Click += btnEncerrar_Click;
+            // 
             // labelTipoCadastro
             // 
             labelTipoCadastro.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
@@ -247,16 +257,6 @@
             labelRodape.Name = "labelRodape";
             labelRodape.Size = new Size(52, 17);
             labelRodape.Text = "[rodapé]";
-            // 
-            // btnEncerrar
-            // 
-            btnEncerrar.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnEncerrar.Image = (Image)resources.GetObject("btnEncerrar.Image");
-            btnEncerrar.ImageTransparentColor = Color.Magenta;
-            btnEncerrar.Name = "btnEncerrar";
-            btnEncerrar.Size = new Size(98, 29);
-            btnEncerrar.Text = "Encerrar Aluguel";
-            btnEncerrar.Click += btnEncerrar_Click;
             // 
             // TelaPrincipalForm
             // 
