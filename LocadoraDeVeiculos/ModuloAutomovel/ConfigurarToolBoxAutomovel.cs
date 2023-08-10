@@ -9,5 +9,8 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAutomovel {
         public override string TooltipEditar => "Editar Automóvel existente";
 
         public override string TooltipExcluir => "Excluir Automóvel existente";
+        public override string TooltipFiltrar => "Filtrar Automóvel por Grupo";
+
+        public override bool FiltrarHabilitado => true;
     }
 }

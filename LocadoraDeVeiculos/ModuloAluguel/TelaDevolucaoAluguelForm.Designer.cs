@@ -106,7 +106,7 @@
             // 
             // listTaxasSelecionadas
             // 
-            this.listTaxasSelecionadas.Enabled = false;
+            this.listTaxasSelecionadas.CheckOnClick = true;
             this.listTaxasSelecionadas.FormattingEnabled = true;
             this.listTaxasSelecionadas.Location = new System.Drawing.Point(6, 6);
             this.listTaxasSelecionadas.Name = "listTaxasSelecionadas";
@@ -144,7 +144,6 @@
             // 
             // txtCupom
             // 
-            this.txtCupom.Enabled = false;
             this.txtCupom.Location = new System.Drawing.Point(145, 182);
             this.txtCupom.Name = "txtCupom";
             this.txtCupom.Size = new System.Drawing.Size(258, 23);
@@ -152,7 +151,6 @@
             // 
             // txtDataDevolucaoPrevista
             // 
-            this.txtDataDevolucaoPrevista.Enabled = false;
             this.txtDataDevolucaoPrevista.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtDataDevolucaoPrevista.Location = new System.Drawing.Point(523, 153);
             this.txtDataDevolucaoPrevista.MinDate = new System.DateTime(2023, 8, 9, 0, 0, 0, 0);
@@ -180,7 +178,6 @@
             // 
             // txtKmAutomovel
             // 
-            this.txtKmAutomovel.Enabled = false;
             this.txtKmAutomovel.Location = new System.Drawing.Point(523, 124);
             this.txtKmAutomovel.Name = "txtKmAutomovel";
             this.txtKmAutomovel.Size = new System.Drawing.Size(258, 23);
@@ -188,7 +185,6 @@
             // 
             // cmbAutomovel
             // 
-            this.cmbAutomovel.Enabled = false;
             this.cmbAutomovel.FormattingEnabled = true;
             this.cmbAutomovel.Location = new System.Drawing.Point(523, 95);
             this.cmbAutomovel.Name = "cmbAutomovel";
@@ -206,7 +202,6 @@
             // 
             // cmbCondutor
             // 
-            this.cmbCondutor.Enabled = false;
             this.cmbCondutor.FormattingEnabled = true;
             this.cmbCondutor.Location = new System.Drawing.Point(523, 66);
             this.cmbCondutor.Name = "cmbCondutor";
@@ -224,7 +219,6 @@
             // 
             // txtDataLocacao
             // 
-            this.txtDataLocacao.Enabled = false;
             this.txtDataLocacao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtDataLocacao.Location = new System.Drawing.Point(145, 153);
             this.txtDataLocacao.MinDate = new System.DateTime(2023, 8, 9, 0, 0, 0, 0);
@@ -243,7 +237,6 @@
             // 
             // cmbPlanoCobranca
             // 
-            this.cmbPlanoCobranca.Enabled = false;
             this.cmbPlanoCobranca.FormattingEnabled = true;
             this.cmbPlanoCobranca.Location = new System.Drawing.Point(145, 124);
             this.cmbPlanoCobranca.Name = "cmbPlanoCobranca";
@@ -261,7 +254,6 @@
             // 
             // cmbGrupoAutomovel
             // 
-            this.cmbGrupoAutomovel.Enabled = false;
             this.cmbGrupoAutomovel.FormattingEnabled = true;
             this.cmbGrupoAutomovel.Location = new System.Drawing.Point(145, 95);
             this.cmbGrupoAutomovel.Name = "cmbGrupoAutomovel";
@@ -279,7 +271,6 @@
             // 
             // cmbCliente
             // 
-            this.cmbCliente.Enabled = false;
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Location = new System.Drawing.Point(145, 66);
             this.cmbCliente.Name = "cmbCliente";
@@ -297,7 +288,6 @@
             // 
             // cmbFuncionario
             // 
-            this.cmbFuncionario.Enabled = false;
             this.cmbFuncionario.FormattingEnabled = true;
             this.cmbFuncionario.Location = new System.Drawing.Point(145, 37);
             this.cmbFuncionario.Name = "cmbFuncionario";
@@ -431,6 +421,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
+            this.Enabled = false;
             this.Name = "TelaDevolucaoAluguelForm";
             this.Text = "TelaDevolucaoAluguelForm";
             this.tabControl.ResumeLayout(false);

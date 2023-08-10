@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 {
     /// <inheritdoc />
-    public partial class addTBAluguel : Migration
+    public partial class Tabelas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -192,7 +192,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                     KmAutomovel = table.Column<int>(type: "int", nullable: false),
                     DataLocacao = table.Column<DateTime>(type: "Date", nullable: false),
                     DataDevolucaoPrevista = table.Column<DateTime>(type: "Date", nullable: false),
-                    CupomId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CupomId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     DataDevolucao = table.Column<DateTime>(type: "Date", nullable: false),
                     KmPercorrido = table.Column<int>(type: "int", nullable: false),
                     NivelTanque = table.Column<int>(type: "int", nullable: false),

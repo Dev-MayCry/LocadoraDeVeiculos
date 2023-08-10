@@ -414,7 +414,6 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                         .WithMany()
                         .HasForeignKey("CupomId")
                         .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired()
                         .HasConstraintName("FK_TBAluguel_TBCupom");
 
                     b.HasOne("LocadoraDeVeiculos.Dominio.ModuloFuncionario.Funcionario", "Funcionario")

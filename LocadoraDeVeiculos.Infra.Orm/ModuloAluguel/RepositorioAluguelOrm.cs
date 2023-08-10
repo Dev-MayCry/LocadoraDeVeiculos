@@ -18,6 +18,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloAluguel {
                 .Include(x => x.Automovel)
                 .Include(x => x.PlanoCobranca)
                 .Include(x => x.Cupom)
+                .Include(x => x.TaxasSelecionadas)
                 .ToList();
         }
 

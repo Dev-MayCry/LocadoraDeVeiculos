@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.WinApp.Compartilhado {
 
         public virtual string TooltipFiltrar { get; }
 
-        public virtual string TooltipGerarPdf { get; }
+        public virtual string TooltipEncerrar { get; }
 
        
         #endregion
@@ -31,11 +31,9 @@ namespace LocadoraDeVeiculos.WinApp.Compartilhado {
 
         public virtual bool FiltrarHabilitado { get { return false; } }
 
-        public virtual bool GerarPdfHabilitado { get { return false; } }
+        public virtual bool EncerrarHabilitado { get { return false; } }
 
-        public virtual bool DuplicarHabilitado { get { return false; } }
-
-        public virtual bool VisualizarHabilitado { get { return false; } }
+        
 
         #endregion
 

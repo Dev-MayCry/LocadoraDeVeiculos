@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocadoraDeVeiculos.Infra.Orm.Migrations
 {
     [DbContext(typeof(LocadoraDeVeiculosDbContext))]
-    [Migration("20230809204227_addTBAluguel")]
-    partial class addTBAluguel
+    [Migration("20230810030242_Tabelas")]
+    partial class Tabelas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -417,7 +417,6 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                         .WithMany()
                         .HasForeignKey("CupomId")
                         .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired()
                         .HasConstraintName("FK_TBAluguel_TBCupom");
 
                     b.HasOne("LocadoraDeVeiculos.Dominio.ModuloFuncionario.Funcionario", "Funcionario")

@@ -39,8 +39,14 @@ namespace LocadoraDeVeiculos.WinApp.ModuloCliente
 
             foreach (Cliente c in clientes)
             {
-                grid.Rows.Add(c.Id, c.Nome, c.Email,c.Telefone,c.Cpf+ "/" + c.Cnpj,c.TipoCliente);
+                string documento = VerificarDocumento(c);
+                grid.Rows.Add(c.Id, c.Nome, c.Email,c.Telefone, documento,c.TipoCliente);
             }
+        }
+
+        private string VerificarDocumento(Cliente c) {
+            if (c.TipoCliente == TipoClienteEnum.Fisica) return c.Cpf;
+            else return c.Cnpj;
         }
     }
 }
