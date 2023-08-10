@@ -87,7 +87,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoAutomovel {
                 Log.Debug("Grupo {GrupoAutomovelId} excluída com sucesso", grupoAutomovel.Id);
 
                 return Result.Ok();
-            } catch (SqlException ex) {
+            } catch (Exception ex) {
                 List<string> erros = new List<string>();
 
                 string msgErro;

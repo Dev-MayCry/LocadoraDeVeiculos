@@ -85,7 +85,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloPlanoCobranca {
                 Log.Debug("Plano de Cobrança {PlanoCobrancaId} excluído com sucesso", planoCobranca.Id);
 
                 return Result.Ok();
-            } catch (SqlException ex) {
+            } catch (Exception ex) {
                 List<string> erros = new List<string>();
 
                 string msgErro;

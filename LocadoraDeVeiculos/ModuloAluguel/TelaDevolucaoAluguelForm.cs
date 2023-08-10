@@ -116,7 +116,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
             cmbAutomovel.SelectedItem = aluguel.Automovel;
             cmbPlanoCobranca.SelectedItem = aluguel.PlanoCobranca;
             txtKmAutomovel.Text = aluguel.Automovel.Quilometragem.ToString();
-            if(aluguel.Cupom != null) txtCupom.Text = aluguel.Cupom.Nome;
+            if (aluguel.Cupom != null) txtCupom.Text = aluguel.Cupom.Nome;
             txtDataLocacao.Value = aluguel.DataLocacao;
             txtDataDevolucaoPrevista.Value = aluguel.DataDevolucaoPrevista;
             txtDataDevolucao.Value = aluguel.DataDevolucaoPrevista;
@@ -125,9 +125,9 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
 
             foreach (TaxaServico item in aluguel.TaxasSelecionadas) {
-                
+
                 listTaxasAdicionais.SetItemChecked(listTaxasAdicionais.Items.IndexOf(item), true);
-                   
+
             }
 
             //foreach (TaxaServico item in aluguel.TaxasSelecionadas) {

@@ -50,11 +50,11 @@ namespace LocadoraDeVeiculos.WinApp.ModuloPlanoCobranca {
                 if (p.tipo == TipoPlanoEnum.PlanoLivre) {
                     grid.Rows.Add(p.Id, p.grupo, "Plano Livre", $"R$: {p.PrecoDiaria}", "-","-");
                 }
-                else if (p.tipo == TipoPlanoEnum.PlanoControlador) {
+                else if (p.tipo == TipoPlanoEnum.PlanoDiario) {
                     grid.Rows.Add(p.Id, p.grupo, "Plano Controlador", $"R$: {p.PrecoDiaria}", $"R$: {p.PrecoKm}", "-");
                 }
                 else
-                grid.Rows.Add(p.Id, p.grupo, p.tipo, $"R$: {p.PrecoDiaria}", $"R$: {p.PrecoKm}", p.KmDisponiveis);
+                grid.Rows.Add(p.Id, p.grupo, p.tipo, $"R$: {p.PrecoDiaria}", $"R$: {p.PrecoKm}", $"R$: {p.KmDisponiveis}");
             }
         }
 

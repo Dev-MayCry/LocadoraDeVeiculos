@@ -1,7 +1,6 @@
 ﻿using FluentResults;
 using LocadoraDeVeiculos.Dominio.ModuloParceiro;
 using Serilog;
-using System.Data.SqlClient;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloParceiro {
     public class ServicoParceiro {
@@ -53,10 +52,15 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloParceiro {
                 Log.Debug("Parceiro {ParceiroId} editada com sucesso", parceiro.Id);
 
                 return Result.Ok();
-            } catch (Exception exc) {
-                string msgErro = "Falha ao tentar editar parceiro.";
+            } catch (Exception ex) {
+                string msgErro;
 
-                Log.Error(exc, msgErro + "{@d}", parceiro);
+                if (ex.Message.Contains("FK_TBCupom_TBParceiro"))
+                    msgErro = "Este parceiro está relacionado com um cupom não pode ser editado";
+                else
+                    msgErro = "Falha ao tentar editar parceiro";
+
+                Log.Error(ex, msgErro + "{@d}", parceiro);
 
                 return Result.Fail(msgErro);
             }
@@ -79,10 +83,15 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloParceiro {
                 Log.Debug("Parceiro {ParceiroId} excluída com sucesso", parceiro.Id);
 
                 return Result.Ok();
-            } catch (SqlException ex) {
+            } catch (Exception ex) {
                 List<string> erros = new List<string>();
 
-                string msgErro = "Falha ao tentar excluir parceiro";
+                string msgErro;
+
+                if (ex.Message.Contains("FK_TBCupom_TBParceiro"))
+                    msgErro = "Este parceiro está relacionado com um cupom não pode ser excluído";
+                else
+                    msgErro = "Falha ao tentar excluir parceiro";
 
                 erros.Add(msgErro);
 

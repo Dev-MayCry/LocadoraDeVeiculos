@@ -106,12 +106,12 @@
             // 
             // listTaxasSelecionadas
             // 
-            this.listTaxasSelecionadas.CheckOnClick = true;
-            this.listTaxasSelecionadas.FormattingEnabled = true;
-            this.listTaxasSelecionadas.Location = new System.Drawing.Point(6, 6);
-            this.listTaxasSelecionadas.Name = "listTaxasSelecionadas";
-            this.listTaxasSelecionadas.Size = new System.Drawing.Size(748, 256);
-            this.listTaxasSelecionadas.TabIndex = 0;
+            listTaxasSelecionadas.CheckOnClick = true;
+            listTaxasSelecionadas.FormattingEnabled = true;
+            listTaxasSelecionadas.Location = new Point(6, 6);
+            listTaxasSelecionadas.Name = "listTaxasSelecionadas";
+            listTaxasSelecionadas.Size = new Size(748, 256);
+            listTaxasSelecionadas.TabIndex = 0;
             // 
             // tp2
             // 
@@ -144,19 +144,19 @@
             // 
             // txtCupom
             // 
-            this.txtCupom.Location = new System.Drawing.Point(145, 182);
-            this.txtCupom.Name = "txtCupom";
-            this.txtCupom.Size = new System.Drawing.Size(258, 23);
-            this.txtCupom.TabIndex = 50;
+            txtCupom.Location = new Point(145, 182);
+            txtCupom.Name = "txtCupom";
+            txtCupom.Size = new Size(258, 23);
+            txtCupom.TabIndex = 50;
             // 
             // txtDataDevolucaoPrevista
             // 
-            this.txtDataDevolucaoPrevista.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDataDevolucaoPrevista.Location = new System.Drawing.Point(523, 153);
-            this.txtDataDevolucaoPrevista.MinDate = new System.DateTime(2023, 8, 9, 0, 0, 0, 0);
-            this.txtDataDevolucaoPrevista.Name = "txtDataDevolucaoPrevista";
-            this.txtDataDevolucaoPrevista.Size = new System.Drawing.Size(258, 23);
-            this.txtDataDevolucaoPrevista.TabIndex = 49;
+            txtDataDevolucaoPrevista.Format = DateTimePickerFormat.Short;
+            txtDataDevolucaoPrevista.Location = new Point(523, 153);
+            txtDataDevolucaoPrevista.MinDate = new DateTime(2023, 8, 9, 0, 0, 0, 0);
+            txtDataDevolucaoPrevista.Name = "txtDataDevolucaoPrevista";
+            txtDataDevolucaoPrevista.Size = new Size(258, 23);
+            txtDataDevolucaoPrevista.TabIndex = 49;
             // 
             // label9
             // 
@@ -178,18 +178,18 @@
             // 
             // txtKmAutomovel
             // 
-            this.txtKmAutomovel.Location = new System.Drawing.Point(523, 124);
-            this.txtKmAutomovel.Name = "txtKmAutomovel";
-            this.txtKmAutomovel.Size = new System.Drawing.Size(258, 23);
-            this.txtKmAutomovel.TabIndex = 46;
+            txtKmAutomovel.Location = new Point(523, 124);
+            txtKmAutomovel.Name = "txtKmAutomovel";
+            txtKmAutomovel.Size = new Size(258, 23);
+            txtKmAutomovel.TabIndex = 46;
             // 
             // cmbAutomovel
             // 
-            this.cmbAutomovel.FormattingEnabled = true;
-            this.cmbAutomovel.Location = new System.Drawing.Point(523, 95);
-            this.cmbAutomovel.Name = "cmbAutomovel";
-            this.cmbAutomovel.Size = new System.Drawing.Size(258, 23);
-            this.cmbAutomovel.TabIndex = 45;
+            cmbAutomovel.FormattingEnabled = true;
+            cmbAutomovel.Location = new Point(523, 95);
+            cmbAutomovel.Name = "cmbAutomovel";
+            cmbAutomovel.Size = new Size(258, 23);
+            cmbAutomovel.TabIndex = 45;
             // 
             // label7
             // 
@@ -202,11 +202,11 @@
             // 
             // cmbCondutor
             // 
-            this.cmbCondutor.FormattingEnabled = true;
-            this.cmbCondutor.Location = new System.Drawing.Point(523, 66);
-            this.cmbCondutor.Name = "cmbCondutor";
-            this.cmbCondutor.Size = new System.Drawing.Size(258, 23);
-            this.cmbCondutor.TabIndex = 43;
+            cmbCondutor.FormattingEnabled = true;
+            cmbCondutor.Location = new Point(523, 66);
+            cmbCondutor.Name = "cmbCondutor";
+            cmbCondutor.Size = new Size(258, 23);
+            cmbCondutor.TabIndex = 43;
             // 
             // label6
             // 
@@ -219,12 +219,12 @@
             // 
             // txtDataLocacao
             // 
-            this.txtDataLocacao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDataLocacao.Location = new System.Drawing.Point(145, 153);
-            this.txtDataLocacao.MinDate = new System.DateTime(2023, 8, 9, 0, 0, 0, 0);
-            this.txtDataLocacao.Name = "txtDataLocacao";
-            this.txtDataLocacao.Size = new System.Drawing.Size(258, 23);
-            this.txtDataLocacao.TabIndex = 41;
+            txtDataLocacao.Format = DateTimePickerFormat.Short;
+            txtDataLocacao.Location = new Point(145, 153);
+            txtDataLocacao.MinDate = new DateTime(2023, 8, 9, 0, 0, 0, 0);
+            txtDataLocacao.Name = "txtDataLocacao";
+            txtDataLocacao.Size = new Size(258, 23);
+            txtDataLocacao.TabIndex = 41;
             // 
             // label5
             // 
@@ -237,11 +237,11 @@
             // 
             // cmbPlanoCobranca
             // 
-            this.cmbPlanoCobranca.FormattingEnabled = true;
-            this.cmbPlanoCobranca.Location = new System.Drawing.Point(145, 124);
-            this.cmbPlanoCobranca.Name = "cmbPlanoCobranca";
-            this.cmbPlanoCobranca.Size = new System.Drawing.Size(258, 23);
-            this.cmbPlanoCobranca.TabIndex = 39;
+            cmbPlanoCobranca.FormattingEnabled = true;
+            cmbPlanoCobranca.Location = new Point(145, 124);
+            cmbPlanoCobranca.Name = "cmbPlanoCobranca";
+            cmbPlanoCobranca.Size = new Size(258, 23);
+            cmbPlanoCobranca.TabIndex = 39;
             // 
             // label4
             // 
@@ -254,11 +254,11 @@
             // 
             // cmbGrupoAutomovel
             // 
-            this.cmbGrupoAutomovel.FormattingEnabled = true;
-            this.cmbGrupoAutomovel.Location = new System.Drawing.Point(145, 95);
-            this.cmbGrupoAutomovel.Name = "cmbGrupoAutomovel";
-            this.cmbGrupoAutomovel.Size = new System.Drawing.Size(258, 23);
-            this.cmbGrupoAutomovel.TabIndex = 37;
+            cmbGrupoAutomovel.FormattingEnabled = true;
+            cmbGrupoAutomovel.Location = new Point(145, 95);
+            cmbGrupoAutomovel.Name = "cmbGrupoAutomovel";
+            cmbGrupoAutomovel.Size = new Size(258, 23);
+            cmbGrupoAutomovel.TabIndex = 37;
             // 
             // label3
             // 
@@ -271,11 +271,11 @@
             // 
             // cmbCliente
             // 
-            this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(145, 66);
-            this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(258, 23);
-            this.cmbCliente.TabIndex = 35;
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(145, 66);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(258, 23);
+            cmbCliente.TabIndex = 35;
             // 
             // label2
             // 
@@ -288,11 +288,11 @@
             // 
             // cmbFuncionario
             // 
-            this.cmbFuncionario.FormattingEnabled = true;
-            this.cmbFuncionario.Location = new System.Drawing.Point(145, 37);
-            this.cmbFuncionario.Name = "cmbFuncionario";
-            this.cmbFuncionario.Size = new System.Drawing.Size(258, 23);
-            this.cmbFuncionario.TabIndex = 33;
+            cmbFuncionario.FormattingEnabled = true;
+            cmbFuncionario.Location = new Point(145, 37);
+            cmbFuncionario.Name = "cmbFuncionario";
+            cmbFuncionario.Size = new Size(258, 23);
+            cmbFuncionario.TabIndex = 33;
             // 
             // label1
             // 
@@ -384,50 +384,48 @@
             // 
             // TelaDevolucaoAluguelForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 664);
-            this.Controls.Add(this.txtKmPercorrida);
-            this.Controls.Add(this.cmbNivelTanque);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.txtDataDevolucao);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtValorTotal);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.tabControl);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtCupom);
-            this.Controls.Add(this.txtDataDevolucaoPrevista);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtKmAutomovel);
-            this.Controls.Add(this.cmbAutomovel);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.cmbCondutor);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtDataLocacao);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbPlanoCobranca);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmbGrupoAutomovel);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.cmbCliente);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmbFuncionario);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnSalvar);
-            this.Enabled = false;
-            this.Name = "TelaDevolucaoAluguelForm";
-            this.Text = "TelaDevolucaoAluguelForm";
-            this.tabControl.ResumeLayout(false);
-            this.tp1.ResumeLayout(false);
-            this.tp2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtKmPercorrida)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 664);
+            Controls.Add(txtKmPercorrida);
+            Controls.Add(cmbNivelTanque);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(txtDataDevolucao);
+            Controls.Add(label12);
+            Controls.Add(txtValorTotal);
+            Controls.Add(label11);
+            Controls.Add(tabControl);
+            Controls.Add(label10);
+            Controls.Add(txtCupom);
+            Controls.Add(txtDataDevolucaoPrevista);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(txtKmAutomovel);
+            Controls.Add(cmbAutomovel);
+            Controls.Add(label7);
+            Controls.Add(cmbCondutor);
+            Controls.Add(label6);
+            Controls.Add(txtDataLocacao);
+            Controls.Add(label5);
+            Controls.Add(cmbPlanoCobranca);
+            Controls.Add(label4);
+            Controls.Add(cmbGrupoAutomovel);
+            Controls.Add(label3);
+            Controls.Add(cmbCliente);
+            Controls.Add(label2);
+            Controls.Add(cmbFuncionario);
+            Controls.Add(label1);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnSalvar);
+            Name = "TelaDevolucaoAluguelForm";
+            Text = "TelaDevolucaoAluguelForm";
+            tabControl.ResumeLayout(false);
+            tp1.ResumeLayout(false);
+            tp2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)txtKmPercorrida).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

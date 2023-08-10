@@ -84,7 +84,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCondutor {
                 Log.Debug($"Condutor {condutor.Id} excluído com sucesso");
 
                 return Result.Ok();
-            } catch (SqlException ex) {
+            } catch (Exception ex) {
                 List<string> erros = new List<string>();
 
                 string msgErro;

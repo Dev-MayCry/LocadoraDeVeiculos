@@ -70,6 +70,12 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
                 "Edição de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            
+            if (aluguelSelecionada.Encerrado == true) {
+                MessageBox.Show("Este aluguel está encerrado",
+                "Edição de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             TelaAluguelForm tela = new(repositorioFuncionario.SelecionarTodos(), repositorioCliente.SelecionarTodos(), repositorioCondutor.SelecionarTodos(), repositorioGrupoAutomovel.SelecionarTodos(), repositorioAutomovel.SelecionarTodos(), repositorioPlanoCobranca.SelecionarTodos(), repositorioTaxaServico.SelecionarTodos(), repositorioCupom,repositorioPrecos);
 
@@ -136,6 +142,12 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
             if (aluguelSelecionada == null) {
                 MessageBox.Show("Selecione um aluguel primeiro",
+                "Encerramento de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if (aluguelSelecionada.Encerrado == true) {
+                MessageBox.Show("Este aluguel está encerrado",
                 "Encerramento de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }

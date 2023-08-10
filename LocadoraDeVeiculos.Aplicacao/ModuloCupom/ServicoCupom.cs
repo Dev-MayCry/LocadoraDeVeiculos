@@ -99,7 +99,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloCupom
 
                 return Result.Ok();
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 List<string> erros = new List<string>();
 

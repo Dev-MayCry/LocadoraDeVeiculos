@@ -83,7 +83,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAutomovel {
                 Log.Debug($"Automóvel {automovel.Id} excluído com sucesso");
 
                 return Result.Ok();
-            } catch (SqlException ex) {
+            } catch (Exception ex) {
                 List<string> erros = new List<string>();
 
                 string msgErro;
