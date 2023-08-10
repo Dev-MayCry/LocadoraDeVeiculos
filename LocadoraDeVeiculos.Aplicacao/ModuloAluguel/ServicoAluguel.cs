@@ -3,15 +3,18 @@ using LocadoraDeVeiculos.Dominio.ModuloAluguel;
 using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using Serilog;
 using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloAluguel {
     public class ServicoAluguel {
         IRepositorioAluguel repositorioAluguel;
         IValidadorAluguel validadorAluguel;
+        IGeradorArquivo geradorArquivoPdf;
 
-        public ServicoAluguel(IRepositorioAluguel repositorioAluguel, IValidadorAluguel validadorAluguel) {
+        public ServicoAluguel(IRepositorioAluguel repositorioAluguel, IValidadorAluguel validadorAluguel, IGeradorArquivo geradorArquivo) {
             this.repositorioAluguel = repositorioAluguel;
             this.validadorAluguel = validadorAluguel;
+            this.geradorArquivoPdf = geradorArquivo;
         }
 
         public Result Inserir(Aluguel aluguel) {
@@ -95,6 +98,29 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloAluguel {
                 erros.Add(msgErro);
 
                 Log.Error(ex, msgErro + $" {aluguel.Id}");
+                return Result.Fail(erros);
+            }
+        }
+
+        public Result GerarAluguelEmPDF(Aluguel aluguel) {
+            Log.Debug("Tentando gerar PDF do aluguel...{AluguelId}", aluguel.Id);
+
+            try {
+                geradorArquivoPdf.GerarAluguel(aluguel);
+
+                Log.Debug("Aluguel {AluguelId} em PDF gerado com sucesso", aluguel.Id);
+
+
+                return Result.Ok();
+            } catch (Exception ex) {
+                List<string> erros = new List<string>();
+
+                string msgErro = "Falha ao tentar gerar PDF do aluguel selecionado.";
+
+                Log.Logger.Error(ex, msgErro + " {AluguelId}", aluguel.Id);
+
+                erros.Add(msgErro);
+
                 return Result.Fail(erros);
             }
         }

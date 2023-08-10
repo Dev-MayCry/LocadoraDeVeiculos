@@ -136,7 +136,7 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
             if (aluguelSelecionada == null) {
                 MessageBox.Show("Selecione um aluguel primeiro",
-                "Edição de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                "Encerramento de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -146,14 +146,25 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
             tela.ConfigurarAluguel(aluguelSelecionada);
 
-
             DialogResult resultado = tela.ShowDialog();
 
             if (resultado == DialogResult.OK) {
                 aluguelSelecionada.Automovel.Quilometragem = aluguelSelecionada.KmPercorrido;
                 aluguelSelecionada.Encerrado = true;
                 CarregarAlugueis();
+                GerarPDF(aluguelSelecionada);
             }
+        }
+
+        private void GerarPDF(Aluguel aluguel) {
+
+            if (aluguel == null) {
+                MessageBox.Show("Selecione um Aluguel primeiro", "Gerar Pdf de Aluguéis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            servicoAluguel.GerarAluguelEmPDF(aluguel);
+
         }
 
         public override ConfiguracaoToolboxBase ObtemConfiguracaoToolbox() {

@@ -23,86 +23,86 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.txtValorTotal = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tp1 = new System.Windows.Forms.TabPage();
-            this.listTaxasSelecionadas = new System.Windows.Forms.CheckedListBox();
-            this.tp2 = new System.Windows.Forms.TabPage();
-            this.listTaxasAdicionais = new System.Windows.Forms.CheckedListBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtCupom = new System.Windows.Forms.TextBox();
-            this.txtDataDevolucaoPrevista = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtKmAutomovel = new System.Windows.Forms.TextBox();
-            this.cmbAutomovel = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbCondutor = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDataLocacao = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbPlanoCobranca = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbGrupoAutomovel = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbCliente = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbFuncionario = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.txtDataDevolucao = new System.Windows.Forms.DateTimePicker();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmbNivelTanque = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtKmPercorrida = new System.Windows.Forms.NumericUpDown();
-            this.tabControl.SuspendLayout();
-            this.tp1.SuspendLayout();
-            this.tp2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKmPercorrida)).BeginInit();
-            this.SuspendLayout();
+            txtValorTotal = new Label();
+            label11 = new Label();
+            tabControl = new TabControl();
+            tp1 = new TabPage();
+            listTaxasSelecionadas = new CheckedListBox();
+            tp2 = new TabPage();
+            listTaxasAdicionais = new CheckedListBox();
+            label10 = new Label();
+            txtCupom = new TextBox();
+            txtDataDevolucaoPrevista = new DateTimePicker();
+            label9 = new Label();
+            label8 = new Label();
+            txtKmAutomovel = new TextBox();
+            cmbAutomovel = new ComboBox();
+            label7 = new Label();
+            cmbCondutor = new ComboBox();
+            label6 = new Label();
+            txtDataLocacao = new DateTimePicker();
+            label5 = new Label();
+            cmbPlanoCobranca = new ComboBox();
+            label4 = new Label();
+            cmbGrupoAutomovel = new ComboBox();
+            label3 = new Label();
+            cmbCliente = new ComboBox();
+            label2 = new Label();
+            cmbFuncionario = new ComboBox();
+            label1 = new Label();
+            btnCancelar = new Button();
+            btnSalvar = new Button();
+            txtDataDevolucao = new DateTimePicker();
+            label12 = new Label();
+            label13 = new Label();
+            cmbNivelTanque = new ComboBox();
+            label14 = new Label();
+            txtKmPercorrida = new NumericUpDown();
+            tabControl.SuspendLayout();
+            tp1.SuspendLayout();
+            tp2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtKmPercorrida).BeginInit();
+            SuspendLayout();
             // 
             // txtValorTotal
             // 
-            this.txtValorTotal.AutoSize = true;
-            this.txtValorTotal.ForeColor = System.Drawing.Color.Green;
-            this.txtValorTotal.Location = new System.Drawing.Point(139, 614);
-            this.txtValorTotal.Name = "txtValorTotal";
-            this.txtValorTotal.Size = new System.Drawing.Size(13, 15);
-            this.txtValorTotal.TabIndex = 55;
-            this.txtValorTotal.Text = "0";
+            txtValorTotal.AutoSize = true;
+            txtValorTotal.ForeColor = Color.Green;
+            txtValorTotal.Location = new Point(139, 614);
+            txtValorTotal.Name = "txtValorTotal";
+            txtValorTotal.Size = new Size(13, 15);
+            txtValorTotal.TabIndex = 55;
+            txtValorTotal.Text = "0";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 614);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(125, 15);
-            this.label11.TabIndex = 54;
-            this.label11.Text = "Valor Total Previsto: R$";
+            label11.AutoSize = true;
+            label11.Location = new Point(17, 614);
+            label11.Name = "label11";
+            label11.Size = new Size(125, 15);
+            label11.TabIndex = 54;
+            label11.Text = "Valor Total Previsto: R$";
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tp1);
-            this.tabControl.Controls.Add(this.tp2);
-            this.tabControl.Location = new System.Drawing.Point(13, 285);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(768, 297);
-            this.tabControl.TabIndex = 52;
+            tabControl.Controls.Add(tp1);
+            tabControl.Controls.Add(tp2);
+            tabControl.Location = new Point(13, 285);
+            tabControl.Name = "tabControl";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new Size(768, 297);
+            tabControl.TabIndex = 52;
             // 
             // tp1
             // 
-            this.tp1.Controls.Add(this.listTaxasSelecionadas);
-            this.tp1.Location = new System.Drawing.Point(4, 24);
-            this.tp1.Name = "tp1";
-            this.tp1.Padding = new System.Windows.Forms.Padding(3);
-            this.tp1.Size = new System.Drawing.Size(760, 269);
-            this.tp1.TabIndex = 0;
-            this.tp1.Text = "Taxas Selecionadas";
-            this.tp1.UseVisualStyleBackColor = true;
+            tp1.Controls.Add(listTaxasSelecionadas);
+            tp1.Location = new Point(4, 24);
+            tp1.Name = "tp1";
+            tp1.Padding = new Padding(3);
+            tp1.Size = new Size(760, 269);
+            tp1.TabIndex = 0;
+            tp1.Text = "Taxas Selecionadas";
+            tp1.UseVisualStyleBackColor = true;
             // 
             // listTaxasSelecionadas
             // 
@@ -115,32 +115,32 @@
             // 
             // tp2
             // 
-            this.tp2.Controls.Add(this.listTaxasAdicionais);
-            this.tp2.Location = new System.Drawing.Point(4, 24);
-            this.tp2.Name = "tp2";
-            this.tp2.Padding = new System.Windows.Forms.Padding(3);
-            this.tp2.Size = new System.Drawing.Size(760, 269);
-            this.tp2.TabIndex = 1;
-            this.tp2.Text = "Taxas Adicionais";
-            this.tp2.UseVisualStyleBackColor = true;
+            tp2.Controls.Add(listTaxasAdicionais);
+            tp2.Location = new Point(4, 24);
+            tp2.Name = "tp2";
+            tp2.Padding = new Padding(3);
+            tp2.Size = new Size(760, 269);
+            tp2.TabIndex = 1;
+            tp2.Text = "Taxas Adicionais";
+            tp2.UseVisualStyleBackColor = true;
             // 
             // listTaxasAdicionais
             // 
-            this.listTaxasAdicionais.FormattingEnabled = true;
-            this.listTaxasAdicionais.Location = new System.Drawing.Point(6, 5);
-            this.listTaxasAdicionais.Name = "listTaxasAdicionais";
-            this.listTaxasAdicionais.Size = new System.Drawing.Size(748, 256);
-            this.listTaxasAdicionais.TabIndex = 0;
-            this.listTaxasAdicionais.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listTaxasAdicionais_ItemCheck);
+            listTaxasAdicionais.FormattingEnabled = true;
+            listTaxasAdicionais.Location = new Point(6, 5);
+            listTaxasAdicionais.Name = "listTaxasAdicionais";
+            listTaxasAdicionais.Size = new Size(748, 256);
+            listTaxasAdicionais.TabIndex = 0;
+            listTaxasAdicionais.ItemCheck += listTaxasAdicionais_ItemCheck;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(89, 186);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 15);
-            this.label10.TabIndex = 51;
-            this.label10.Text = "Cupom:";
+            label10.AutoSize = true;
+            label10.Location = new Point(89, 186);
+            label10.Name = "label10";
+            label10.Size = new Size(50, 15);
+            label10.TabIndex = 51;
+            label10.Text = "Cupom:";
             // 
             // txtCupom
             // 
@@ -160,21 +160,21 @@
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(407, 157);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 15);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "Devolução Prevista:";
+            label9.AutoSize = true;
+            label9.Location = new Point(407, 157);
+            label9.Name = "label9";
+            label9.Size = new Size(110, 15);
+            label9.TabIndex = 48;
+            label9.Text = "Devolução Prevista:";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(411, 128);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 15);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "Km de Automóvel:";
+            label8.AutoSize = true;
+            label8.Location = new Point(411, 128);
+            label8.Name = "label8";
+            label8.Size = new Size(106, 15);
+            label8.TabIndex = 47;
+            label8.Text = "Km de Automóvel:";
             // 
             // txtKmAutomovel
             // 
@@ -193,12 +193,12 @@
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(448, 99);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 15);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "Automóvel:";
+            label7.AutoSize = true;
+            label7.Location = new Point(448, 99);
+            label7.Name = "label7";
+            label7.Size = new Size(69, 15);
+            label7.TabIndex = 44;
+            label7.Text = "Automóvel:";
             // 
             // cmbCondutor
             // 
@@ -210,12 +210,12 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(456, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 15);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "Condutor:";
+            label6.AutoSize = true;
+            label6.Location = new Point(456, 70);
+            label6.Name = "label6";
+            label6.Size = new Size(61, 15);
+            label6.TabIndex = 42;
+            label6.Text = "Condutor:";
             // 
             // txtDataLocacao
             // 
@@ -228,12 +228,12 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(58, 157);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 15);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "Data Locação:";
+            label5.AutoSize = true;
+            label5.Location = new Point(58, 157);
+            label5.Name = "label5";
+            label5.Size = new Size(81, 15);
+            label5.TabIndex = 40;
+            label5.Text = "Data Locação:";
             // 
             // cmbPlanoCobranca
             // 
@@ -245,12 +245,12 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 128);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 15);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "Plano de Cobrança:";
+            label4.AutoSize = true;
+            label4.Location = new Point(29, 128);
+            label4.Name = "label4";
+            label4.Size = new Size(110, 15);
+            label4.TabIndex = 38;
+            label4.Text = "Plano de Cobrança:";
             // 
             // cmbGrupoAutomovel
             // 
@@ -262,12 +262,12 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 15);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Grupo de Automóveis:";
+            label3.AutoSize = true;
+            label3.Location = new Point(13, 99);
+            label3.Name = "label3";
+            label3.Size = new Size(126, 15);
+            label3.TabIndex = 36;
+            label3.Text = "Grupo de Automóveis:";
             // 
             // cmbCliente
             // 
@@ -279,12 +279,12 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(92, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 15);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Cliente:";
+            label2.AutoSize = true;
+            label2.Location = new Point(92, 70);
+            label2.Name = "label2";
+            label2.Size = new Size(47, 15);
+            label2.TabIndex = 34;
+            label2.Text = "Cliente:";
             // 
             // cmbFuncionario
             // 
@@ -296,94 +296,91 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 15);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Funcionário:";
+            label1.AutoSize = true;
+            label1.Location = new Point(66, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(73, 15);
+            label1.TabIndex = 32;
+            label1.Text = "Funcionário:";
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(697, 591);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(91, 61);
-            this.btnCancelar.TabIndex = 31;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.Location = new Point(697, 591);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(91, 61);
+            btnCancelar.TabIndex = 31;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSalvar.Location = new System.Drawing.Point(600, 591);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(91, 61);
-            this.btnSalvar.TabIndex = 30;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSalvar.DialogResult = DialogResult.OK;
+            btnSalvar.Location = new Point(600, 591);
+            btnSalvar.Name = "btnSalvar";
+            btnSalvar.Size = new Size(91, 61);
+            btnSalvar.TabIndex = 30;
+            btnSalvar.Text = "Salvar";
+            btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // txtDataDevolucao
             // 
-            this.txtDataDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtDataDevolucao.Location = new System.Drawing.Point(145, 211);
-            this.txtDataDevolucao.MinDate = new System.DateTime(2023, 8, 9, 0, 0, 0, 0);
-            this.txtDataDevolucao.Name = "txtDataDevolucao";
-            this.txtDataDevolucao.Size = new System.Drawing.Size(258, 23);
-            this.txtDataDevolucao.TabIndex = 57;
-            this.txtDataDevolucao.Value = new System.DateTime(2023, 8, 9, 21, 49, 12, 0);
-            this.txtDataDevolucao.ValueChanged += new System.EventHandler(this.txtDataDevolucao_ValueChanged);
+            txtDataDevolucao.Format = DateTimePickerFormat.Short;
+            txtDataDevolucao.Location = new Point(145, 211);
+            txtDataDevolucao.MinDate = new DateTime(2023, 8, 9, 0, 0, 0, 0);
+            txtDataDevolucao.Name = "txtDataDevolucao";
+            txtDataDevolucao.Size = new Size(258, 23);
+            txtDataDevolucao.TabIndex = 57;
+            txtDataDevolucao.Value = new DateTime(2023, 8, 9, 21, 49, 12, 0);
+            txtDataDevolucao.ValueChanged += txtDataDevolucao_ValueChanged;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(46, 215);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(93, 15);
-            this.label12.TabIndex = 56;
-            this.label12.Text = "Data Devolução:";
+            label12.AutoSize = true;
+            label12.Location = new Point(46, 215);
+            label12.Name = "label12";
+            label12.Size = new Size(93, 15);
+            label12.TabIndex = 56;
+            label12.Text = "Data Devolução:";
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(432, 215);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(85, 15);
-            this.label13.TabIndex = 59;
-            this.label13.Text = "Km Percorrida:";
+            label13.AutoSize = true;
+            label13.Location = new Point(432, 215);
+            label13.Name = "label13";
+            label13.Size = new Size(85, 15);
+            label13.TabIndex = 59;
+            label13.Text = "Km Percorrida:";
             // 
             // cmbNivelTanque
             // 
-            this.cmbNivelTanque.FormattingEnabled = true;
-            this.cmbNivelTanque.Location = new System.Drawing.Point(145, 240);
-            this.cmbNivelTanque.Name = "cmbNivelTanque";
-            this.cmbNivelTanque.Size = new System.Drawing.Size(258, 23);
-            this.cmbNivelTanque.TabIndex = 61;
-            this.cmbNivelTanque.SelectedIndexChanged += new System.EventHandler(this.cmbNivelTanque_SelectedIndexChanged);
+            cmbNivelTanque.FormattingEnabled = true;
+            cmbNivelTanque.Location = new Point(145, 240);
+            cmbNivelTanque.Name = "cmbNivelTanque";
+            cmbNivelTanque.Size = new Size(258, 23);
+            cmbNivelTanque.TabIndex = 61;
+            cmbNivelTanque.SelectedIndexChanged += cmbNivelTanque_SelectedIndexChanged;
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(44, 244);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(95, 15);
-            this.label14.TabIndex = 60;
-            this.label14.Text = "Nível do Tanque:";
+            label14.AutoSize = true;
+            label14.Location = new Point(44, 244);
+            label14.Name = "label14";
+            label14.Size = new Size(95, 15);
+            label14.TabIndex = 60;
+            label14.Text = "Nível do Tanque:";
             // 
             // txtKmPercorrida
             // 
-            this.txtKmPercorrida.Location = new System.Drawing.Point(523, 213);
-            this.txtKmPercorrida.Maximum = new decimal(new int[] {
-            1316134912,
-            2328,
-            0,
-            0});
-            this.txtKmPercorrida.Name = "txtKmPercorrida";
-            this.txtKmPercorrida.Size = new System.Drawing.Size(254, 23);
-            this.txtKmPercorrida.TabIndex = 62;
-            this.txtKmPercorrida.ValueChanged += new System.EventHandler(this.txtKmPercorrida_TextChanged);
+            txtKmPercorrida.Location = new Point(523, 213);
+            txtKmPercorrida.Maximum = new decimal(new int[] { 1316134912, 2328, 0, 0 });
+            txtKmPercorrida.Name = "txtKmPercorrida";
+            txtKmPercorrida.Size = new Size(254, 23);
+            txtKmPercorrida.TabIndex = 62;
+            txtKmPercorrida.ValueChanged += txtKmPercorrida_TextChanged;
             // 
             // TelaDevolucaoAluguelForm
             // 
