@@ -146,11 +146,12 @@ namespace LocadoraDeVeiculos.WinApp.ModuloAluguel {
 
             tela.ConfigurarAluguel(aluguelSelecionada);
 
-            aluguelSelecionada.Encerrado = true;
 
             DialogResult resultado = tela.ShowDialog();
 
             if (resultado == DialogResult.OK) {
+                aluguelSelecionada.Automovel.Quilometragem = aluguelSelecionada.KmPercorrido;
+                aluguelSelecionada.Encerrado = true;
                 CarregarAlugueis();
             }
         }
